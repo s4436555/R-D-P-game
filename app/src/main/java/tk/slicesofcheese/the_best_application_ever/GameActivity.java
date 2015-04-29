@@ -29,13 +29,13 @@ public class GameActivity extends ActionBarActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (location((int) event.getX(),(int) event.getY(), v.getHeight(), v.getWidth())){
-                    case 0:
+                    case UP:
                         textView.setText("Up");
                         break;
-                    case 1:
+                    case RIGHT:
                         textView.setText("Right");
                         break;
-                    case 2:
+                    case DOWN:
                         textView.setText("Down");
                         break;
                     default:
@@ -50,20 +50,28 @@ public class GameActivity extends ActionBarActivity {
         });
     }
 
-    private int location(float x, float y, int height, int width){
+    /**
+     * Returns the part of the screen that the coordinate is on.
+     * @param x x coordinate of input
+     * @param y y coordinate of input
+     * @param height height of activity
+     * @param width width of activity
+     * @return the corner of the coordinate
+     */
+    private Corner location(float x, float y, int height, int width){
         float perX = x/(float)width;
         float perY = y/(float)height;
         if (perX > perY){
             if(1-perX > perY){
-                return 0;
+                return Corner.UP;
             } else {
-                return 1;
+                return Corner.RIGHT;
             }
         } else {
             if(1-perX > perY){
-                return 3;
+                return Corner.LEFT;
             } else {
-                return 2;
+                return Corner.DOWN;
             }
         }
     }
