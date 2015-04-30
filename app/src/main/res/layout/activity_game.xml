@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:text="Hello World, TestActivity"
         />
+
+    <tk.slicesofcheese.the_best_application_ever.View.GameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 </RelativeLayout>

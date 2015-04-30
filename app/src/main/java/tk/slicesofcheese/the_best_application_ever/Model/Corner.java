@@ -1,4 +1,4 @@
-package tk.slicesofcheese.the_best_application_ever;
+package tk.slicesofcheese.the_best_application_ever.Model;
 
 /**
  * A helper enum made to keep track of which part of the screen is touched.
@@ -6,5 +6,5 @@ package tk.slicesofcheese.the_best_application_ever;
  * Created by Jonathan on 29-4-15.
  */
 public enum Corner {
-    LEFT, RIGHT, UP, DOWN
+    LEFT, RIGHT, UP, DOWN, CENTER
 }

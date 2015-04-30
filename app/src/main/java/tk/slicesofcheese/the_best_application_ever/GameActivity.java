@@ -1,14 +1,15 @@
 package tk.slicesofcheese.the_best_application_ever;
 
-import android.graphics.Point;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import tk.slicesofcheese.the_best_application_ever.Model.Corner;
+import tk.slicesofcheese.the_best_application_ever.View.GameView;
 
 
 public class GameActivity extends ActionBarActivity {
@@ -38,8 +39,11 @@ public class GameActivity extends ActionBarActivity {
                     case DOWN:
                         textView.setText("Down");
                         break;
-                    default:
+                    case LEFT:
                         textView.setText("Left");
+                        break;
+                    default:
+                        textView.setText("center");
                         break;
                 }
 
@@ -48,6 +52,9 @@ public class GameActivity extends ActionBarActivity {
                 return true;
             }
         });
+
+        GameView gv = (GameView)this.findViewById(R.id.gameView);
+
     }
 
     /**
@@ -61,6 +68,10 @@ public class GameActivity extends ActionBarActivity {
     private Corner location(float x, float y, int height, int width){
         float perX = x/(float)width;
         float perY = y/(float)height;
+
+        if (perX > 0.40 && perX < 0.60 && perY > 0.40 && perY < 0.60)
+            return  Corner.CENTER;
+
         if (perX > perY){
             if(1-perX > perY){
                 return Corner.UP;
