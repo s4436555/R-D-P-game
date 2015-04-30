@@ -20,8 +20,7 @@
         android:id="@+id/textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World, TestActivity"
-        />
+        android:text="Hello World, TestActivity" />
 
     <tk.slicesofcheese.the_best_application_ever.View.GameView
         android:id="@+id/gameView"

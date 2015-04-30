@@ -1,6 +1,6 @@
 package tk.slicesofcheese.the_best_application_ever;
 
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,10 +9,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Corner;
+import tk.slicesofcheese.the_best_application_ever.Model.Direction;
+import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
+import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
+import tk.slicesofcheese.the_best_application_ever.Model.Level;
 import tk.slicesofcheese.the_best_application_ever.View.GameView;
 
 
-public class GameActivity extends ActionBarActivity {
+public class GameActivity extends FullscreenActivity {
+
+    private Level testlevel;
+    private GameView gv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +33,29 @@ public class GameActivity extends ActionBarActivity {
         display.getSize(size);
         int width = size.x;
         int height = size.y;*/
+
         touchView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (location((int) event.getX(),(int) event.getY(), v.getHeight(), v.getWidth())){
+                switch (location((int) event.getX(), (int) event.getY(), v.getHeight(), v.getWidth())) {
                     case UP:
+                        testlevel.movePlayer(Direction.UP);
+                        gv.postInvalidate();
                         textView.setText("Up");
                         break;
                     case RIGHT:
+                        testlevel.movePlayer(Direction.RIGTH);
+                        gv.postInvalidate();
                         textView.setText("Right");
                         break;
                     case DOWN:
+                        testlevel.movePlayer(Direction.DOWN);
+                        gv.postInvalidate();
                         textView.setText("Down");
                         break;
                     case LEFT:
+                        testlevel.movePlayer(Direction.LEFT);
+                        gv.postInvalidate();
                         textView.setText("Left");
                         break;
                     default:
@@ -53,7 +69,16 @@ public class GameActivity extends ActionBarActivity {
             }
         });
 
-        GameView gv = (GameView)this.findViewById(R.id.gameView);
+        testlevel = new Level(10, 10);
+        testlevel.addEnemy(new Enemy(1, 3));
+        testlevel.addEnemy(new Enemy(9, 9));
+        testlevel.addPlayer(new Player(0, 0, 5));
+
+        for (int i = 0; i < 10; i++)
+            testlevel.addWall(i, i);
+
+        gv = (GameView)this.findViewById(R.id.gameView);
+        gv.setLevel(testlevel);
 
     }
 

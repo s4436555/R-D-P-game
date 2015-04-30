@@ -2,6 +2,8 @@ package tk.slicesofcheese.the_best_application_ever.View;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -22,6 +24,8 @@ public class GameView extends View implements Observer {
     private Level level;
 
     private float cell_size;
+    private float margin_horizontal;
+    private float margin_vertical;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -54,54 +58,91 @@ public class GameView extends View implements Observer {
         this.postInvalidate();
     }
 
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        if(level==null)
+            return;
+
+        // calculate the dimensions
+        cell_size = Math.min(w / level.getXSize(), h / level.getYSize());
+
+        // calculate the required margin
+        margin_horizontal = (w - (cell_size * level.getXSize())) / 2;
+        margin_vertical = (h - (cell_size * level.getYSize())) / 2;
+    }
+
     private void drawBackground(Canvas canvas) {
         // Make it black
         canvas.drawARGB(255, 0, 0, 0);
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        System.out.println("Drawing!");
         this.drawBackground(canvas);
 
-        if(level==null)
+        if(level==null) {
+            System.out.println("No level to draw!");
             return;
+        }
 
-        this.drawLevel();
+        //System.out.
+
+        this.drawLevel(canvas);
     }
 
-    private void drawLevel () {
+    private void drawLevel (Canvas canvas) {
         for (int x = 0; x < level.getXSize(); x++) {
             for (int y = 0; y < level.getYSize(); y++) {
                 CellEntity entity = level.getEntity(x, y);
                 if (entity != null) {
                     if (entity instanceof Wall)
-                        drawWall(x, y);
+                        drawWall(canvas, x, y);
                     else if (entity instanceof Enemy)
-                        drawEnemy((Enemy) entity);
+                        drawEnemy(canvas, (Enemy) entity);
                     else if (entity instanceof Player)
-                        drawPlayer((Player) entity);
+                        drawPlayer(canvas, (Player) entity);
                 }
             }
         }
     }
 
-    private void drawWall (int x, int y) {
+    private void drawWall (Canvas canvas, int x, int y) {
+        Paint paint = new Paint();
+        paint.setColor(Color.GRAY);
+        System.out.println ("Drawing wall!");
+        float px = margin_horizontal + (x * cell_size );
+        float py = margin_vertical + (y * cell_size );
 
+        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
     }
 
-    private void drawEnemy (Enemy enemy) {
+    private void drawEnemy (Canvas canvas, Enemy enemy) {
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        System.out.println ("Drawing enemy!");
+        float px = margin_horizontal + (enemy.getX() * cell_size );
+        float py = margin_vertical + (enemy.getY() * cell_size );
 
+        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
     }
 
-    private void drawPlayer (Player player) {
+    private void drawPlayer (Canvas canvas, Player player) {
+        Paint paint = new Paint();
+        paint.setColor(Color.BLUE);
+        System.out.println ("Drawing Player!");
+        float px = margin_horizontal + (player.getX() * cell_size );
+        float py = margin_vertical + (player.getY() * cell_size );
 
+        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
     }
 
     public void setLevel (Level level) {
         this.level = level;
+        System.out.println(level.addWall(5,5));
     }
 
 }

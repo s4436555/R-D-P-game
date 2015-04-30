@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
+import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
 
 /**
  * Created by jonathan on 30-4-15.
@@ -65,15 +66,12 @@ public class Level {
         int x = enemy.getX();
         int y = enemy.getY();
 
-        if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1)
-            return false;
-        if (cells[x][y] != null)
-            return false;
-
-        enemies.add(enemy);
-        cells[x][y] = enemy;
-
-        return true;
+        if (isAvailable(x, y)) {
+            enemies.add(enemy);
+            cells[x][y] = enemy;
+            return true;
+        }
+        return  false;
     }
 
     public int getEnemyCount () {
@@ -88,18 +86,69 @@ public class Level {
         int x = player.getX();
         int y = player.getY();
 
-        if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1)
-            return false;
-        if (cells[x][y] != null)
-            return false;
-
-        this.player = player;
-        cells[x][y] = player;
-
-        return true;
+        if (isAvailable(x, y)) {
+            this.player = player;
+            cells[x][y] = player;
+            return true;
+        }
+        return  false;
     }
 
     public Player getPlayer () {
         return player;
+    }
+
+    public boolean addWall (int x, int y) {
+        if (isAvailable(x, y)) {
+            cells[x][y] = new Wall();
+            return true;
+        }
+        return  false;
+    }
+
+    private boolean isAvailable (int x, int y) {
+        if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1) {
+            System.out.println ("Out of bounds!" + x + " " + y);
+            return false;
+        }
+
+        if (cells[x][y] != null)
+            return false;
+        return true;
+    }
+
+    public boolean movePlayer (Direction dir) {
+
+        if (player == null)
+            return false;
+
+        int x = player.getX();
+        int y = player.getY();
+
+        switch (dir) {
+            case LEFT:
+                x--;
+                break;
+            case RIGTH:
+                x++;
+                break;
+            case DOWN:
+                y++;
+                break;
+            case UP:
+                y--;
+                break;
+            default:
+                break;
+        }
+
+        if (isAvailable(x,y)) {
+            cells[player.getX()][player.getY()] = null;
+            player.setCoordinates(x, y);
+            cells[x][y] = player;
+            return true;
+        }
+
+        return false;
     }
 }
