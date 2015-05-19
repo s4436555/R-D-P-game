@@ -106,7 +106,7 @@ public class Level {
         return  false;
     }
 
-    private boolean isAvailable (int x, int y) {
+    public boolean isAvailable (int x, int y) {
         if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1) {
             System.out.println ("Out of bounds!" + x + " " + y);
             return false;

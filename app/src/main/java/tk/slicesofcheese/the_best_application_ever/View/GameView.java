@@ -81,7 +81,6 @@ public class GameView extends View implements Observer {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        System.out.println("Drawing!");
         this.drawBackground(canvas);
 
         if(level==null) {
@@ -113,7 +112,6 @@ public class GameView extends View implements Observer {
     private void drawWall (Canvas canvas, int x, int y) {
         Paint paint = new Paint();
         paint.setColor(Color.GRAY);
-        System.out.println ("Drawing wall!");
         float px = margin_horizontal + (x * cell_size );
         float py = margin_vertical + (y * cell_size );
 
@@ -123,7 +121,6 @@ public class GameView extends View implements Observer {
     private void drawEnemy (Canvas canvas, Enemy enemy) {
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-        System.out.println ("Drawing enemy!");
         float px = margin_horizontal + (enemy.getX() * cell_size );
         float py = margin_vertical + (enemy.getY() * cell_size );
 
@@ -133,7 +130,6 @@ public class GameView extends View implements Observer {
     private void drawPlayer (Canvas canvas, Player player) {
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
-        System.out.println ("Drawing Player!");
         float px = margin_horizontal + (player.getX() * cell_size );
         float py = margin_vertical + (player.getY() * cell_size );
 
