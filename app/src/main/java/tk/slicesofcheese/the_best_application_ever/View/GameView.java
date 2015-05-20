@@ -136,9 +136,29 @@ public class GameView extends View implements Observer {
         canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
     }
 
+    /**
+     *
+     * @param level
+     */
     public void setLevel (Level level) {
         this.level = level;
-        System.out.println(level.addWall(5,5));
+        System.out.println(level.addWall(5, 5));
+    }
+
+    /**
+     * Returns the coordinates of the edges of the level on the view.
+     * @return the coordinates of the edges of the level on the view,
+     * upper right corner first, followed by the bottom right corner.
+     */
+    public int[] getCoordinates () {
+        int[] temp = new int[4];
+
+        temp[0] = Math.round(margin_horizontal);
+        temp[1] = Math.round(margin_vertical);
+        temp[2] = this.getWidth() - Math.round(margin_horizontal);
+        temp[3] = this.getHeight() - Math.round(margin_vertical);
+
+        return temp;
     }
 
 }
