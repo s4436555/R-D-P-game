@@ -45,7 +45,15 @@ public class Controller implements View.OnTouchListener {
 
         System.out.println(event.getAction() == MotionEvent.ACTION_UP);
         if (event.getAction() == MotionEvent.ACTION_UP) {
-            switch (location((int) event.getX(), (int) event.getY(), v.getHeight(), v.getWidth())) {
+
+            int[] c = gv.getCoordinates();
+
+            int height = c[3] - c[1];
+            int width = c[2] - c[0];
+            float x = event.getX() - c[0];
+            float y = event.getY() - c[1];
+
+            switch (location(x, y, height, width)) {
                 case UP:
                     testlevel.movePlayer(Direction.UP);
                     gv.postInvalidate();
