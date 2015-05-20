@@ -108,13 +108,11 @@ public class Level {
 
     public boolean isAvailable (int x, int y) {
         if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1) {
-            System.out.println ("Out of bounds!" + x + " " + y);
+            //System.out.println ("Out of bounds!" + x + " " + y);
             return false;
         }
 
-        if (cells[x][y] != null)
-            return false;
-        return true;
+        return cells[x][y] == null;
     }
 
     public boolean movePlayer (Direction dir) {

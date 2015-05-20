@@ -137,8 +137,8 @@ public class GameView extends View implements Observer {
     }
 
     /**
-     *
-     * @param level
+     * Changes the level that needs to be drawn.
+     * @param level the level that needs to be drawn
      */
     public void setLevel (Level level) {
         this.level = level;

@@ -42,8 +42,6 @@ public class Controller implements View.OnTouchListener {
      */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-
-        System.out.println(event.getAction() == MotionEvent.ACTION_UP);
         if (event.getAction() == MotionEvent.ACTION_UP) {
 
             int[] c = gv.getCoordinates();

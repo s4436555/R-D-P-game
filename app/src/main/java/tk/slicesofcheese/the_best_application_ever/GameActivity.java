@@ -26,7 +26,6 @@ public class GameActivity extends FullscreenActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        final TextView textView = (TextView)findViewById(R.id.textView);
         // this is the view on which you will listen for touch events
         final View touchView = findViewById(R.id.touchView);
 
