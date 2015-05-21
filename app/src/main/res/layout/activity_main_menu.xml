@@ -145,25 +145,6 @@
                 android:text="@string/credits_desc"/>
         </GridLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/start_button"
-            android:id="@+id/start_button"
-            android:onClick="start"
-            style="?android:borderlessButtonStyle"/>
-
-
-
-        <LinearLayout android:id="@+id/fullscreen_content_controls" style="?metaButtonBarStyle"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay" android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-        </LinearLayout>
-
-
 
     </LinearLayout>
 
