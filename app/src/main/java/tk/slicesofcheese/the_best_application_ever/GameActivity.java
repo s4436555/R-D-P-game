@@ -17,31 +17,23 @@
 */
 package tk.slicesofcheese.the_best_application_ever;
 
-//import android.support.v7.app.ActionBarActivity;
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
-import tk.slicesofcheese.the_best_application_ever.View.GameView;
 
-
+/**
+ *
+ */
 public class GameActivity extends MainMenuActivity {
-
-    private Level testlevel;
-    private GameView gv;
     private Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-        //ActionBar actionBar = getActionBar();
-        //actionBar.setTitle("");
-        //actionBar.setIcon();
 
         // this is the view on which you will listen for touch events
         final View touchView = findViewById(R.id.touchView);

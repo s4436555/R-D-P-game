@@ -21,6 +21,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -32,6 +33,7 @@ import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
+import tk.slicesofcheese.the_best_application_ever.R;
 
 /**
  * Displays the level.
@@ -136,19 +138,23 @@ public class GameView extends View implements Observer {
     private void drawEnemy (Canvas canvas, Enemy enemy) {
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-        float px = margin_horizontal + (enemy.getX() * cell_size );
-        float py = margin_vertical + (enemy.getY() * cell_size );
+        int px = Math.round(margin_horizontal + (enemy.getX() * cell_size ));
+        int py = Math.round(margin_vertical + (enemy.getY() * cell_size ));
 
-        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
+        Drawable d = getResources().getDrawable(R.drawable.temp_64);
+        d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
+        d.draw(canvas);
     }
 
     private void drawPlayer (Canvas canvas, Player player) {
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
-        float px = margin_horizontal + (player.getX() * cell_size );
-        float py = margin_vertical + (player.getY() * cell_size );
+        int px = Math.round(margin_horizontal + (player.getX() * cell_size ));
+        int py = Math.round(margin_vertical + (player.getY() * cell_size ));
 
-        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
+        Drawable d = getResources().getDrawable(R.drawable.happy_64);
+        d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
+        d.draw(canvas);
     }
 
     /**
