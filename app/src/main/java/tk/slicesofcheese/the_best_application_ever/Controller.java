@@ -21,6 +21,8 @@ import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.io.Serializable;
+
 import tk.slicesofcheese.the_best_application_ever.Model.Corner;
 import tk.slicesofcheese.the_best_application_ever.Model.Direction;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
@@ -32,7 +34,7 @@ import tk.slicesofcheese.the_best_application_ever.View.TouchOverlay;
 /**
  * Controller for a:Dventure.
  */
-public class Controller implements View.OnTouchListener {
+public class Controller implements View.OnTouchListener, Serializable {
 
     private Level testlevel;
     private GameView gv;
@@ -129,5 +131,14 @@ public class Controller implements View.OnTouchListener {
                 return Corner.DOWN;
             }
         }
+    }
+
+    public Level getLevel(){
+        return testlevel;
+    }
+
+    public void setLevel(Level level){
+        gv.setLevel(level);
+        this.testlevel = level;
     }
 }

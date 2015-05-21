@@ -17,12 +17,14 @@
 */
 package tk.slicesofcheese.the_best_application_ever.Model.Entities;
 
+import java.io.Serializable;
+
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
 
 /**
  * Created by jonathan on 30-4-15.
  */
-public class Wall implements CellEntity {
+public class Wall implements CellEntity, Serializable {
 
     /**
      * Constructor of the wall class.

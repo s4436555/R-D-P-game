@@ -42,6 +42,10 @@ public class GameActivity extends MainMenuActivity {
 
         controller = new Controller (this);
 
+        if (savedInstanceState != null && savedInstanceState.getSerializable("level") != null){
+            controller.setLevel((Level) savedInstanceState.getSerializable("level"));
+        }
+
         touchView.setOnTouchListener(controller);
     }
 
@@ -65,5 +69,11 @@ public class GameActivity extends MainMenuActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putSerializable("level", controller.getLevel());
     }
 }
