@@ -88,8 +88,6 @@ public class GameView extends View implements Observer {
             return;
         }
 
-        //System.out.
-
         this.drawLevel(canvas);
     }
 

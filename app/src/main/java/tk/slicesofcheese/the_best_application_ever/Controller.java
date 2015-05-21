@@ -1,5 +1,6 @@
 package tk.slicesofcheese.the_best_application_ever;
 
+import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
 import tk.slicesofcheese.the_best_application_ever.View.GameView;
+import tk.slicesofcheese.the_best_application_ever.View.TouchOverlay;
 
 /**
  * Created by jonathan on 29-4-15.
@@ -17,6 +19,7 @@ public class Controller implements View.OnTouchListener {
 
     private Level testlevel;
     private GameView gv;
+    private TouchOverlay to;
 
     public Controller (GameActivity ga) {
         testlevel = new Level(9, 9);
@@ -29,6 +32,8 @@ public class Controller implements View.OnTouchListener {
 
         gv = (GameView)ga.findViewById(R.id.gameView);
         gv.setLevel(testlevel);
+
+        to = (TouchOverlay)ga.findViewById(R.id.touchOverlay);
     }
 
     /**
@@ -71,6 +76,12 @@ public class Controller implements View.OnTouchListener {
                 default:
                     break;
             }
+        }
+        else {
+
+            Point[] points = {new Point(0,0), new Point(50,0) , new Point(30,30) , new Point(5,5)};
+
+            to.drawThing(points);
         }
 
         return true;
