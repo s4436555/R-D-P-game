@@ -1,10 +1,20 @@
 <resources>
-    <string name="app_name">THE_BEST_APPLICATION_EVER</string>
+    <string name="app_name">a:Dventure</string>
 
-    <string name="start_button">Start</string>
+    <!-- Main Menu -->
+    <string name="start_button">Play</string>
+    <string name="start_desc">Jump right into action</string>
+    <string name="statistic_button">Stats</string>
+    <string name="statistic_desc">See how much time you\'ve wasted</string>
+    <string name="highscore_button">Highscore</string>
+    <string name="highscore_desc">Look at the highest players</string>
+    <string name="credits_button">Credits</string>
+    <string name="credits_desc">Who made all of this?</string>
+
+
+    <!-- InGame -->
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_game">GameActivity</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>
