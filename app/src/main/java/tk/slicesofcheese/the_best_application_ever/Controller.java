@@ -47,15 +47,14 @@ public class Controller implements View.OnTouchListener {
      */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        int[] c = gv.getCoordinates();
+
+        int height = c[3] - c[1];
+        int width = c[2] - c[0];
+        float x = event.getX() - c[0];
+        float y = event.getY() - c[1];
+
         if (event.getAction() == MotionEvent.ACTION_UP) {
-
-            int[] c = gv.getCoordinates();
-
-            int height = c[3] - c[1];
-            int width = c[2] - c[0];
-            float x = event.getX() - c[0];
-            float y = event.getY() - c[1];
-
             switch (location(x, y, height, width)) {
                 case UP:
                     testlevel.movePlayer(Direction.UP);
@@ -76,12 +75,10 @@ public class Controller implements View.OnTouchListener {
                 default:
                     break;
             }
+            to.clear();
         }
         else {
-
-            Point[] points = {new Point(0,0), new Point(50,0) , new Point(30,30) , new Point(5,5)};
-
-            to.drawThing(points);
+            to.drawTouchArea(location(x, y, height, width), c, 0.4f);
         }
 
         return true;

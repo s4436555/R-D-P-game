@@ -13,6 +13,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
+import tk.slicesofcheese.the_best_application_ever.Model.Corner;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
@@ -67,19 +68,18 @@ public class TouchOverlay extends View implements Observer {
         if (points == null)
             return;
 
-        System.out.println("drawing!");
-
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         paint.setStrokeWidth(2);
         paint.setColor(android.graphics.Color.RED);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
 
         Path path = new Path();
 
+        path.moveTo(points[0].x, points[0].y);
+
         for (Point p : points) {
-            path.moveTo(p.x, p.y);
             path.lineTo(p.x, p.y);
         }
 
@@ -88,8 +88,60 @@ public class TouchOverlay extends View implements Observer {
         canvas.drawPath(path, paint);
     }
 
-    public void drawThing (Point[] points) {
-        this.points = points;
+    public void drawTouchArea (Corner corner, int[] coordinates, float cSize) {
+
+        int width = coordinates[2] - coordinates[0];
+        int height = coordinates[3] - coordinates[1];
+
+        int a = Math.round(cSize * width);
+        int b = Math.round(cSize * height);
+
+        int[] inner = {
+                coordinates[0] + a,
+                coordinates[1] + b,
+                coordinates[2] - a,
+                coordinates[3] - b
+        };
+
+        points = new Point[4];
+
+        switch (corner) {
+            case UP:
+                points[0] = new Point(coordinates[0], coordinates[1]);
+                points[1] = new Point(coordinates[2], coordinates[1]);
+                points[2] = new Point(inner[2], inner[1]);
+                points[3] = new Point(inner[0], inner[1]);
+                break;
+            case RIGHT:
+                points[0] = new Point(coordinates[2], coordinates[1]);
+                points[1] = new Point(inner[2], inner[1]);
+                points[2] = new Point(inner[2], inner[3]);
+                points[3] = new Point(coordinates[2], coordinates[3]);
+                break;
+            case DOWN:
+                points[0] = new Point(coordinates[0], coordinates[3]);
+                points[1] = new Point(coordinates[2], coordinates[3]);
+                points[2] = new Point(inner[2], inner[3]);
+                points[3] = new Point(inner[0], inner[3]);
+                break;
+            case LEFT:
+                points[0] = new Point(coordinates[0], coordinates[1]);
+                points[1] = new Point(inner[0], inner[1]);
+                points[2] = new Point(inner[0], inner[3]);
+                points[3] = new Point(coordinates[0], coordinates[3]);
+                break;
+            default:
+                points[0] = new Point(inner[0], inner[1]);
+                points[1] = new Point(inner[2], inner[1]);
+                points[2] = new Point(inner[2], inner[3]);
+                points[3] = new Point(inner[0], inner[3]);
+                break;
+        }
+        this.postInvalidate();
+    }
+
+    public void clear () {
+        points = null;
         this.postInvalidate();
     }
 }
