@@ -18,6 +18,7 @@
 package tk.slicesofcheese.the_best_application_ever;
 
 //import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +38,11 @@ public class GameActivity extends MainMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //ActionBar actionBar = getActionBar();
+        //actionBar.setTitle("");
+        //actionBar.setIcon();
+
         // this is the view on which you will listen for touch events
         final View touchView = findViewById(R.id.touchView);
 
@@ -47,8 +53,9 @@ public class GameActivity extends MainMenuActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_game, menu);
+        // DON'T inflate the menu; this DOESN'T add items to the action bar if it is present.
+        // Maybe add HELP and stuff here later
+        // getMenuInflater().inflate(R.menu.menu_game, menu);
         return true;
     }
 
