@@ -17,6 +17,7 @@
 */
 package tk.slicesofcheese.the_best_application_ever.Model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
@@ -26,7 +27,7 @@ import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
 /**
  * Created by jonathan on 30-4-15.
  */
-public class Level {
+public class Level implements Serializable{
 
     private int xSize;
     private int ySize;

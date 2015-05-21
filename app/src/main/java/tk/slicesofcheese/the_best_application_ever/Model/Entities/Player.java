@@ -17,12 +17,14 @@
 */
 package tk.slicesofcheese.the_best_application_ever.Model.Entities;
 
+import java.io.Serializable;
+
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
 
 /**
  * Created by jonathan on 30-4-15.
  */
-public class Player implements CellEntity {
+public class Player implements CellEntity, Serializable {
 
     private int xPos;
     private int yPos;
