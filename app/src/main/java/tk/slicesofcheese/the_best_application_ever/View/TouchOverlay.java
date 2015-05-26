@@ -24,17 +24,13 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import java.util.Observable;
 import java.util.Observer;
 
-import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
 import tk.slicesofcheese.the_best_application_ever.Model.Corner;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
-import tk.slicesofcheese.the_best_application_ever.Model.Level;
 
 /**
  * Shows the pressed area.
@@ -42,13 +38,18 @@ import tk.slicesofcheese.the_best_application_ever.Model.Level;
 public class TouchOverlay extends View implements Observer {
 
     private Point[] points;
+    private int borderWidth;
 
     public TouchOverlay(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        borderWidth = metrics.densityDpi / 120;
     }
 
     public TouchOverlay(Context context, AttributeSet attrs) {
         super(context, attrs);
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        borderWidth = metrics.densityDpi / 120;
     }
 
     /**
@@ -59,6 +60,8 @@ public class TouchOverlay extends View implements Observer {
      */
     public TouchOverlay(Context context) {
         super(context);
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        borderWidth = metrics.densityDpi / 120;
     }
 
     /**
@@ -85,12 +88,17 @@ public class TouchOverlay extends View implements Observer {
         if (points == null)
             return;
 
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Paint border = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        paint.setStrokeWidth(2);
-        paint.setColor(android.graphics.Color.RED);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setAntiAlias(true);
+        border.setStrokeWidth(borderWidth);
+        border.setColor(Color.WHITE);
+        border.setStyle(Paint.Style.STROKE);
+        border.setAntiAlias(true);
+
+        Paint inner = new Paint();
+
+        inner.setColor(Color.argb(128, 255, 255, 255));
+        inner.setStyle(Paint.Style.FILL);
 
         Path path = new Path();
 
@@ -102,7 +110,8 @@ public class TouchOverlay extends View implements Observer {
 
         path.close();
 
-        canvas.drawPath(path, paint);
+        canvas.drawPath(path, border);
+        canvas.drawPath(path, inner);
     }
 
     public void drawTouchArea (Corner corner, int[] coordinates, float cSize) {

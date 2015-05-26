@@ -39,7 +39,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     private GameView gv;
     private TouchOverlay to;
 
-    private final float buttonSize = 0.32f;
+    private final float buttonSize = 0.33f;
 
     public Controller (GameActivity ga) {
         testlevel = new Level(9, 9);
