@@ -19,8 +19,6 @@ package tk.slicesofcheese.the_best_application_ever.View;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -29,11 +27,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
-import tk.slicesofcheese.the_best_application_ever.R;
 
 /**
  * Displays the level.
@@ -115,44 +109,17 @@ public class GameView extends View implements Observer {
             for (int y = 0; y < level.getYSize(); y++) {
                 CellEntity entity = level.getEntity(x, y);
                 if (entity != null) {
-                    if (entity instanceof Wall)
-                        drawWall(canvas, x, y);
-                    else if (entity instanceof Enemy)
-                        drawEnemy(canvas, (Enemy) entity);
-                    else if (entity instanceof Player)
-                        drawPlayer(canvas, (Player) entity);
+                    drawEntity(canvas, entity);
                 }
             }
         }
     }
 
-    private void drawWall (Canvas canvas, int x, int y) {
-        Paint paint = new Paint();
-        paint.setColor(Color.GRAY);
-        float px = margin_horizontal + (x * cell_size );
-        float py = margin_vertical + (y * cell_size );
+    private void drawEntity (Canvas canvas, CellEntity entity) {
+        int px = Math.round(margin_horizontal + (entity.getX() * cell_size ));
+        int py = Math.round(margin_vertical + (entity.getY() * cell_size ));
 
-        canvas.drawRect(px, py, px + cell_size, py + cell_size, paint);
-    }
-
-    private void drawEnemy (Canvas canvas, Enemy enemy) {
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
-        int px = Math.round(margin_horizontal + (enemy.getX() * cell_size ));
-        int py = Math.round(margin_vertical + (enemy.getY() * cell_size ));
-
-        Drawable d = getResources().getDrawable(R.drawable.temp_64);
-        d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
-        d.draw(canvas);
-    }
-
-    private void drawPlayer (Canvas canvas, Player player) {
-        Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-        int px = Math.round(margin_horizontal + (player.getX() * cell_size ));
-        int py = Math.round(margin_vertical + (player.getY() * cell_size ));
-
-        Drawable d = getResources().getDrawable(R.drawable.happy_64);
+        Drawable d = entity.getImage(getContext());
         d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
         d.draw(canvas);
     }

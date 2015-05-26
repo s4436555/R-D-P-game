@@ -17,7 +17,6 @@
 */
 package tk.slicesofcheese.the_best_application_ever;
 
-import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -39,6 +38,8 @@ public class Controller implements View.OnTouchListener, Serializable {
     private Level testlevel;
     private GameView gv;
     private TouchOverlay to;
+
+    private final float buttonSize = 0.32f;
 
     public Controller (GameActivity ga) {
         testlevel = new Level(9, 9);
@@ -97,7 +98,7 @@ public class Controller implements View.OnTouchListener, Serializable {
             to.clear();
         }
         else {
-            to.drawTouchArea(location(x, y, height, width), c, 0.4f);
+            to.drawTouchArea(location(x, y, height, width), c, buttonSize);
         }
 
         return true;
@@ -115,7 +116,7 @@ public class Controller implements View.OnTouchListener, Serializable {
         float perX = x/(float)width;
         float perY = y/(float)height;
 
-        if (perX > 0.40 && perX < 0.60 && perY > 0.40 && perY < 0.60)
+        if (perX > buttonSize && perX < 1-buttonSize && perY > buttonSize && perY < 1-buttonSize)
             return  Corner.CENTER;
 
         if (perX > perY){

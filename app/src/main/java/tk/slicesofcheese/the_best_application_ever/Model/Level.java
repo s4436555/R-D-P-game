@@ -118,7 +118,7 @@ public class Level implements Serializable{
 
     public boolean addWall (int x, int y) {
         if (isAvailable(x, y)) {
-            cells[x][y] = new Wall();
+            cells[x][y] = new Wall(x, y);
             return true;
         }
         return  false;
