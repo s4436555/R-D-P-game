@@ -27,21 +27,21 @@ public class Dragon extends Enemy {
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.dragon_lq);
+        return context.getResources().getDrawable(R.drawable.dragon_128);
     }
 
     private void genMoves () {
         moves = new int[4][2];
-        moves[0][0] = -1; // left
+        moves[0][0] = -1;
         moves[0][1] = -1;
 
-        moves[1][0] =  1; // right
+        moves[1][0] =  1;
         moves[1][1] =  1;
 
-        moves[2][0] =  1; // up
+        moves[2][0] =  1;
         moves[2][1] = -1;
 
-        moves[3][0] = -1; // down
+        moves[3][0] = -1;
         moves[3][1] =  1;
     }
 

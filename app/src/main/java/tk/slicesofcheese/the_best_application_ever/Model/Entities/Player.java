@@ -88,6 +88,6 @@ public class Player implements CellEntity, Serializable {
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.happy_64);
+        return context.getResources().getDrawable(R.drawable.happy_128);
     }
 }
