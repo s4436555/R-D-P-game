@@ -133,6 +133,10 @@ public class Level implements Serializable{
         return cells[x][y] == null;
     }
 
+    public boolean isEnemy (int x, int y){
+        return cells[x][y] instanceof Enemy;
+    }
+
     public boolean movePlayer (Direction dir) {
 
         if (player == null)
@@ -158,7 +162,10 @@ public class Level implements Serializable{
                 break;
         }
 
-        if (isAvailable(x,y)) {
+        if (isAvailable(x,y) || isEnemy(x,y)) {
+            if (isEnemy(x,y)){
+                enemies.remove(cells[x][y]);
+            }
             cells[player.getX()][player.getY()] = null;
             player.setCoordinates(x, y);
             cells[x][y] = player;
@@ -166,5 +173,14 @@ public class Level implements Serializable{
         }
 
         return false;
+    }
+
+
+    public void moveEnemies (){
+        for (Enemy enemy : enemies){
+            //for (int[] move: enemy.getMoves()){
+            //    move[0]
+            //}
+        }
     }
 }

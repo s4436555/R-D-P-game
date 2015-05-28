@@ -74,18 +74,22 @@ public class Controller implements View.OnTouchListener, Serializable {
             switch (location(x, y, height, width)) {
                 case UP:
                     testlevel.movePlayer(Direction.UP);
+                    testlevel.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case RIGHT:
                     testlevel.movePlayer(Direction.RIGTH);
+                    testlevel.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case DOWN:
                     testlevel.movePlayer(Direction.DOWN);
+                    testlevel.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case LEFT:
                     testlevel.movePlayer(Direction.LEFT);
+                    testlevel.moveEnemies();
                     gv.postInvalidate();
                     break;
                 default:
