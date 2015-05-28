@@ -32,6 +32,8 @@ public class Enemy implements CellEntity, Serializable {
 
     private int xPos;
     private int yPos;
+    private int[][] moves;
+
 
     /**
      * Constructor of the Enemy class.
@@ -39,6 +41,8 @@ public class Enemy implements CellEntity, Serializable {
     public Enemy (int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
+
+        genMoves();
     }
 
     public int getY () {
@@ -57,5 +61,24 @@ public class Enemy implements CellEntity, Serializable {
     @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.temp_64);
+    }
+
+    private void genMoves () {
+        moves = new int[4][2];
+        moves[0][0] = -1; // left
+        moves[0][1] =  0;
+
+        moves[1][0] =  1; // right
+        moves[1][1] =  0;
+
+        moves[2][0] =  0; // up
+        moves[2][1] = -1;
+
+        moves[3][0] =  0; // down
+        moves[3][1] =  1;
+    }
+
+    public int[][] getMoves () {
+        return moves;
     }
 }

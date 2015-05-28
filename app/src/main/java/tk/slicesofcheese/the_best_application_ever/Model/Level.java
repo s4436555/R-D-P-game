@@ -178,9 +178,9 @@ public class Level implements Serializable{
 
     public void moveEnemies (){
         for (Enemy enemy : enemies){
-            //for (int[] move: enemy.getMoves()){
-            //    move[0]
-            //}
+            for (int[] move: enemy.getMoves()){
+                // put code here
+            }
         }
     }
 }
