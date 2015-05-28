@@ -11,18 +11,18 @@
         android:background="#ffff0000"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="@dimen/game_bar_height" />
 
     <tk.slicesofcheese.the_best_application_ever.View.GameView
         android:id="@+id/gameView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="@dimen/game_bar_height" />
 
     <tk.slicesofcheese.the_best_application_ever.View.TouchOverlay
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/touchOverlay"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="@dimen/game_bar_height" />
 
 </RelativeLayout>
