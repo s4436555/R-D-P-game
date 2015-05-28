@@ -9,7 +9,8 @@ import tk.slicesofcheese.the_best_application_ever.R;
 /**
  * Created by jonathan on 28-5-15.
  */
-public class TestEnemy extends Enemy{
+public class Dragon extends Enemy {
+
     private int[][] moves;
 
     /**
@@ -18,7 +19,7 @@ public class TestEnemy extends Enemy{
      * @param xPos
      * @param yPos
      */
-    public TestEnemy(int xPos, int yPos) {
+    public Dragon(int xPos, int yPos) {
         super(xPos, yPos);
 
         genMoves();
@@ -26,21 +27,21 @@ public class TestEnemy extends Enemy{
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.temp_64);
+        return context.getResources().getDrawable(R.drawable.dragon_lq);
     }
 
     private void genMoves () {
         moves = new int[4][2];
         moves[0][0] = -1; // left
-        moves[0][1] =  0;
+        moves[0][1] = -1;
 
         moves[1][0] =  1; // right
-        moves[1][1] =  0;
+        moves[1][1] =  1;
 
-        moves[2][0] =  0; // up
+        moves[2][0] =  1; // up
         moves[2][1] = -1;
 
-        moves[3][0] =  0; // down
+        moves[3][0] = -1; // down
         moves[3][1] =  1;
     }
 

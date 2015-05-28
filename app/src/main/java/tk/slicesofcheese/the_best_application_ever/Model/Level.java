@@ -84,7 +84,7 @@ public class Level implements Serializable{
         int x = enemy.getX();
         int y = enemy.getY();
 
-        if (isAvailable(x, y)) {
+        if (isFree(x, y)) {
             enemies.add(enemy);
             cells[x][y] = enemy;
             return true;
@@ -104,7 +104,7 @@ public class Level implements Serializable{
         int x = player.getX();
         int y = player.getY();
 
-        if (isAvailable(x, y)) {
+        if (isFree(x, y)) {
             this.player = player;
             cells[x][y] = player;
             return true;
@@ -117,24 +117,29 @@ public class Level implements Serializable{
     }
 
     public boolean addWall (int x, int y) {
-        if (isAvailable(x, y)) {
+        if (isFree(x, y)) {
             cells[x][y] = new Wall(x, y);
             return true;
         }
         return  false;
     }
 
-    public boolean isAvailable (int x, int y) {
-        if (x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1) {
-            //System.out.println ("Out of bounds!" + x + " " + y);
-            return false;
-        }
+    public boolean isFree (int x, int y) {
+        if (isValid(x, y))
+            return cells[x][y] == null;
+        return false;
+    }
 
-        return cells[x][y] == null;
+    public boolean isValid (int x, int y) {
+        return (!(x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1));
     }
 
     public boolean isEnemy (int x, int y){
         return cells[x][y] instanceof Enemy;
+    }
+
+    public boolean isWall (int x, int y){
+        return cells[x][y] instanceof Wall;
     }
 
     public boolean movePlayer (Direction dir) {
@@ -162,14 +167,16 @@ public class Level implements Serializable{
                 break;
         }
 
-        if (isAvailable(x,y) || isEnemy(x,y)) {
-            if (isEnemy(x,y)){
-                enemies.remove(cells[x][y]);
+        if (isValid(x, y)) {
+            if (!isWall(x, y)) {
+                if (isEnemy(x, y)) {
+                    enemies.remove(cells[x][y]);
+                }
+                cells[player.getX()][player.getY()] = null;
+                player.setCoordinates(x, y);
+                cells[x][y] = player;
+                return true;
             }
-            cells[player.getX()][player.getY()] = null;
-            player.setCoordinates(x, y);
-            cells[x][y] = player;
-            return true;
         }
 
         return false;
