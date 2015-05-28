@@ -4,5 +4,6 @@
     <color name="menu_line">#37000000</color>
     <color name="blue_bar">#ff2d7afd</color>
     <color name="blue_bar_text">#ffc4f3fd</color>
+    <color name="game_bg_tint">#ff73cafd</color>
 
 </resources>

@@ -89,7 +89,7 @@ public class GameView extends View implements Observer {
 
     private void drawBackground(Canvas canvas) {
         // Make it black
-        canvas.drawARGB(255, 0, 0, 0);
+        // canvas.drawARGB(255, 0, 0, 0);
 
         Drawable d = getResources().getDrawable(R.drawable.temp_background);
         d.setBounds(Math.round(margin_horizontal),
