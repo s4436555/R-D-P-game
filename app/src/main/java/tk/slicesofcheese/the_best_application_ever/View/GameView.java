@@ -28,6 +28,7 @@ import java.util.Observer;
 
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
+import tk.slicesofcheese.the_best_application_ever.R;
 
 /**
  * Displays the level.
@@ -89,6 +90,14 @@ public class GameView extends View implements Observer {
     private void drawBackground(Canvas canvas) {
         // Make it black
         canvas.drawARGB(255, 0, 0, 0);
+
+        Drawable d = getResources().getDrawable(R.drawable.temp_background);
+        d.setBounds(Math.round(margin_horizontal),
+                Math.round(margin_vertical),
+                canvas.getWidth()-Math.round(margin_horizontal),
+                canvas.getHeight()-Math.round(margin_vertical)
+        );
+        d.draw(canvas);
     }
 
     @Override
