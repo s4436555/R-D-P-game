@@ -27,6 +27,7 @@ import tk.slicesofcheese.the_best_application_ever.Model.Direction;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
+import tk.slicesofcheese.the_best_application_ever.Model.LevelGenerator;
 import tk.slicesofcheese.the_best_application_ever.View.GameView;
 import tk.slicesofcheese.the_best_application_ever.View.TouchOverlay;
 
@@ -42,13 +43,8 @@ public class Controller implements View.OnTouchListener, Serializable {
     private final float buttonSize = 0.33f;
 
     public Controller (GameActivity ga) {
-        testlevel = new Level(9, 9);
-        testlevel.addEnemy(new Enemy(1, 3));
-        testlevel.addEnemy(new Enemy(8, 4));
-        testlevel.addPlayer(new Player(0, 0, 5));
-
-        for (int i = 0; i < 9; i++)
-            testlevel.addWall(i, i);
+        LevelGenerator generator = new LevelGenerator();
+        testlevel = generator.genLevel();
 
         gv = (GameView)ga.findViewById(R.id.gameView);
         gv.setLevel(testlevel);
