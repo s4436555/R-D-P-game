@@ -19,8 +19,12 @@ package tk.slicesofcheese.the_best_application_ever.View;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import java.util.Observable;
@@ -40,6 +44,8 @@ public class GameView extends View implements Observer {
     private float cell_size;
     private float margin_horizontal;
     private float margin_vertical;
+    private int score = 0;
+    private int bubble_margin = 10;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -111,6 +117,8 @@ public class GameView extends View implements Observer {
         }
 
         this.drawLevel(canvas);
+
+        this.drawScore(canvas);
     }
 
     private void drawLevel (Canvas canvas) {
@@ -132,6 +140,28 @@ public class GameView extends View implements Observer {
         Drawable d = entity.getImage(getContext());
         d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
         d.draw(canvas);
+    }
+
+    private void drawScore (Canvas canvas) {
+        Drawable d = getResources().getDrawable(R.drawable.bubble);
+
+        Rect bounds = new Rect();
+        Paint p = new Paint();
+        p.setTextSize(40);
+        p.getTextBounds("score: 000", 0, 10, bounds);
+
+        bounds.inset(-bubble_margin, -bubble_margin);
+        bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (canvas.getHeight() - margin_vertical));
+
+        d.setBounds(bounds);
+
+        bounds.inset(bubble_margin, bubble_margin);
+        d.draw(canvas);
+        canvas.drawText("score: " + score, bounds.left,  bounds.bottom, p);
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     /**
