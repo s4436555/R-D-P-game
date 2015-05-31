@@ -80,18 +80,18 @@ public class GameView extends View implements Observer {
             return;
 
         // calculate the dimensions
-        cell_size = Math.min(w / level.getXSize(), h / level.getYSize());
+        cell_size = Math.min(w / level.getXSize(), h  / level.getYSize());
 
         // calculate the required margin
-        margin_horizontal = (w - (cell_size * level.getXSize())) / 2;
-        margin_vertical = (h - (cell_size * level.getYSize())) / 2;
+        margin_horizontal = 12 + ((w - (cell_size * level.getXSize())) / 2); //------UNCLEAN-----
+        margin_vertical = 12 + ((h - (cell_size * level.getYSize())) / 2); //------UNCLEAN-----
+
+        //------UNCLEAN-----
+        cell_size = Math.min((w - 40) / level.getXSize(), (h - 30) / level.getYSize());
     }
 
     private void drawBackground(Canvas canvas) {
-        // Make it black
-        // canvas.drawARGB(255, 0, 0, 0);
-
-        Drawable d = getResources().getDrawable(R.drawable.temp_background);
+        Drawable d = getResources().getDrawable(R.drawable.bubble);
         d.setBounds(Math.round(margin_horizontal),
                 Math.round(margin_vertical),
                 canvas.getWidth()-Math.round(margin_horizontal),
@@ -125,8 +125,9 @@ public class GameView extends View implements Observer {
     }
 
     private void drawEntity (Canvas canvas, CellEntity entity) {
-        int px = Math.round(margin_horizontal + (entity.getX() * cell_size ));
-        int py = Math.round(margin_vertical + (entity.getY() * cell_size ));
+        //------UNCLEAN-----
+        int px = Math.round(margin_horizontal + 5 + (entity.getX() * cell_size ));
+        int py = Math.round(margin_vertical + 5 + (entity.getY() * cell_size ));
 
         Drawable d = entity.getImage(getContext());
         d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
