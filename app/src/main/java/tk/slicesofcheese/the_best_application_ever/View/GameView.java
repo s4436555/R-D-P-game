@@ -46,6 +46,8 @@ public class GameView extends View implements Observer {
     private float margin_vertical;
     private int score = 0;
     private int bubble_margin = 10;
+    private int stage = 0;
+    private int scoreHeight = 40;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -119,6 +121,8 @@ public class GameView extends View implements Observer {
         this.drawLevel(canvas);
 
         this.drawScore(canvas);
+
+        this.drawStage(canvas);
     }
 
     private void drawLevel (Canvas canvas) {
@@ -155,9 +159,29 @@ public class GameView extends View implements Observer {
 
         d.setBounds(bounds);
 
+        scoreHeight = bounds.height();
+
         bounds.inset(bubble_margin, bubble_margin);
         d.draw(canvas);
-        canvas.drawText("score: " + score, bounds.left,  bounds.bottom, p);
+        canvas.drawText("score: " + score, bounds.left, bounds.bottom, p);
+    }
+
+    private void drawStage (Canvas canvas) {
+        Drawable d = getResources().getDrawable(R.drawable.bubble2);
+
+        Rect bounds = new Rect();
+        Paint p = new Paint();
+        p.setTextSize(40);
+        p.getTextBounds("stage: 000", 0, 10, bounds);
+
+        bounds.inset(-bubble_margin, -bubble_margin);
+        bounds.offsetTo((int) margin_horizontal, (int) (canvas.getHeight() - margin_vertical + scoreHeight));
+
+        d.setBounds(bounds);
+
+        bounds.inset(bubble_margin, bubble_margin);
+        d.draw(canvas);
+        canvas.drawText("stage: " + stage, bounds.left,  bounds.bottom, p);
     }
 
     public void setScore(int score) {
