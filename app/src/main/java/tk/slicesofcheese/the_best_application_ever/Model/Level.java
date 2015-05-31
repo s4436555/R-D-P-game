@@ -185,8 +185,27 @@ public class Level implements Serializable{
 
     public void moveEnemies (){
         for (Enemy enemy : enemies){
+            boolean moved = false;
             for (int[] move: enemy.getMoves()){
-                // put code here
+                int x = enemy.getX();
+                int y = enemy.getY();
+                if (!moved) {
+                    int newX = x + move[0];
+                    int newY = y + move[1];
+                    if(isValid(newX, newY)) {
+                        boolean test = (getEntity(newX,newY) instanceof Player);
+                        if (isFree(newX, newY) || test) {
+                            enemy.setCoordinates(newX, newY);
+                            cells[newX][newY] = enemy;
+                            cells[x][y] = null;
+                            moved = true;
+
+                            if (test) {
+                                System.out.println("You lost!");
+                            }
+                        }
+                    }
+                }
             }
         }
     }

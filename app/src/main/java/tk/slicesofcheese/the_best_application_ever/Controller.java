@@ -24,8 +24,6 @@ import java.io.Serializable;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Corner;
 import tk.slicesofcheese.the_best_application_ever.Model.Direction;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
-import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
 import tk.slicesofcheese.the_best_application_ever.Model.LevelGenerator;
 import tk.slicesofcheese.the_best_application_ever.View.GameView;
@@ -92,6 +90,9 @@ public class Controller implements View.OnTouchListener, Serializable {
                     testlevel.moveEnemies();
                     gv.postInvalidate();
                     break;
+                case CENTER:
+                    testlevel.moveEnemies();
+                    gv.postInvalidate();
                 default:
                     break;
             }
