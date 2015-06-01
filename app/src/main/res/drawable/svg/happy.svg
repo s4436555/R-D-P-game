@@ -1,7 +1,12 @@
 <!-- Traced with Vector Magic, edited by Jonathan Moerman with Inkscape -->
-<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="136" height="128" viewBox="0 0 136 128" id="svg3246">
-  <metadata id="metadata3262"/>
-  <defs id="defs3260"/>
+<svg xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="136" height="128" viewBox="0 0 136 128" id="svg3246">
+    <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <cc:license rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <g id="#fcc21bff">
     <path d="m56.39 9.59c15.69-2.32 32.79-0.32 46.04 8.95 12.05 8.27 19.71 21.53 23.97 35.26 3.95 12.68 5.63 26.01 5.63 39.27 0.26 4.74-2.6 8.94-6.19 11.77-6.53 5.22-14.58 8.08-22.56 10.26-16.88 4.26-34.54 5.07-51.83 3.33-11.16-1.28-22.37-3.5-32.62-8.26C13.91 107.78 8.96 104.81 5.87 100.16 3.27 96.26 4.01 91.34 4.06 86.92 5.07 67.35 9.16 47.03 20.91 30.92 29.2 19.35 42.35 11.63 56.39 9.59" id="path3249" fill="#fcc21b"/>
   </g>

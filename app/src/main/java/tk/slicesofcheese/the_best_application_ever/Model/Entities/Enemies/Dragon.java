@@ -16,8 +16,6 @@ import tk.slicesofcheese.the_best_application_ever.R;
  */
 public class Dragon extends Enemy {
 
-    private int[][] moves;
-
     /**
      * Constructor of the Enemy class.
      *
@@ -51,15 +49,14 @@ public class Dragon extends Enemy {
         Collections.sort(temp, new Comparator<int[]>() {
             @Override
             public int compare(int[] lhs, int[] rhs) {
-                if (d > 4) {
-                    Random random = new Random();
-                    return random.nextInt();
-                }
+                Random random = new Random();
+
                 if (lhs[2] > rhs[2]) {
                     return 1;
-                } else {
+                } else if (lhs[2] < rhs[2]){
                     return -1;
                 }
+                return random.nextInt(3) - 1;
             }
         });
         return temp;

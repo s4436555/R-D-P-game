@@ -12,9 +12,9 @@ import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.R;
 
 /**
- * Created by jonathan on 28-5-15.
+ * Created by jonathan on 1-6-15.
  */
-public class TestEnemy extends Enemy{
+public class Horse extends Enemy {
 
     /**
      * Constructor of the Enemy class.
@@ -22,13 +22,13 @@ public class TestEnemy extends Enemy{
      * @param xPos
      * @param yPos
      */
-    public TestEnemy(int xPos, int yPos) {
+    public Horse(int xPos, int yPos) {
         super(xPos, yPos);
     }
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.temp_128);
+        return context.getResources().getDrawable(R.drawable.horse_128);
     }
 
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {
@@ -42,10 +42,14 @@ public class TestEnemy extends Enemy{
 
         final int d = Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos);
 
-        temp.add(calcDelta(xPos -1, yPos, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos +1, yPos, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos, yPos -1, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos, yPos +1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos -2, yPos -1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos -2, yPos +1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos +2, yPos -1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos +2, yPos +1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos -1, yPos -2, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos +1, yPos -2, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos -1, yPos +2, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos +1, yPos +2, xPlyr, yPlyr));
         Collections.sort(temp, new Comparator<int[]>() {
             @Override
             public int compare(int[] lhs, int[] rhs) {
@@ -53,7 +57,7 @@ public class TestEnemy extends Enemy{
 
                 if (lhs[2] > rhs[2]) {
                     return 1;
-                } else if (lhs[2] < rhs[2]){
+                } else if (lhs[2] < rhs[2]) {
                     return -1;
                 }
                 return random.nextInt(3) - 1;
