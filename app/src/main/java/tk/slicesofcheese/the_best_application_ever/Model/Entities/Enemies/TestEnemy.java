@@ -3,6 +3,11 @@ package tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemies;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Random;
+
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
 import tk.slicesofcheese.the_best_application_ever.R;
 
@@ -20,8 +25,6 @@ public class TestEnemy extends Enemy{
      */
     public TestEnemy(int xPos, int yPos) {
         super(xPos, yPos);
-
-        genMoves();
     }
 
     @Override
@@ -29,23 +32,35 @@ public class TestEnemy extends Enemy{
         return context.getResources().getDrawable(R.drawable.temp_64);
     }
 
-    private void genMoves () {
-        moves = new int[4][2];
-        moves[0][0] = -1; // left
-        moves[0][1] =  0;
-
-        moves[1][0] =  1; // right
-        moves[1][1] =  0;
-
-        moves[2][0] =  0; // up
-        moves[2][1] = -1;
-
-        moves[3][0] =  0; // down
-        moves[3][1] =  1;
+    private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {
+        int d = Math.abs (xPlyr - x) + Math.abs(yPlyr - y);
+        return new int[]{x, y, d};
     }
 
     @Override
-    public int[][] getMoves() {
-        return moves;
+    public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
+        LinkedList<int[]> temp = new LinkedList<>();
+
+        final int d = Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos);
+
+        temp.add(calcDelta(xPos -1, yPos, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos +1, yPos, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos, yPos -1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos, yPos +1, xPlyr, yPlyr));
+        Collections.sort(temp, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] lhs, int[] rhs) {
+                if (d > 4) {
+                    Random random = new Random();
+                    return random.nextInt();
+                }
+                if (lhs[2] > rhs[2]) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        });
+        return temp;
     }
 }

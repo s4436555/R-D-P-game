@@ -21,6 +21,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 import tk.slicesofcheese.the_best_application_ever.Model.CellEntity;
 import tk.slicesofcheese.the_best_application_ever.R;
@@ -30,8 +31,8 @@ import tk.slicesofcheese.the_best_application_ever.R;
  */
 public abstract class Enemy implements CellEntity, Serializable {
 
-    private int xPos;
-    private int yPos;
+    protected int xPos;
+    protected int yPos;
 
     /**
      * Constructor of the Enemy class.
@@ -59,5 +60,13 @@ public abstract class Enemy implements CellEntity, Serializable {
         return context.getResources().getDrawable(R.drawable.temp_64);
     }
 
-    public abstract int[][] getMoves ();
+    /**
+     * Returns the possible moves for this Enemy this turn.
+     * Enemy can adjust moveset if the player gets close.
+     * @param xPlyr x position of player
+     * @param yPlyr y position of player
+     * @return a List containing {x, y, d} values where d is the distance to the player if the
+     * Enemy is in range, d may need to get replaced if there are obstructions.
+     */
+    public abstract LinkedList<int[]> getMoves (int xPlyr, int yPlyr);
 }
