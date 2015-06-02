@@ -172,7 +172,7 @@ public class GameView extends View implements Observer {
         Rect bounds = new Rect();
         Paint p = new Paint();
         p.setTextSize(40);
-        p.getTextBounds("stage: 000", 0, 10, bounds);
+        p.getTextBounds("score: 000", 0, 10, bounds);
 
         bounds.inset(-bubble_margin, -bubble_margin);
         bounds.offsetTo((int) margin_horizontal, (int) (canvas.getHeight() - margin_vertical + scoreHeight));
@@ -181,11 +181,15 @@ public class GameView extends View implements Observer {
 
         bounds.inset(bubble_margin, bubble_margin);
         d.draw(canvas);
-        canvas.drawText("stage: " + stage, bounds.left,  bounds.bottom, p);
+        canvas.drawText("stage: " + stage, bounds.left+10,  bounds.bottom, p);
     }
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void setStage(int stage) {
+        this.stage = stage;
     }
 
     /**
