@@ -25,7 +25,7 @@ import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Entities.Wall;
 
 /**
- * Created by jonathan on 30-4-15.
+ * A class for storing and handling all of the level data.
  */
 public class Level implements Serializable{
 
@@ -50,16 +50,6 @@ public class Level implements Serializable{
     }
 
     /**
-     * Returns a CellEntity ...
-     * @param x x coordinate of the requested CellEntity
-     * @param y y coordinate of the requested CellEntity
-     * @return the CellEntity from the specified location
-     */
-    public CellEntity getEntity (int x, int y) {
-        return cells[x][y];
-    }
-
-    /**
      * Returns the horizontal size of the level.
      * @return the horizontal size of the level
      */
@@ -73,55 +63,6 @@ public class Level implements Serializable{
      */
     public int getYSize () {
         return ySize;
-    }
-
-    /**
-     * Attempts to add an Enemy to the level.
-     * @param enemy Enemy needing to be added.
-     * @return true if Enemy could be added, false otherwise
-     */
-    public boolean addEnemy (Enemy enemy) {
-        int x = enemy.getX();
-        int y = enemy.getY();
-
-        if (isFree(x, y)) {
-            enemies.add(enemy);
-            cells[x][y] = enemy;
-            return true;
-        }
-        return  false;
-    }
-
-    public int getEnemyCount () {
-        return enemies.size();
-    }
-
-    public Enemy getEnemy (int pos) {
-        return enemies.get(pos);
-    }
-
-    public boolean addPlayer (Player player) {
-        int x = player.getX();
-        int y = player.getY();
-
-        if (isFree(x, y)) {
-            this.player = player;
-            cells[x][y] = player;
-            return true;
-        }
-        return  false;
-    }
-
-    public Player getPlayer () {
-        return player;
-    }
-
-    public boolean addWall (int x, int y) {
-        if (isFree(x, y)) {
-            cells[x][y] = new Wall(x, y);
-            return true;
-        }
-        return  false;
     }
 
     public boolean isFree (int x, int y) {
@@ -142,64 +83,112 @@ public class Level implements Serializable{
         return cells[x][y] instanceof Wall;
     }
 
-    public boolean movePlayer (Direction dir) {
+    /**
+     * Returns the player instance stored in this.
+     * @return the player instance
+     */
+    public Player getPlayer () {
+        return player;
+    }
 
-        if (player == null)
-            return false;
+    /**
+     * Returns a CellEntity.
+     * @param x x coordinate of the requested CellEntity
+     * @param y y coordinate of the requested CellEntity
+     * @return the CellEntity from the specified location
+     */
+    public CellEntity getEntity (int x, int y) {
+        return cells[x][y];
+    }
 
+    /**
+     * Returns the number of enemies left in this.
+     * @return the number of enemies left
+     */
+    public int getEnemyCount () {
+        return enemies.size();
+    }
+
+    /**
+     * Returns an Enemy.
+     * @param index index of enemy
+     * @return an instance of Enemy
+     */
+    public Enemy getEnemy (int index) {
+        return enemies.get(index);
+    }
+
+    /**
+     * Changes the cell at the given coordinates to null
+     * @param x x coordinate
+     * @param y y coordinate
+     */
+    public void clearCell (int x, int y) {
+        cells[x][y] = null;
+    }
+
+    /**
+     * Moves a CellEntity, if possible.
+     * @param oldX current x coordinate
+     * @param oldY current y coordinate
+     * @param newX new x coordinate
+     * @param newY new y coordinate
+     */
+    public void moveEntity (int oldX, int oldY, int newX, int newY) {
+        if (isValid(newX, newY) && isValid(oldX, oldY)) {
+            CellEntity entity = cells[oldX][oldY];
+            if (entity != null) {
+                entity.setCoordinates(newX, newY);
+                cells[newX][newY] = entity;
+                clearCell(oldX, oldY);
+            }
+        }
+    }
+
+    /**
+     * Removes a Enemy in this.
+     * @param enemy Enemy to remove
+     */
+    public void removeEnemy (Enemy enemy) {
+        clearCell(enemy.getX(), enemy.getY());
+        enemies.remove(enemy);
+    }
+
+    /**
+     * Attempts to add an Enemy to the level.
+     * @param enemy Enemy needing to be added.
+     * @return true if Enemy could be added, false otherwise
+     */
+    public boolean addEnemy (Enemy enemy) {
+        int x = enemy.getX();
+        int y = enemy.getY();
+
+        if (isFree(x, y)) {
+            enemies.add(enemy);
+            cells[x][y] = enemy;
+            return true;
+        }
+        return  false;
+    }
+
+    public boolean addPlayer (Player player) {
         int x = player.getX();
         int y = player.getY();
 
-        switch (dir) {
-            case LEFT:
-                x--;
-                break;
-            case RIGTH:
-                x++;
-                break;
-            case DOWN:
-                y++;
-                break;
-            case UP:
-                y--;
-                break;
-            default:
-                break;
+        if (isFree(x, y)) {
+            this.player = player;
+            cells[x][y] = player;
+            return true;
         }
-
-        if (isValid(x, y)) {
-            if (!isWall(x, y)) {
-                if (isEnemy(x, y)) {
-                    enemies.remove(cells[x][y]);
-                }
-                cells[player.getX()][player.getY()] = null;
-                player.setCoordinates(x, y);
-                cells[x][y] = player;
-                return true;
-            }
-        }
-
-        return false;
+        return  false;
     }
 
-
-    public void moveEnemies (){
-        for (Enemy enemy : enemies){
-            for (int[] move: enemy.getMoves(player.getX(), player.getY())){
-                if(isValid(move[0], move[1])) {
-                    boolean test = (getEntity(move[0],move[1]) instanceof Player);
-                    if (isFree(move[0], move[1]) || test) {
-                        cells[enemy.getX()][enemy.getY()] = null;
-                        cells[move[0]][move[1]] = enemy;
-                        enemy.setCoordinates(move[0], move[1]);
-
-                        if (test) {
-                            System.out.println("You lost!");
-                        }
-                        break;
-                    }
-                }
-            }
+    public boolean addWall (int x, int y) {
+        if (isFree(x, y)) {
+            cells[x][y] = new Wall(x, y);
+            return true;
         }
+        return  false;
     }
+
 }

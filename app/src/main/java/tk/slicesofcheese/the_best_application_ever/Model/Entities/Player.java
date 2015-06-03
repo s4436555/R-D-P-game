@@ -73,14 +73,17 @@ public class Player implements CellEntity, Serializable {
         return (health > 0);
     }
 
+    @Override
     public int getY () {
         return yPos;
     }
 
+    @Override
     public int getX () {
         return xPos;
     }
 
+    @Override
     public void setCoordinates (int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;

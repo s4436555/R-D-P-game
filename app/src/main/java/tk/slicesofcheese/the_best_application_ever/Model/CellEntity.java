@@ -11,4 +11,11 @@ public interface CellEntity {
 
     int getX();
     int getY();
+
+    /**
+     * Changes the coordinates of this.
+     * @param xPos new x coordinate
+     * @param yPos new y coordinate
+     */
+    void setCoordinates (int xPos, int yPos);
 }

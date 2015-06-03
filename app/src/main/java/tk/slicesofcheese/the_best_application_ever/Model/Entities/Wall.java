@@ -55,4 +55,10 @@ public class Wall implements CellEntity, Serializable {
     public int getY() {
         return yPos;
     }
+
+    @Override
+    public void setCoordinates(int xPos, int yPos) {
+        this.xPos = xPos;
+        this.yPos = yPos;
+    }
 }

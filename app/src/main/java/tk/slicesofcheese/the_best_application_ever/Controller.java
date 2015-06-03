@@ -24,6 +24,8 @@ import java.io.Serializable;
 
 import tk.slicesofcheese.the_best_application_ever.Model.Corner;
 import tk.slicesofcheese.the_best_application_ever.Model.Direction;
+import tk.slicesofcheese.the_best_application_ever.Model.Entities.Enemy;
+import tk.slicesofcheese.the_best_application_ever.Model.Entities.Player;
 import tk.slicesofcheese.the_best_application_ever.Model.Level;
 import tk.slicesofcheese.the_best_application_ever.Model.LevelGenerator;
 import tk.slicesofcheese.the_best_application_ever.View.GameView;
@@ -34,7 +36,8 @@ import tk.slicesofcheese.the_best_application_ever.View.TouchOverlay;
  */
 public class Controller implements View.OnTouchListener, Serializable {
 
-    private Level testlevel;
+    private EnemyController eController;
+    private Level level;
     private GameView gv;
     private TouchOverlay to;
 
@@ -42,10 +45,11 @@ public class Controller implements View.OnTouchListener, Serializable {
 
     public Controller (GameActivity ga) {
         LevelGenerator generator = new LevelGenerator();
-        testlevel = generator.genLevel();
+        level = generator.genLevel();
+        eController = new EnemyController(level);
 
         gv = (GameView)ga.findViewById(R.id.gameView);
-        gv.setLevel(testlevel);
+        gv.setLevel(level);
 
         to = (TouchOverlay)ga.findViewById(R.id.touchOverlay);
     }
@@ -71,27 +75,27 @@ public class Controller implements View.OnTouchListener, Serializable {
         if (event.getAction() == MotionEvent.ACTION_UP) {
             switch (location(x, y, height, width)) {
                 case UP:
-                    testlevel.movePlayer(Direction.UP);
-                    testlevel.moveEnemies();
+                    this.movePlayer(Direction.UP);
+                    eController.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case RIGHT:
-                    testlevel.movePlayer(Direction.RIGTH);
-                    testlevel.moveEnemies();
+                    this.movePlayer(Direction.RIGTH);
+                    eController.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case DOWN:
-                    testlevel.movePlayer(Direction.DOWN);
-                    testlevel.moveEnemies();
+                    this.movePlayer(Direction.DOWN);
+                    eController.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case LEFT:
-                    testlevel.movePlayer(Direction.LEFT);
-                    testlevel.moveEnemies();
+                    this.movePlayer(Direction.LEFT);
+                    eController.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case CENTER:
-                    testlevel.moveEnemies();
+                    level.moveEnemies();
                     gv.postInvalidate();
                 default:
                     break;
@@ -136,11 +140,49 @@ public class Controller implements View.OnTouchListener, Serializable {
     }
 
     public Level getLevel(){
-        return testlevel;
+        return level;
     }
 
     public void setLevel(Level level){
         gv.setLevel(level);
-        this.testlevel = level;
+        this.level = level;
+    }
+
+    private boolean movePlayer (Direction dir) {
+        Player player = level.getPlayer();
+        if (player == null)
+            return false;
+
+        int x = player.getX();
+        int y = player.getY();
+
+        switch (dir) {
+            case LEFT:
+                x--;
+                break;
+            case RIGTH:
+                x++;
+                break;
+            case DOWN:
+                y++;
+                break;
+            case UP:
+                y--;
+                break;
+            default:
+                break;
+        }
+
+        if (level.isValid(x, y)) {
+            if (!level.isWall(x, y)) {
+                if (level.isEnemy(x, y)) {
+                    level.removeEnemy((Enemy) level.getEntity(x, y));
+                }
+                level.moveEntity(player.getX(), player.getY(), x, y);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
