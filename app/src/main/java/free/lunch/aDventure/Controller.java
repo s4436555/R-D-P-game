@@ -36,7 +36,7 @@ import free.lunch.aDventure.View.TouchOverlay;
  */
 public class Controller implements View.OnTouchListener, Serializable {
 
-    private EnemyController eController;
+    private EnemyController ec;
     private Level level;
     private GameView gv;
     private TouchOverlay to;
@@ -46,7 +46,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     public Controller (GameActivity ga) {
         LevelGenerator generator = new LevelGenerator();
         level = generator.genLevel();
-        eController = new EnemyController(level);
+        ec = new EnemyController(level);
 
         gv = (GameView)ga.findViewById(R.id.gameView);
         gv.setLevel(level);
@@ -76,26 +76,26 @@ public class Controller implements View.OnTouchListener, Serializable {
             switch (location(x, y, height, width)) {
                 case UP:
                     this.movePlayer(Direction.UP);
-                    eController.moveEnemies();
+                    ec.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case RIGHT:
                     this.movePlayer(Direction.RIGTH);
-                    eController.moveEnemies();
+                    ec.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case DOWN:
                     this.movePlayer(Direction.DOWN);
-                    eController.moveEnemies();
+                    ec.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case LEFT:
                     this.movePlayer(Direction.LEFT);
-                    eController.moveEnemies();
+                    ec.moveEnemies();
                     gv.postInvalidate();
                     break;
                 case CENTER:
-                    eController.moveEnemies();
+                    ec.moveEnemies();
                     gv.postInvalidate();
                 default:
                     break;
@@ -145,6 +145,7 @@ public class Controller implements View.OnTouchListener, Serializable {
 
     public void setLevel(Level level){
         gv.setLevel(level);
+        ec.setLevel(level);
         this.level = level;
     }
 

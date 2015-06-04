@@ -17,6 +17,8 @@
 */
 package free.lunch.aDventure;
 
+import java.io.Serializable;
+
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Level;
@@ -24,7 +26,7 @@ import free.lunch.aDventure.Model.Level;
 /**
  * This class controlls the enemies in the level.
  */
-public class EnemyController {
+public class EnemyController implements Serializable {
 
     private Level level;
 
@@ -33,6 +35,10 @@ public class EnemyController {
      * @param level level to control the enemies of
      */
     public EnemyController (Level level) {
+        this.level = level;
+    }
+
+    public void setLevel(Level level){
         this.level = level;
     }
 
