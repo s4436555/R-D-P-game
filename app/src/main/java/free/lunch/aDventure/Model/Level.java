@@ -22,6 +22,7 @@ import java.util.LinkedList;
 
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
+import free.lunch.aDventure.Model.Entities.Portal;
 import free.lunch.aDventure.Model.Entities.Wall;
 
 /**
@@ -97,6 +98,10 @@ public class Level implements Serializable{
 
     public boolean isWall (int x, int y){
         return cells[x][y] instanceof Wall;
+    }
+
+    public boolean isPortal (int x, int y){
+        return cells[x][y] instanceof Portal;
     }
 
     /**
@@ -228,4 +233,19 @@ public class Level implements Serializable{
         return  false;
     }
 
+    /**
+     * Attempts to add a portal piece to the level.
+     * @param portal Portal needing to be added
+     * @return true if the portal could be added, false otherwise
+     */
+    public boolean addPortal (Portal portal) {
+        int x = portal.getX();
+        int y = portal.getY();
+
+        if (isFree(x, y)) {
+            cells[x][y] = portal;
+            return true;
+        }
+        return  false;
+    }
 }

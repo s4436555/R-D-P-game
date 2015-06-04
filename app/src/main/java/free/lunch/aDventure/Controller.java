@@ -26,6 +26,7 @@ import free.lunch.aDventure.Model.Corner;
 import free.lunch.aDventure.Model.Direction;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
+import free.lunch.aDventure.Model.Entities.Portal;
 import free.lunch.aDventure.Model.Level;
 import free.lunch.aDventure.Model.LevelGenerator;
 import free.lunch.aDventure.View.GameView;
@@ -183,6 +184,16 @@ public class Controller implements View.OnTouchListener, Serializable {
             if (!level.isWall(x, y)) {
                 if (level.isEnemy(x, y)) {
                     level.removeEnemy((Enemy) level.getEntity(x, y));
+                    if (level.levelCleared()){
+                        level.addPortal(new Portal(0,1));
+                    }
+                }
+                if (level.isPortal(x, y)) {
+                    System.out.println("Naar een volgend level.");
+                    LevelGenerator generator = new LevelGenerator();
+                    level = generator.genLevel();                                       //Difficulty meegeven?
+                    ec = new EnemyController(level);
+                    gv.setLevel(level);
                 }
                 level.moveEntity(player.getX(), player.getY(), x, y);
                 return true;
