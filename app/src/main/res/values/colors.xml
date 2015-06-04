@@ -5,5 +5,7 @@
     <color name="blue_bar">#ff2d7afd</color>
     <color name="blue_bar_text">#ffc4f3fd</color>
     <color name="game_bg_tint">#ff73cafd</color>
+    <color name="touch_controls_border">#669900</color>
+    <color name="touch_controls_fill">#50669900</color>
 
 </resources>

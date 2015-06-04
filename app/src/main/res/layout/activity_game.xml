@@ -7,7 +7,7 @@
     android:background="@drawable/bg"
     android:backgroundTint="@color/game_bg_tint"
     android:backgroundTintMode="multiply"
-    tools:context="tk.slicesofcheese.the_best_application_ever.GameActivity">
+    tools:context="free.lunch.aDventure.GameActivity">
 
     <TextView
         android:id="@+id/touchView"
@@ -15,13 +15,13 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="@dimen/game_bar_height" />
 
-    <tk.slicesofcheese.the_best_application_ever.View.GameView
+    <free.lunch.aDventure.View.GameView
         android:id="@+id/gameView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/game_bar_height" />
 
-    <tk.slicesofcheese.the_best_application_ever.View.TouchOverlay
+    <free.lunch.aDventure.View.TouchOverlay
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/touchOverlay"
