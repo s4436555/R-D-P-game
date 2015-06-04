@@ -22,14 +22,78 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.GridLayout;
 
 public class MainMenuActivity extends Activity {
+
+    View.OnTouchListener listener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                return false;
+            }
+
+            switch (v.getId()) {
+                case R.id.play_button:
+                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    break;
+                case R.id.score_button:
+                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    break;
+                case R.id.stats_button:
+                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    break;
+                case R.id.credits_button:
+                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    break;
+                default:
+                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    break;
+            }
+            return false;
+        }
+    };
+
+    GridLayout plb;
+    GridLayout scb;
+    GridLayout stb;
+    GridLayout crb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        plb = (GridLayout) findViewById(R.id.play_button);
+        scb = (GridLayout) findViewById(R.id.score_button);
+        stb = (GridLayout) findViewById(R.id.stats_button);
+        crb = (GridLayout) findViewById(R.id.credits_button);
+
+        plb.setOnTouchListener(listener);
+        scb.setOnTouchListener(listener);
+        stb.setOnTouchListener(listener);
+        crb.setOnTouchListener(listener);
     }
 
     @Override

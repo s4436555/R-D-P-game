@@ -19,14 +19,14 @@
             android:clickable="true"
             android:onClick="start"
             android:rowCount="2"
-            android:columnCount="2">
+            android:columnCount="2"
+            android:id="@+id/play_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
                 android:src="@drawable/play_ic"
-                android:layout_rowSpan="2"
-                android:text=">"/>
+                android:layout_rowSpan="2"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -59,7 +59,8 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:rowCount="2"
-            android:columnCount="2">
+            android:columnCount="2"
+            android:id="@+id/score_button">
             <ImageView
                 android:layout_rowSpan="2"
                 android:layout_width="@dimen/menu_icon"
@@ -99,7 +100,8 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:rowCount="2"
-            android:columnCount="2">
+            android:columnCount="2"
+            android:id="@+id/stats_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
@@ -138,7 +140,8 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:rowCount="2"
-            android:columnCount="2">
+            android:columnCount="2"
+            android:id="@+id/credits_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
