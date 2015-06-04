@@ -21,11 +21,12 @@ import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
+import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Wall;
 
 /**
- * A class that Jan Potma should implement properly
+ * A class that Jan should implement properly
  */
 public class LevelGenerator {
 
@@ -37,6 +38,7 @@ public class LevelGenerator {
         temp.addPlayer(new Player(0, 0));
         temp.addEnemy(new Snake(6, 0));
         temp.addEnemy(new Horse(8, 8));
+        temp.addEnemy(new Wolf(0, 8));
 
         for (int i = 0; i < 8; i++)
             temp.addWall(new Wall(i, i));
