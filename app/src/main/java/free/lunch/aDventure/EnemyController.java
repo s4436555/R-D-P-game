@@ -22,31 +22,41 @@ import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Level;
 
 /**
- * Created by jonathan on 1-6-15.
+ * This class controlls the enemies in the level.
  */
 public class EnemyController {
 
     private Level level;
 
+    /**
+     * Constructor of the EnemyController class.
+     * @param level level to control the enemies of
+     */
     public EnemyController (Level level) {
         this.level = level;
     }
 
+    /**
+     * Moves all enemies of the level
+     */
     public void moveEnemies (){
         int total = level.getEnemyCount();
         for (int i = 0; i < total; i++){
             Enemy enemy = level.getEnemy(i);
             Player player = level.getPlayer();
-            for (int[] move: enemy.getMoves(player.getX(), player.getY())){
-                if(level.isValid(move[0], move[1])) {
-                    boolean test = (level.getEntity(move[0],move[1]) instanceof Player);
-                    if (level.isFree(move[0], move[1]) || test) {
-                        level.moveEntity(enemy.getX(), enemy.getY(), move[0], move[1]);
+            if (player != null) {
+                for (int[] move : enemy.getMoves(player.getX(), player.getY())) {
+                    if (level.isValid(move[0], move[1])) {
+                        if (level.getEntity(move[0], move[1]) instanceof Player)
+                            level.killPlayer();
+                        if (level.isFree(move[0], move[1])) {
+                            level.moveEntity(enemy.getX(), enemy.getY(), move[0], move[1]);
 
-                        if (test) {
-                            System.out.println("You lost!");
+                            if (level.gameover()) {
+                                System.out.println("You lost!");
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }

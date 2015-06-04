@@ -148,6 +148,11 @@ public class Controller implements View.OnTouchListener, Serializable {
         this.level = level;
     }
 
+    /**
+     * Attempts to move the player in the given direction
+     * @param dir direction to move the player in
+     * @return true if player could be moved, false otherwise
+     */
     private boolean movePlayer (Direction dir) {
         Player player = level.getPlayer();
         if (player == null)

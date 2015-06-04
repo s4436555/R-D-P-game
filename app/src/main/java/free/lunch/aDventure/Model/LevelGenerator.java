@@ -22,6 +22,7 @@ import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
 import free.lunch.aDventure.Model.Entities.Player;
+import free.lunch.aDventure.Model.Entities.Wall;
 
 /**
  * A class that Jan Potma should implement properly
@@ -38,7 +39,7 @@ public class LevelGenerator {
         temp.addEnemy(new Horse(8, 8));
 
         for (int i = 0; i < 8; i++)
-            temp.addWall(i, i);
+            temp.addWall(new Wall(i, i));
 
         return temp;
     }

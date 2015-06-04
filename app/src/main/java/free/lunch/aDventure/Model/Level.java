@@ -65,6 +65,22 @@ public class Level implements Serializable{
         return ySize;
     }
 
+    /**
+     * Returns true if the player has been killed.
+     * @return true if the player has been killed, false otherwise
+     */
+    public boolean gameover () {
+        return player == null;
+    }
+
+    /**
+     * Returns true if no enemies are left in this level.
+     * @return true if no enemies are left in this level, false otherwise
+     */
+    public boolean levelCleared () {
+        return enemies.size() == 0;
+    }
+
     public boolean isFree (int x, int y) {
         if (isValid(x, y))
             return cells[x][y] == null;
@@ -116,6 +132,14 @@ public class Level implements Serializable{
      */
     public Enemy getEnemy (int index) {
         return enemies.get(index);
+    }
+
+    /**
+     * Removes the player from this level.
+     */
+    public void killPlayer () {
+        clearCell(player.getX(), player.getY());
+        player = null;
     }
 
     /**
@@ -171,6 +195,11 @@ public class Level implements Serializable{
         return  false;
     }
 
+    /**
+     * Attempts to add the player to the level.
+     * @param player Player needing to be added
+     * @return true if the player could be added, false otherwise
+     */
     public boolean addPlayer (Player player) {
         int x = player.getX();
         int y = player.getY();
@@ -183,9 +212,17 @@ public class Level implements Serializable{
         return  false;
     }
 
-    public boolean addWall (int x, int y) {
+    /**
+     * Attempts to add a wall piece to the level.
+     * @param wall Wall needing to be added
+     * @return true if the wall could be added, false otherwise
+     */
+    public boolean addWall (Wall wall) {
+        int x = wall.getX();
+        int y = wall.getY();
+
         if (isFree(x, y)) {
-            cells[x][y] = new Wall(x, y);
+            cells[x][y] = wall;
             return true;
         }
         return  false;

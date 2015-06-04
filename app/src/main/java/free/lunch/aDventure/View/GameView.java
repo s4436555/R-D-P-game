@@ -98,12 +98,14 @@ public class GameView extends View implements Observer {
 
     private void drawBackground(Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble);
-        d.setBounds(Math.round(margin_horizontal),
-                Math.round(margin_vertical),
-                canvas.getWidth()-Math.round(margin_horizontal),
-                canvas.getHeight()-Math.round(margin_vertical)
-        );
-        d.draw(canvas);
+        if (d != null) {
+            d.setBounds(Math.round(margin_horizontal),
+                    Math.round(margin_vertical),
+                    canvas.getWidth() - Math.round(margin_horizontal),
+                    canvas.getHeight() - Math.round(margin_vertical)
+            );
+            d.draw(canvas);
+        }
     }
 
     @Override
@@ -147,39 +149,43 @@ public class GameView extends View implements Observer {
     private void drawScore (Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble);
 
-        Rect bounds = new Rect();
-        Paint p = new Paint();
-        p.setTextSize(40);
-        p.getTextBounds("score: 000", 0, 10, bounds);
+        if (d != null) {
+            Rect bounds = new Rect();
+            Paint p = new Paint();
+            p.setTextSize(40);
+            p.getTextBounds("score: 000", 0, 10, bounds);
 
-        bounds.inset(-bubble_margin, -bubble_margin);
-        bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (canvas.getHeight() - margin_vertical));
+            bounds.inset(-bubble_margin, -bubble_margin);
+            bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (canvas.getHeight() - margin_vertical));
 
-        d.setBounds(bounds);
+            d.setBounds(bounds);
 
-        scoreHeight = bounds.height();
+            scoreHeight = bounds.height();
 
-        bounds.inset(bubble_margin, bubble_margin);
-        d.draw(canvas);
-        canvas.drawText("score: " + score, bounds.left, bounds.bottom, p);
+            bounds.inset(bubble_margin, bubble_margin);
+            d.draw(canvas);
+            canvas.drawText("score: " + score, bounds.left, bounds.bottom, p);
+        }
     }
 
     private void drawStage (Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble2);
 
-        Rect bounds = new Rect();
-        Paint p = new Paint();
-        p.setTextSize(40);
-        p.getTextBounds("score: 000", 0, 10, bounds);
+        if (d != null) {
+            Rect bounds = new Rect();
+            Paint p = new Paint();
+            p.setTextSize(40);
+            p.getTextBounds("score: 000", 0, 10, bounds);
 
-        bounds.inset(-bubble_margin, -bubble_margin);
-        bounds.offsetTo((int) margin_horizontal, (int) (canvas.getHeight() - margin_vertical + scoreHeight));
+            bounds.inset(-bubble_margin, -bubble_margin);
+            bounds.offsetTo((int) margin_horizontal, (int) (canvas.getHeight() - margin_vertical + scoreHeight));
 
-        d.setBounds(bounds);
+            d.setBounds(bounds);
 
-        bounds.inset(bubble_margin, bubble_margin);
-        d.draw(canvas);
-        canvas.drawText("stage: " + stage, bounds.left+10,  bounds.bottom, p);
+            bounds.inset(bubble_margin, bubble_margin);
+            d.draw(canvas);
+            canvas.drawText("stage: " + stage, bounds.left + 10, bounds.bottom, p);
+        }
     }
 
     public void setScore(int score) {
@@ -196,7 +202,6 @@ public class GameView extends View implements Observer {
      */
     public void setLevel (Level level) {
         this.level = level;
-        System.out.println(level.addWall(5, 5));
     }
 
     /**
