@@ -56,9 +56,6 @@ public class Horse extends Enemy {
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
-
-        final int d = Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos);
-
         temp.add(calcDelta(xPos -2, yPos -1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos -2, yPos +1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos +2, yPos -1, xPlyr, yPlyr));

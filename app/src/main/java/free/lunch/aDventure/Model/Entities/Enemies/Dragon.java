@@ -29,15 +29,15 @@ import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.R;
 
 /**
- * Created by jonathan on 28-5-15.
+ * This Enemy moves with diagonal steps.
  */
 public class Dragon extends Enemy {
 
     /**
-     * Constructor of the Enemy class.
+     * Constructor of the Dragon class.
      *
-     * @param xPos
-     * @param yPos
+     * @param xPos x coordinate of this
+     * @param yPos y coordinate of this
      */
     public Dragon(int xPos, int yPos) {
         super(xPos, yPos);
@@ -56,9 +56,6 @@ public class Dragon extends Enemy {
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
-
-        final int d = Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos);
-
         temp.add(calcDelta(xPos -1, yPos -1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos +1, yPos +1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos +1, yPos -1, xPlyr, yPlyr));

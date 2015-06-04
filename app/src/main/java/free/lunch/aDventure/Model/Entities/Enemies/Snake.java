@@ -29,17 +29,17 @@ import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.R;
 
 /**
- * Created by jonathan on 4-6-15.
+ * This Enemy alternates between diagonal and horizontal/vertical moves.
  */
 public class Snake extends Enemy {
 
     private boolean moveV;
 
     /**
-     * Constructor of the Enemy class.
+     * Constructor of the Snake class.
      *
-     * @param xPos
-     * @param yPos
+     * @param xPos x coordinate of this
+     * @param yPos y coordinate of this
      */
     public Snake(int xPos, int yPos) {
         super(xPos, yPos);
@@ -59,9 +59,6 @@ public class Snake extends Enemy {
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
-
-        final int d = Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos);
-
         if (moveV) {
             temp.add(calcDelta(xPos -1, yPos -1, xPlyr, yPlyr));
             temp.add(calcDelta(xPos +1, yPos +1, xPlyr, yPlyr));
