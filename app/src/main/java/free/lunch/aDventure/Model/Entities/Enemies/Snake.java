@@ -41,13 +41,15 @@ public class Snake extends Enemy {
      * @param xPos x coordinate of this
      * @param yPos y coordinate of this
      */
-    public Snake(int xPos, int yPos) {
+    public Snake(int xPos, int yPos, boolean startV) {
         super(xPos, yPos);
-        moveV = true;
+        moveV = startV;
     }
 
     @Override
     public Drawable getImage(Context context) {
+        if (moveV)
+            return context.getResources().getDrawable(R.drawable.snake2_128);
         return context.getResources().getDrawable(R.drawable.snake_128);
     }
 

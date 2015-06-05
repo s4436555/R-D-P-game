@@ -56,7 +56,7 @@ public class Wolf extends Enemy {
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
-        if (( Math.abs (xPlyr - xPos) + Math.abs(yPlyr - yPos)) <= 2) {
+        if (Math.abs (xPlyr - xPos) <= 2 && Math.abs(yPlyr - yPos) <= 2) {
             temp.add(calcDelta(xPos -2, yPos, xPlyr, yPlyr));
             temp.add(calcDelta(xPos +2, yPos, xPlyr, yPlyr));
             temp.add(calcDelta(xPos, yPos -2, xPlyr, yPlyr));

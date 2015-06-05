@@ -36,7 +36,7 @@ public class LevelGenerator {
         temp.addEnemy(new Dragon(1, 3));
         temp.addEnemy(new TestEnemy(8, 4));
         temp.addPlayer(new Player(0, 0));
-        temp.addEnemy(new Snake(6, 0));
+        temp.addEnemy(new Snake(6, 0, true));
         temp.addEnemy(new Horse(8, 8));
         temp.addEnemy(new Wolf(0, 8));
 
