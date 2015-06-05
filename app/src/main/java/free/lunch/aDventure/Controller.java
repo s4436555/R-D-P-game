@@ -21,6 +21,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.io.Serializable;
+import java.util.Random;
 
 import free.lunch.aDventure.Model.Corner;
 import free.lunch.aDventure.Model.Direction;
@@ -37,12 +38,11 @@ import free.lunch.aDventure.View.TouchOverlay;
  */
 public class Controller implements View.OnTouchListener, Serializable {
 
+    private final float buttonSize = 0.33f;
     private EnemyController ec;
     private Level level;
     private GameView gv;
     private TouchOverlay to;
-
-    private final float buttonSize = 0.33f;
 
     public Controller (GameActivity ga) {
         LevelGenerator generator = new LevelGenerator();
@@ -185,7 +185,13 @@ public class Controller implements View.OnTouchListener, Serializable {
                 if (level.isEnemy(x, y)) {
                     level.removeEnemy((Enemy) level.getEntity(x, y));
                     if (level.levelCleared()){
-                        level.addPortal(new Portal(0,1));
+                        int px, py;
+                        Random random = new Random();
+                        do {
+                            px = random.nextInt(level.getXSize());
+                            py = random.nextInt(level.getYSize());
+                        } while (!level.isFree(px,py));
+                        level.addPortal(new Portal(px,py));
                     }
                 }
                 if (level.isPortal(x, y)) {

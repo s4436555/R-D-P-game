@@ -18,6 +18,10 @@
 package free.lunch.aDventure;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
 
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
@@ -51,21 +55,35 @@ public class EnemyController implements Serializable {
             Enemy enemy = level.getEnemy(i);
             Player player = level.getPlayer();
             if (player != null) {
-                for (int[] move : enemy.getMoves(player.getX(), player.getY())) {
+                List<int[]> moves = enemy.getMoves(player.getX(), player.getY());
+                sortMoves(moves);
+                for (int[] move : moves) {
                     if (level.isValid(move[0], move[1])) {
                         if (level.getEntity(move[0], move[1]) instanceof Player)
                             level.killPlayer();
                         if (level.isFree(move[0], move[1])) {
                             level.moveEntity(enemy.getX(), enemy.getY(), move[0], move[1]);
-
-                            if (level.gameover()) {
-                                System.out.println("You lost!");
-                            }
                             break;
                         }
                     }
                 }
             }
         }
+    }
+
+    private void sortMoves (List<int[]> moves) {
+        Collections.sort(moves, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] lhs, int[] rhs) {
+                Random random = new Random();
+
+                if (lhs[2] > rhs[2]) {
+                    return 1;
+                } else if (lhs[2] < rhs[2]) {
+                    return -1;
+                }
+                return random.nextInt(3) - 1;
+            }
+        });
     }
 }

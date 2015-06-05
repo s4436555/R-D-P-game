@@ -20,10 +20,7 @@ package free.lunch.aDventure.Model.Entities.Enemies;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.Random;
 
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.R;
@@ -56,23 +53,10 @@ public class TestEnemy extends Enemy{
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
-        temp.add(calcDelta(xPos -1, yPos, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos +1, yPos, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos, yPos -1, xPlyr, yPlyr));
-        temp.add(calcDelta(xPos, yPos +1, xPlyr, yPlyr));
-        Collections.sort(temp, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] lhs, int[] rhs) {
-                Random random = new Random();
-
-                if (lhs[2] > rhs[2]) {
-                    return 1;
-                } else if (lhs[2] < rhs[2]){
-                    return -1;
-                }
-                return random.nextInt(3) - 1;
-            }
-        });
+        temp.add(calcDelta(xPos - 1, yPos, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos + 1, yPos, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos, yPos - 1, xPlyr, yPlyr));
+        temp.add(calcDelta(xPos, yPos + 1, xPlyr, yPlyr));
         return temp;
     }
 }

@@ -20,10 +20,7 @@ package free.lunch.aDventure.Model.Entities.Enemies;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.Random;
 
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.R;
@@ -40,6 +37,8 @@ public class Snake extends Enemy {
      *
      * @param xPos x coordinate of this
      * @param yPos y coordinate of this
+     * @param startV whether or not this will move vertical
+     *               the first move
      */
     public Snake(int xPos, int yPos, boolean startV) {
         super(xPos, yPos);
@@ -49,8 +48,8 @@ public class Snake extends Enemy {
     @Override
     public Drawable getImage(Context context) {
         if (moveV)
-            return context.getResources().getDrawable(R.drawable.snake2_128);
-        return context.getResources().getDrawable(R.drawable.snake_128);
+            return context.getResources().getDrawable(R.drawable.snake_128);
+        return context.getResources().getDrawable(R.drawable.snake2_128);
     }
 
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {
@@ -62,32 +61,18 @@ public class Snake extends Enemy {
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
         if (moveV) {
-            temp.add(calcDelta(xPos -1, yPos -1, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos +1, yPos +1, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos +1, yPos -1, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos -1, yPos +1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos - 1, yPos - 1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos + 1, yPos + 1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos + 1, yPos - 1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos - 1, yPos + 1, xPlyr, yPlyr));
             moveV = false;
         } else {
-            temp.add(calcDelta(xPos -1, yPos, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos +1, yPos, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos, yPos -1, xPlyr, yPlyr));
-            temp.add(calcDelta(xPos, yPos +1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos - 1, yPos, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos + 1, yPos, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos, yPos - 1, xPlyr, yPlyr));
+            temp.add(calcDelta(xPos, yPos + 1, xPlyr, yPlyr));
             moveV = true;
         }
-
-        Collections.sort(temp, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] lhs, int[] rhs) {
-                Random random = new Random();
-
-                if (lhs[2] > rhs[2]) {
-                    return 1;
-                } else if (lhs[2] < rhs[2]) {
-                    return -1;
-                }
-                return random.nextInt(3) - 1;
-            }
-        });
         return temp;
     }
 }

@@ -164,6 +164,8 @@ public class Level implements Serializable{
      * @param newY new y coordinate
      */
     public void moveEntity (int oldX, int oldY, int newX, int newY) {
+        if (oldX == newX && oldY == newY)
+            return;
         if (isValid(newX, newY) && isValid(oldX, oldY)) {
             CellEntity entity = cells[oldX][oldY];
             if (entity != null) {
