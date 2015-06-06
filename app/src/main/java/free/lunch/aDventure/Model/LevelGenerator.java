@@ -17,6 +17,9 @@
 */
 package free.lunch.aDventure.Model;
 
+import java.util.LinkedList;
+import java.util.ListIterator;
+
 import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
@@ -44,5 +47,63 @@ public class LevelGenerator {
             temp.addWall(new Wall(i, i));
 
         return temp;
+    }
+
+    private boolean checkClosedSpaces (Level level) {
+        int y = 0;
+        int x = 0;
+        cellfound: while(y < level.getYSize())
+        {
+            x = 0;
+            while(x < level.getXSize())
+            {
+                if(!level.isWall(x, y))
+                    break cellfound;
+            }
+        }
+        int reachableCells = breadthFirstExplore(level, x, y);
+        int totalCells = 0;
+        for(int i = 0; i < level.getXSize(); i++)
+        {
+            for(int j = 0; j < level.getYSize(); j++)
+            {
+                if(!level.isWall(i, j))
+                    totalCells++;
+            }
+        }
+        return totalCells == reachableCells;
+    }
+
+    /*add node class? */
+    private int breadthFirstExplore (Level level, int x, int y) {
+        LinkedList<int[]> frontier = new LinkedList<>();
+        frontier.add(new int[]{x, y});
+        LinkedList<int[]> explored = new LinkedList<>();
+        while(!frontier.isEmpty())
+        {
+            int[] node = frontier.removeFirst();
+            for(int[] newNode : new int[][]{new int[]{node[0] - 1, node[1]}, new int[]{node[0], node[1] - 1}, new int[]{node[0] + 1, node[1]}, new int[]{node[0], node[1] + 1}})
+            {
+                if(level.isValid(newNode[0], newNode[1])) {
+                    if (!level.isWall(newNode[0], newNode[1]) && !isInThere(frontier, newNode) && !isInThere(explored, newNode))
+                        frontier.add(newNode);
+                }
+            }
+            explored.add(node);
+        }
+        return explored.size();
+    }
+
+    private boolean isInThere (LinkedList<int[]> list, int[] node)
+    {
+        ListIterator<int[]> it;
+        it = list.listIterator();
+        while(it.hasNext())
+        {
+            int[] temp = it.next();
+            if(temp[0] == node[0] && temp[1] == node[1])
+                return true;
+        }
+        return false;
     }
 }
