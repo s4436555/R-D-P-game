@@ -41,6 +41,11 @@ public class Horse extends Enemy {
     }
 
     @Override
+    public int getPoints(){
+        return 2;
+    }
+
+    @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.horse_128);
     }

@@ -41,6 +41,11 @@ public class TestEnemy extends Enemy{
     }
 
     @Override
+    public int getPoints(){
+        return 1;
+    }
+
+    @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.temp_128);
     }

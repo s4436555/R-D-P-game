@@ -46,6 +46,11 @@ public class Snake extends Enemy {
     }
 
     @Override
+    public int getPoints(){
+        return 2;
+    }
+
+    @Override
     public Drawable getImage(Context context) {
         if (moveV)
             return context.getResources().getDrawable(R.drawable.snake_128);

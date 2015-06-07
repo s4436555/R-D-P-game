@@ -41,6 +41,11 @@ public class Dragon extends Enemy {
     }
 
     @Override
+    public int getPoints(){
+        return 3;
+    }
+
+    @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.dragon_128);
     }

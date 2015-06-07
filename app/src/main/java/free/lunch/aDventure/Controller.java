@@ -44,6 +44,8 @@ public class Controller implements View.OnTouchListener, Serializable {
     private GameView gv;
     private TouchOverlay to;
 
+    private int score = 0;
+
     public Controller (GameActivity ga) {
         LevelGenerator generator = new LevelGenerator();
         level = generator.genLevel();
@@ -144,6 +146,10 @@ public class Controller implements View.OnTouchListener, Serializable {
         return level;
     }
 
+    public int getScore(){
+        return score;
+    }
+
     public void setLevel(Level level){
         gv.setLevel(level);
         ec.setLevel(level);
@@ -183,6 +189,8 @@ public class Controller implements View.OnTouchListener, Serializable {
         if (level.isValid(x, y)) {
             if (!level.isWall(x, y)) {
                 if (level.isEnemy(x, y)) {
+                    this.score = this.score + ((Enemy) level.getEntity(x, y)).getPoints();
+                    gv.setScore(this.score);
                     level.removeEnemy((Enemy) level.getEntity(x, y));
                     if (level.levelCleared()){
                         int px, py;
@@ -195,7 +203,6 @@ public class Controller implements View.OnTouchListener, Serializable {
                     }
                 }
                 if (level.isPortal(x, y)) {
-                    System.out.println("Naar een volgend level.");
                     LevelGenerator generator = new LevelGenerator();
                     level = generator.genLevel();                                       //Difficulty meegeven?
                     ec = new EnemyController(level);

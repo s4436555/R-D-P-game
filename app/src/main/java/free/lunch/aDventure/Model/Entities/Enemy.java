@@ -42,6 +42,10 @@ public abstract class Enemy implements CellEntity, Serializable {
         this.yPos = yPos;
     }
 
+    public int getPoints(){
+        return 1;
+    }
+
     public int getY () {
         return yPos;
     }
