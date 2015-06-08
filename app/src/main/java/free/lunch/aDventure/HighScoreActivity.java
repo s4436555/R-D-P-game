@@ -47,7 +47,6 @@ public class HighScoreActivity extends Activity {
                     desc.setText("doesn't get an individual text\nwith his " + i + " points.");
                     break;
             }
-
         }
     }
 

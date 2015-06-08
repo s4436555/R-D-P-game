@@ -129,4 +129,16 @@ public class MainMenuActivity extends Activity {
         MainMenuActivity.this.startActivity(myIntent);
         //Start Highscore
     }
+
+    public void gotoStatistics(View view){
+        Intent myIntent = new Intent(MainMenuActivity.this, CreditsActivity.class);
+        MainMenuActivity.this.startActivity(myIntent);
+        //Start Highscore
+    }
+
+    public void gotoCredits(View view){
+        Intent myIntent = new Intent(MainMenuActivity.this, CreditsActivity.class);
+        MainMenuActivity.this.startActivity(myIntent);
+        //Start Highscore
+    }
 }

@@ -24,7 +24,11 @@
         </activity>
         <activity
             android:name=".HighScoreActivity"
-            android:label="@string/title_activity_high_score">
+            android:label="@string/title_activity_high_score" >
+        </activity>
+        <activity
+            android:name=".CreditsActivity"
+            android:label="@string/title_activity_credits" >
         </activity>
     </application>
 

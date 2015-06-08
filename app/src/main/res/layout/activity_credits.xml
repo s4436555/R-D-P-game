@@ -1,8 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#eee"
-    tools:context=".MainMenuActivity"
-    >
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#eee"
+    tools:context="free.lunch.aDventure.CreditsActivity">
 
     <LinearLayout
         android:id="@+id/fullscreen_content"
@@ -11,16 +14,13 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <!-- "Buttons" -->
-        <!-- Play -->
+        <!-- Team -->
+        <!-- Jonathan -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="start"
             android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/play_button">
+            android:columnCount="2">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
@@ -35,7 +35,7 @@
                 android:textColor="#000"
                 android:layout_column="1"
                 android:layout_row="0"
-                android:text="@string/start_button"/>
+                android:text="@string/credits_name1"/>
             <TextView
                 android:layout_gravity="bottom"
                 android:layout_margin="@dimen/menu_margin"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_row="1"
-                android:text="@string/start_desc"/>
+                android:text="@string/credits_desc1"/>
         </GridLayout>
 
         <View
@@ -53,21 +53,18 @@
             android:layout_height="1dp"
             android:background="@color/menu_line" />
 
-        <!-- Highscore -->
+        <!-- Tom -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="gotoHighscore"
-            android:clickable="true"
             android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/score_button">
+            android:columnCount="2">
             <ImageView
-                android:layout_rowSpan="2"
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/crown_ic"/>
+                android:src="@drawable/play_ic"
+                android:layout_rowSpan="2"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -76,7 +73,7 @@
                 android:textColor="#000"
                 android:layout_column="1"
                 android:layout_row="0"
-                android:text="@string/highscore_button"/>
+                android:text="@string/credits_name2"/>
             <TextView
                 android:layout_gravity="bottom"
                 android:layout_margin="@dimen/menu_margin"
@@ -84,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_row="1"
-                android:text="@string/highscore_desc"/>
+                android:text="@string/credits_desc2"/>
         </GridLayout>
 
 
@@ -95,21 +92,18 @@
             android:layout_height="1dp"
             android:background="@color/menu_line" />
 
-        <!-- Statistics -->
+        <!-- Jan -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="gotoStatistics"
-            android:clickable="true"
             android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/stats_button">
+            android:columnCount="2">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/chart_ic"/>
+                android:src="@drawable/play_ic"
+                android:layout_rowSpan="2"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -118,7 +112,7 @@
                 android:textColor="#000"
                 android:layout_column="1"
                 android:layout_row="0"
-                android:text="@string/statistic_button"/>
+                android:text="@string/credits_name3"/>
             <TextView
                 android:layout_gravity="bottom"
                 android:layout_margin="@dimen/menu_margin"
@@ -126,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_row="1"
-                android:text="@string/statistic_desc"/>
+                android:text="@string/credits_desc3"/>
         </GridLayout>
 
         <View
@@ -136,21 +130,18 @@
             android:layout_height="1dp"
             android:background="@color/menu_line" />
 
-        <!-- Credits -->
+        <!-- Mathis -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="gotoCredits"
             android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/credits_button">
+            android:columnCount="2">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/ppl_ic"/>
+                android:src="@drawable/crown_ic"
+                android:layout_rowSpan="2"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -159,7 +150,7 @@
                 android:textColor="#000"
                 android:layout_column="1"
                 android:layout_row="0"
-                android:text="@string/credits_button"/>
+                android:text="@string/credits_name4"/>
             <TextView
                 android:layout_gravity="bottom"
                 android:layout_margin="@dimen/menu_margin"
@@ -167,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_row="1"
-                android:text="@string/credits_desc"/>
+                android:text="@string/credits_desc4"/>
         </GridLayout>
 
         <View
@@ -179,7 +170,4 @@
 
     </LinearLayout>
 
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
 </RelativeLayout>
