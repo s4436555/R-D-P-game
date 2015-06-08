@@ -28,9 +28,15 @@ import android.widget.GridLayout;
 
 public class MainMenuActivity extends Activity {
 
+    GridLayout plb;
+    GridLayout scb;
+    GridLayout stb;
+    GridLayout crb;
     View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
+            boolean oob = false;
+
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
                 scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
@@ -39,46 +45,40 @@ public class MainMenuActivity extends Activity {
                 return false;
             }
 
+            if (v.getHeight() < event.getY() || event.getY() < 0)
+                oob = true;
+
             switch (v.getId()) {
                 case R.id.play_button:
-                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
-                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    if (oob)
+                        plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    else
+                        plb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
                     break;
                 case R.id.score_button:
-                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
-                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    if (oob)
+                        scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    else
+                        scb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
                     break;
                 case R.id.stats_button:
-                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
-                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    if (oob)
+                        stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    else
+                        stb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
                     break;
                 case R.id.credits_button:
-                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    if (oob)
+                        crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    else
+                        crb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
                     break;
                 default:
-                    plb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
-                    crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
                     break;
             }
             return false;
         }
     };
-
-    GridLayout plb;
-    GridLayout scb;
-    GridLayout stb;
-    GridLayout crb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
