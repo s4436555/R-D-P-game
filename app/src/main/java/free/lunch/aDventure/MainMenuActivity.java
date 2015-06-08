@@ -123,4 +123,10 @@ public class MainMenuActivity extends Activity {
         MainMenuActivity.this.startActivity(myIntent);
         //Start spel
     }
+
+    public void gotoHighscore(View view){
+        Intent myIntent = new Intent(MainMenuActivity.this, HighScoreActivity.class);
+        MainMenuActivity.this.startActivity(myIntent);
+        //Start Highscore
+    }
 }

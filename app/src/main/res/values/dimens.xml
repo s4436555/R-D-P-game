@@ -10,4 +10,8 @@
     <dimen name="menu_bar_height">70dp</dimen>
 
     <dimen name="game_bar_height">48dp</dimen>
+
+    <dimen name="highscore_icon">50dp</dimen>
+    <dimen name="highscore_margin">8dp</dimen>
+    <dimen name="highscore_text">16sp</dimen>
 </resources>

@@ -16,4 +16,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_game">Bae &lt;33(Chat title could be random)</string>
     <string name="action_settings">Settings</string>
+
+    <!-- HighScore -->
+    <string name="title_activity_high_score">HighScore</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

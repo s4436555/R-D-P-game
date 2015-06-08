@@ -57,6 +57,7 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="gotoHighscore"
             android:clickable="true"
             android:rowCount="2"
             android:columnCount="2"
