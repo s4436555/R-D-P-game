@@ -23,7 +23,7 @@ public class StatisticsActivity extends Activity {
         v = (TextView) findViewById(R.id.stats_horse_desc);
         v.setText( 20 + " poor little horsies.");
         v = (TextView) findViewById(R.id.stats_wolf_desc);
-        v.setText( 299 + "big bad wolves.");
+        v.setText( 299 + " big bad wolves.");
         v = (TextView) findViewById(R.id.stats_dragon_desc);
         v.setText( 6 + " mighty dragons.");
         v = (TextView) findViewById(R.id.stats_stage_desc);
