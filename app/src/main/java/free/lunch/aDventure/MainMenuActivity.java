@@ -121,7 +121,7 @@ public class MainMenuActivity extends Activity {
     public void start(View view){
         Intent myIntent = new Intent(MainMenuActivity.this, GameActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
-        //Start spel
+        //Start Game
     }
 
     public void gotoHighscore(View view){
@@ -131,9 +131,9 @@ public class MainMenuActivity extends Activity {
     }
 
     public void gotoStatistics(View view){
-        Intent myIntent = new Intent(MainMenuActivity.this, CreditsActivity.class);
+        Intent myIntent = new Intent(MainMenuActivity.this, StatisticsActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
-        //Start Highscore
+        //Start Stats
     }
 
     public void gotoCredits(View view){
