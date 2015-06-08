@@ -26,7 +26,28 @@ public class HighScoreActivity extends Activity {
             //TODO:Load highscore names and scores
 
             player.setText("Player"+i);
-            desc.setText("has scored " + i + " points in a nearly endless run.");
+
+            switch (i){
+                case 0:
+                    desc.setText("is dominating the leaderboard\nwith " + i + " points.");
+                    break;
+                case 1:
+                    desc.setText("is the runner up with " + i + " points.");
+                    break;
+                case 2:
+                    desc.setText("spent quite some time getting " + i + " points.");
+                    break;
+                case 8:
+                    desc.setText("is so bad he only got " + i + " points.");
+                    break;
+                case 9:
+                    desc.setText("nearly didn't make it on here\nwith his " + i + " points.");
+                    break;
+                default:
+                    desc.setText("doesn't get an individual text\nwith his " + i + " points.");
+                    break;
+            }
+
         }
     }
 
