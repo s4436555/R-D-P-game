@@ -26,7 +26,7 @@ import free.lunch.aDventure.Model.CellEntity;
 import free.lunch.aDventure.R;
 
 /**
- * Created by jonathan on 30-4-15.
+ * A class for storing the player information.
  */
 public class Player implements CellEntity, Serializable {
 
