@@ -99,7 +99,8 @@ public class GameView extends View implements Observer {
         //------UNCLEAN-----
         cell_size = Math.min((w - 40) / level.getXSize(), (h - 30) / level.getYSize());
 
-        textSize = margin_vertical/4;
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        textSize = 16 * scale;
     }
 
     private void drawBackground(Canvas canvas) {
