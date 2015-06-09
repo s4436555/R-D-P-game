@@ -251,6 +251,7 @@ public class Controller implements View.OnTouchListener, Serializable {
                 }
                 if (level.isPortal(x, y)) {
                     stagesCleared++;
+                    gv.setStage(stagesCleared + 1);
                     System.out.println("Sneks: " +snakesKill+ " Dragons: " + dragonsKill+ " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
                     LevelGenerator generator = new LevelGenerator();
                     level = generator.genLevel(level.getDifficulty() + 2);
