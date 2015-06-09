@@ -145,7 +145,7 @@ public class GameView extends View implements Observer {
                 this.drawBubbleLeft("You done yet?", canvas);
                 this.drawBubbleRight("Ok.", canvas);
                 this.drawBubbleLeft("Do your homework!", canvas);
-                this.drawBubbleLeft("Did you do the laundary?", canvas);
+                this.drawBubbleLeft("Did you do the laundry?", canvas);
 
         }
         bubble_height = 0;
