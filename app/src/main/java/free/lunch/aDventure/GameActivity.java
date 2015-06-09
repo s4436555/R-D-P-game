@@ -47,7 +47,7 @@ public class GameActivity extends MainMenuActivity {
         setContentView(R.layout.activity_game);
         gamePrefs = getSharedPreferences(GAME_PREFS, 0);
 
-        int chat = (int) Math.round(Math.random() * 3);
+        int chat = (int) Math.round(Math.random() * 5);
         GameView gameView = (GameView) findViewById(R.id.gameView);
         gameView.setChat(chat);
 
@@ -59,6 +59,14 @@ public class GameActivity extends MainMenuActivity {
             case 1:
                 getActionBar().setTitle("Grandma");
                 getActionBar().setIcon(R.drawable.wolf_128);
+                break;
+            case 2:
+                getActionBar().setTitle("Bob");
+                getActionBar().setIcon(R.drawable.happy_128);
+                break;
+            case 3:
+                getActionBar().setTitle("Joe");
+                getActionBar().setIcon(R.drawable.waving);
                 break;
             default:
                 getActionBar().setTitle("Mom");

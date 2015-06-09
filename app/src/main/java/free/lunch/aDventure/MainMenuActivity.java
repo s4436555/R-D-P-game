@@ -141,4 +141,10 @@ public class MainMenuActivity extends Activity {
         MainMenuActivity.this.startActivity(myIntent);
         //Start Highscore
     }
+
+    public void gotoHelp(View view){
+        Intent myIntent = new Intent(MainMenuActivity.this, HelpActivity.class);
+        MainMenuActivity.this.startActivity(myIntent);
+        //Start Highscore
+    }
 }

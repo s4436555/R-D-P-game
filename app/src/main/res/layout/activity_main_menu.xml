@@ -136,7 +136,7 @@
             android:layout_height="1dp"
             android:background="@color/menu_line" />
 
-        <!-- Credits -->
+        <!-- Help -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
             android:onClick="gotoCredits"
             android:rowCount="2"
             android:columnCount="2"
-            android:id="@+id/credits_button">
+            android:id="@+id/help_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
@@ -168,6 +168,46 @@
                 android:layout_column="1"
                 android:layout_row="1"
                 android:text="@string/credits_desc"/>
+        </GridLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="@dimen/menu_margin"
+            android:layout_marginRight="@dimen/menu_margin"
+            android:layout_height="1dp"
+            android:background="@color/menu_line" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="gotoHelp"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:id="@+id/credits_button">
+            <ImageView
+                android:layout_width="@dimen/menu_icon"
+                android:layout_height="@dimen/menu_icon"
+                android:layout_margin="@dimen/menu_margin"
+                android:layout_rowSpan="2"
+                android:src="@drawable/ppl_ic"/>
+            <TextView
+                android:layout_margin="@dimen/menu_margin"
+                android:textSize="@dimen/menu_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:text="@string/help_button"/>
+            <TextView
+                android:layout_gravity="bottom"
+                android:layout_margin="@dimen/menu_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:text="@string/help_desc"/>
         </GridLayout>
 
         <View
