@@ -1,6 +1,8 @@
 package free.lunch.aDventure;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +16,11 @@ public class HighScoreActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-        getActionBar().setIcon(R.drawable.crown_ic);
+        Drawable icon = getResources().getDrawable(R.drawable.crown_ic);
+        ActionBar actionBar = getActionBar();
+        if (icon != null && actionBar != null) {
+            actionBar.setIcon(icon);
+        }
 
         for (int i = 0; i < 10; i++) {
             int nameID = getResources().getIdentifier("player" + i + "_name", "id", getPackageName());

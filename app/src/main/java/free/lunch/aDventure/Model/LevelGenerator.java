@@ -33,7 +33,7 @@ import free.lunch.aDventure.Model.Entities.Wall;
  */
 public class LevelGenerator {
 
-    public Level genLevel () {
+    public Level genLevel (int difficulty) {
         Level temp = new Level(9, 9);
 
         temp.addEnemy(new Dragon(1, 3));

@@ -32,6 +32,7 @@ public class Level implements Serializable{
 
     private int xSize;
     private int ySize;
+    private int difficulty;
 
     private CellEntity[][] cells;
     private LinkedList<Enemy> enemies;
@@ -45,6 +46,8 @@ public class Level implements Serializable{
     public Level (int xSize, int ySize) {
         this.xSize = xSize;
         this.ySize = ySize;
+
+        difficulty = -1;
 
         cells = new CellEntity[xSize][ySize];
         enemies = new LinkedList<>();
@@ -64,6 +67,22 @@ public class Level implements Serializable{
      */
     public int getYSize () {
         return ySize;
+    }
+
+    /**
+     * Returns the assigned difficulty of this level.
+     * @return the assigned difficulty of this level
+     */
+    public int getDifficulty () {
+        return difficulty;
+    }
+
+    /**
+     * Assigns a difficulty to this level.
+     * @param newDifficulty the new difficulty for this level
+     */
+    public void setDifficulty (int newDifficulty) {
+        difficulty = newDifficulty;
     }
 
     /**
