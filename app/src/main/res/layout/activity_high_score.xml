@@ -28,7 +28,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap1_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -60,7 +60,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap2_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -92,7 +92,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap3_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -124,7 +124,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap4_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -156,7 +156,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap5_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -188,7 +188,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap6_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -220,7 +220,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap7_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -252,7 +252,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap8_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -284,7 +284,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap9_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
@@ -316,7 +316,7 @@
                     android:layout_width="@dimen/highscore_icon"
                     android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/play_ic"
+                    android:src="@drawable/keycap10_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/highscore_margin"
