@@ -132,81 +132,69 @@ public class GameView extends View implements Observer {
 
         this.drawStage(canvas);
 
+        String [] texts = new String[0];
+        boolean [] positions = new boolean[0];
+
         // Draws the text above the game
         switch (chat){
             case 0:
-                this.drawBubbleRight("Is it grey?", canvas);
-                this.drawBubbleLeft("Ok.", canvas);
-                this.drawBubbleRight("Think of a color.", canvas);
-                this.drawBubbleRight("I'm a magician.", canvas);
-                this.drawBubbleLeft("Woof do you do for a living?", canvas);
-                this.drawBubbleRight("Ask me a question.", canvas);
-                this.drawBubbleRight("Let's try this:", canvas);
+                texts = new String[]{"Is it grey?", "Ok.", "Think of a color.", "I'm a magician.",
+                        "Woof do you do for a living?", "Ask me a question.", "Let's try this:"};
+                positions = new boolean[] {true, false, true, true, false, true, true};
                 break;
             case 1:
-                this.drawBubbleRight("Uhmm...", canvas);
-                this.drawBubbleLeft("Are you trying to say I'm ugly?", canvas);
-                this.drawBubbleRight("Why do you have such big ears?", canvas);
-                this.drawBubbleLeft("So I can see better.", canvas);
-                this.drawBubbleRight("Why do you have such big eyes?", canvas);
-                this.drawBubbleLeft("Yea, wanted something different.", canvas);
-                this.drawBubbleRight("New profile picture?", canvas);
+                texts = new String[]{"Uhmm...", "Are you trying to say I'm ugly?",
+                        "Why do you have such big ears?", "So I can see better.",
+                        "Why do you have such big eyes?", "Yea, wanted something different.",
+                        "New profile picture?"};
+                positions = new boolean[] {true, false, true, false, true, false, true};
                 break;
             case 2:
-                this.drawBubbleRight("You planet!", canvas);
-                this.drawBubbleLeft("Stop it.", canvas);
-                this.drawBubbleRight("How do you organize a space party?", canvas);
-                this.drawBubbleLeft("Please don't.", canvas);
-                this.drawBubbleRight("Wanna hear another joke?", canvas);
-                this.drawBubbleLeft("Oh god...", canvas);
-                this.drawBubbleRight("Because his grandma told him!", canvas);
-                this.drawBubbleLeft("Why?", canvas);
+                texts = new String[]{"You planet!", "Stop it.", "How do you organize a space party?",
+                        "Please don't.", "Wanna hear another joke?", "Oh god...",
+                        "Because his grandma told him!", "Why?"};
+                positions = new boolean[] {true, false, true, false, true, false, true, false};
                 break;
             case 3:
-                this.drawBubbleLeft("...", canvas);
-                this.drawBubbleRight("from the great wall of China.", canvas);
-                this.drawBubbleRight("You can see the moon", canvas);
-                this.drawBubbleRight("Fun fact:", canvas);
-                this.drawBubbleLeft("See you tomorrow", canvas);
-                this.drawBubbleRight("Ok, CU then.", canvas);
-                this.drawBubbleLeft("6pm?", canvas);
+                texts = new String[] {"...", "from the great wall of China.",
+                        "You can see the moon", "Fun fact:", "See you tomorrow",
+                        "Ok, CU then.","6pm?"};
+                positions = new boolean[]{false, true, true, true, false, true, false};
                 break;
             case 4:
-                this.drawBubbleLeft("Why do I even bother", canvas);
-                this.drawBubbleRight("He was lucky it was a soft drink.", canvas);
-                this.drawBubbleLeft("No?", canvas);
-                this.drawBubbleRight("got hit in the head with a softdrink?", canvas);
-                this.drawBubbleRight("Did you hear about the guy who", canvas);
-                this.drawBubbleRight("Not much", canvas);
-                this.drawBubbleLeft("So, what's up?", canvas);
+                texts = new String [] {"Why do I even bother", "He was lucky it was a soft drink.",
+                        "No?", "got hit in the head with a softdrink?",
+                        "Did you hear about the guy who", "Not much", "So, what's up?"};
+                positions = new boolean[] {false, true, false, true, true, true, false};
                 break;
             case 5:
-                this.drawBubbleRight("OK.", canvas);
-                this.drawBubbleLeft("DO NOT REPLY", canvas);
-                this.drawBubbleLeft("Expected Delivery time is 20:17", canvas);
-                this.drawBubbleLeft("Your Pizza will be delivered shortly", canvas);
-                this.drawBubbleLeft("Jim&Jones Pizza Service", canvas);
-                this.drawBubbleLeft("Thank you for your purchase at", canvas);
-                this.drawBubbleLeft("CONFIRMATION", canvas);
+                texts = new String[] {"OK.", "DO NOT REPLY", "Expected Delivery time is 20:17",
+                        "Your Pizza will be delivered shortly", "Jim&Jones Pizza Service",
+                        "Thank you for your purchase at", "CONFIRMATION"};
+                positions = new boolean[] {true, false, false, false, false, false, false};
                 break;
             case 6:
-                this.drawBubbleLeft("Sssszz..", canvas);
-                this.drawBubbleRight("You shush.", canvas);
-                this.drawBubbleLeft("Shhhhss", canvas);
-                this.drawBubbleRight("Shhh", canvas);
-                this.drawBubbleLeft("shhsss", canvas);
-                this.drawBubbleRight("Shush!", canvas);
-                this.drawBubbleLeft("Sssszzsh...", canvas);
+                texts = new String[] {"Sssszz..", "You shush.", "Shhhhss", "Shhh", "shhsss",
+                        "Shush!", "Sssszzsh..."};
+                positions = new boolean[] {false, true, false, true, false, true, false};
                 break;
             default:
-                this.drawBubbleRight("Ok.", canvas);
-                this.drawBubbleLeft("Do your homework!", canvas);
-                this.drawBubbleLeft("LoL", canvas);
-                this.drawBubbleRight("Ofc", canvas);
-                this.drawBubbleLeft("Did you brush ur teeth?", canvas);
-                this.drawBubbleLeft("Hey, hon, how's everything going?", canvas);
+                texts = new String[] {"Ok.", "Do your homework!", "LoL", "Ofc",
+                        "Did you brush ur teeth?", "Hey, hon, how's everything going?"};
+                positions = new boolean[] {true, false, false, true, false, false};
         }
+        drawBubblesOnTop(texts, positions, canvas);
         bubble_height = 0;
+    }
+
+    private void drawBubblesOnTop(String[] texts, boolean[] positions, Canvas canvas) {
+        for (int i = 0; i < texts.length; i++){
+            if (positions[i]){
+                drawBubbleRight(texts[i], canvas);
+            } else {
+                drawBubbleLeft(texts[i], canvas);
+            }
+        }
     }
 
     private void drawLevel (Canvas canvas) {
