@@ -48,6 +48,7 @@ public class GameView extends View implements Observer {
     private int scoreHeight = 40;
     private float bubble_height = 0;
     private int chat = 0;
+    private float textSize;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -97,6 +98,8 @@ public class GameView extends View implements Observer {
 
         //------UNCLEAN-----
         cell_size = Math.min((w - 40) / level.getXSize(), (h - 30) / level.getYSize());
+
+        textSize = margin_vertical/4;
     }
 
     private void drawBackground(Canvas canvas) {
@@ -193,7 +196,7 @@ public class GameView extends View implements Observer {
         if (d != null) {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setTextSize(40);
+            p.setTextSize(textSize);
             p.setAntiAlias(true);
             p.getTextBounds("stgre: 0000", 0, 11, bounds);
 
@@ -220,7 +223,7 @@ public class GameView extends View implements Observer {
         if (d != null) {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setTextSize(40);
+            p.setTextSize(textSize);
             p.getTextBounds(" stgre: 000", 0, 11, bounds);
             p.setAntiAlias(true);
 
@@ -286,7 +289,7 @@ public class GameView extends View implements Observer {
         if (d != null) {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setTextSize(40);
+            p.setTextSize(textSize);
             p.getTextBounds(text + "g", 0, text.length()+1, bounds);
             p.setAntiAlias(true);
 
@@ -316,7 +319,7 @@ public class GameView extends View implements Observer {
         if (d != null) {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-            p.setTextSize(40);
+            p.setTextSize(textSize);
             p.getTextBounds(text + "g", 0, text.length() + 1, bounds);
             p.setAntiAlias(true);
 
