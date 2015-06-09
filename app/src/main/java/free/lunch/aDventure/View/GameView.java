@@ -100,6 +100,7 @@ public class GameView extends View implements Observer {
         cell_size = Math.min((w - 40) / level.getXSize(), (h - 30) / level.getYSize());
 
         final float scale = getContext().getResources().getDisplayMetrics().density;
+        bubble_margin = (int) (6 * scale);
         textSize = 16 * scale;
     }
 
@@ -252,7 +253,7 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText("score: " + score, bounds.left, bounds.bottom - bubble_margin, p);
+            canvas.drawText("score: " + score, bounds.left, (float) (bounds.bottom - (bubble_margin * 0.4)), p);
         }
     }
 
@@ -277,7 +278,7 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText("stage: " + stage, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
+            canvas.drawText("stage: " + stage, bounds.left + bubble_margin, (float) (bounds.bottom - (bubble_margin * 0.4)), p);
         }
     }
 
@@ -347,7 +348,7 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText(text, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
+            canvas.drawText(text, bounds.left + bubble_margin, (float) (bounds.bottom - (bubble_margin * 0.4)), p);
         }
     }
 
@@ -376,7 +377,7 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText(text, bounds.left, bounds.bottom - bubble_margin, p);
+            canvas.drawText(text, bounds.left, (float) (bounds.bottom - (bubble_margin * 0.4)), p);
         }
     }
 
