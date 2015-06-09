@@ -40,32 +40,33 @@ public class HighScoreActivity extends Activity {
             TextView desc = (TextView) findViewById(descID);
 
             //TODO:Load highscore names and scores
-
-            switch (i){
-                case 0:
-                    player.setText(outputScores[0]);
-                    desc.setText("is dominating the leaderboard with " +outputScores[2]+  " points\nDate: " +outputScores[1]);
-                    break;
-                case 1:
-                    player.setText(outputScores[0]);
-                    desc.setText("is the runner up with " +outputScores[2]+ " points\nDate: " +outputScores[1]);
-                    break;
-                case 2:
-                    player.setText(outputScores[0]);
-                    desc.setText("spent quite some time getting " +outputScores[2]+ " points\nDate: " +outputScores[1]);
-                    break;
-                case 8:
-                    player.setText(outputScores[0]);
-                    desc.setText("is so bad he only got " +outputScores[2]+  " points\nDate: " +outputScores[1]);
-                    break;
-                case 9:
-                    player.setText(outputScores[0]);
-                    desc.setText("nearly didn't make it on here with his " +outputScores[2]+  " points\nDate: " +outputScores[1]);
-                    break;
-                default:
-                    player.setText(outputScores[0]);
-                    desc.setText("doesn't get an individual text with his " +outputScores[2]+ " points\nDate: " +outputScores[1]);
-                    break;
+            if (outputScores.length == 3) {
+                switch (i){
+                    case 0:
+                        player.setText(outputScores[0]);
+                        desc.setText("is dominating the leaderboard with " +outputScores[2]+  " points\nDate: " +outputScores[1]);
+                        break;
+                    case 1:
+                        player.setText(outputScores[0]);
+                        desc.setText("is the runner up with " +outputScores[2]+ " points\nDate: " +outputScores[1]);
+                        break;
+                    case 2:
+                        player.setText(outputScores[0]);
+                        desc.setText("spent quite some time getting " +outputScores[2]+ " points\nDate: " +outputScores[1]);
+                        break;
+                    case 8:
+                        player.setText(outputScores[0]);
+                        desc.setText("is so bad he only got " +outputScores[2]+  " points\nDate: " +outputScores[1]);
+                        break;
+                    case 9:
+                        player.setText(outputScores[0]);
+                        desc.setText("nearly didn't make it on here with his " +outputScores[2]+  " points\nDate: " +outputScores[1]);
+                        break;
+                    default:
+                        player.setText(outputScores[0]);
+                        desc.setText("doesn't get an individual text with his " +outputScores[2]+ " points\nDate: " +outputScores[1]);
+                        break;
+                }
             }
         }
     }
