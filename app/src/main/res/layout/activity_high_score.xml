@@ -38,7 +38,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player0_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player0_desc"/>
             </GridLayout>
 
@@ -70,7 +70,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player1_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player1_desc"/>
             </GridLayout>
 
@@ -102,7 +102,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player2_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player2_desc"/>
             </GridLayout>
 
@@ -134,7 +134,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player3_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player3_desc"/>
             </GridLayout>
 
@@ -166,7 +166,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player4_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player4_desc"/>
             </GridLayout>
 
@@ -198,7 +198,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player5_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player5_desc"/>
             </GridLayout>
 
@@ -230,7 +230,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player6_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -239,7 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player6_desc"/>
             </GridLayout>
 
@@ -262,7 +262,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player7_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -271,7 +271,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player7_desc"/>
             </GridLayout>
 
@@ -294,7 +294,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player8_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -303,7 +303,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player8_desc"/>
             </GridLayout>
 
@@ -326,7 +326,7 @@
                     android:textColor="#000"
                     android:layout_column="1"
                     android:layout_row="0"
-                    android:text="@string/start_button"
+                    android:text="@string/high_score_default_name"
                     android:id="@+id/player9_name"/>
                 <TextView
                     android:layout_gravity="bottom"
@@ -335,7 +335,7 @@
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_row="1"
-                    android:text="@string/start_desc"
+                    android:text="@string/high_score_default_text"
                     android:id="@+id/player9_desc"/>
             </GridLayout>
         </LinearLayout>

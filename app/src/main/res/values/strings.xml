@@ -20,6 +20,8 @@
 
     <!-- HighScore -->
     <string name="title_activity_high_score">HighScore</string>
+    <string name="high_score_default_name">ShyGuy</string>
+    <string name="high_score_default_text">didn\'t actually play the game</string>
 
     <!-- Credits -->
     <string name="title_activity_credits">Credits</string>
