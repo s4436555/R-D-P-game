@@ -46,6 +46,8 @@ public class GameView extends View implements Observer {
     private int bubble_margin = 10;
     private int stage = 0;
     private int scoreHeight = 40;
+    private float bubble_height = 0;
+    private int chat = 0;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -80,6 +82,7 @@ public class GameView extends View implements Observer {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+
         super.onSizeChanged(w, h, oldw, oldh);
 
         if(level==null)
@@ -123,6 +126,29 @@ public class GameView extends View implements Observer {
         this.drawScore(canvas);
 
         this.drawStage(canvas);
+
+        // Draws the text above the game
+        switch (chat){
+            case 0:
+                this.drawBubbleRight("Is it grey?", canvas);
+                this.drawBubbleLeft("Ok.", canvas);
+                this.drawBubbleRight("Think of a color.", canvas);
+                this.drawBubbleRight("I'm a magician.", canvas);
+                break;
+            case 1:
+                this.drawBubbleRight("Uhmm...", canvas);
+                this.drawBubbleLeft("So I can hear better.", canvas);
+                this.drawBubbleRight("Why do you have such big ears?", canvas);
+                this.drawBubbleLeft("So I can see better.", canvas);
+                break;
+            default:
+                this.drawBubbleLeft("You done yet?", canvas);
+                this.drawBubbleRight("Ok.", canvas);
+                this.drawBubbleLeft("Do your homework!", canvas);
+                this.drawBubbleLeft("Did you do the laundary?", canvas);
+
+        }
+        bubble_height = 0;
     }
 
     private void drawLevel (Canvas canvas) {
@@ -146,6 +172,10 @@ public class GameView extends View implements Observer {
         d.draw(canvas);
     }
 
+    /**
+     * Draws the bubble showing the score
+     * @param canvas
+     */
     private void drawScore (Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble);
 
@@ -153,8 +183,8 @@ public class GameView extends View implements Observer {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
             p.setTextSize(40);
-            p.getTextBounds("score: 000", 0, 10, bounds);
             p.setAntiAlias(true);
+            p.getTextBounds("stgre: 0000", 0, 11, bounds);
 
             bounds.inset(-bubble_margin, -bubble_margin);
             bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (canvas.getHeight() - margin_vertical));
@@ -165,10 +195,14 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText("score: " + score, bounds.left, bounds.bottom, p);
+            canvas.drawText("score: " + score, bounds.left, bounds.bottom - bubble_margin, p);
         }
     }
 
+    /**
+     * Draws the bubble that tells the stage
+     * @param canvas
+     */
     private void drawStage (Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble2);
 
@@ -176,7 +210,7 @@ public class GameView extends View implements Observer {
             Rect bounds = new Rect();
             Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
             p.setTextSize(40);
-            p.getTextBounds("score: 000", 0, 10, bounds);
+            p.getTextBounds(" stgre: 000", 0, 11, bounds);
             p.setAntiAlias(true);
 
             bounds.inset(-bubble_margin, -bubble_margin);
@@ -186,14 +220,22 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText("stage: " + stage, bounds.left + 10, bounds.bottom, p);
+            canvas.drawText("stage: " + stage, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
         }
     }
 
+    /**
+     * Setter for score
+     * @param score of the player
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Setter for stage
+     * @param stage of the player
+     */
     public void setStage(int stage) {
         this.stage = stage;
     }
@@ -222,4 +264,66 @@ public class GameView extends View implements Observer {
         return temp;
     }
 
+    /**
+     * Draws a bubble on top of the screen on the left
+     * @param text in the bubble
+     * @param canvas
+     */
+    private void drawBubbleLeft (String text, Canvas canvas) {
+        Drawable d = getResources().getDrawable(R.drawable.bubble2);
+
+        if (d != null) {
+            Rect bounds = new Rect();
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            p.setTextSize(40);
+            p.getTextBounds(text + "g", 0, text.length()+1, bounds);
+            p.setAntiAlias(true);
+
+            bounds.inset(-bubble_margin, -bubble_margin);
+
+            bubble_height += bounds.height();
+
+            bounds.offsetTo((int) margin_horizontal, (int) (margin_vertical - bubble_height));
+
+            d.setBounds(bounds);
+
+
+            bounds.inset(bubble_margin, bubble_margin);
+            d.draw(canvas);
+            canvas.drawText(text, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
+        }
+    }
+
+    /**
+     * Draws a bubble on top of the screen on the right
+     * @param text in the bubble
+     * @param canvas
+     */
+    private void drawBubbleRight (String text, Canvas canvas) {
+        Drawable d = getResources().getDrawable(R.drawable.bubble);
+
+        if (d != null) {
+            Rect bounds = new Rect();
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            p.setTextSize(40);
+            p.getTextBounds(text + "g", 0, text.length() + 1, bounds);
+            p.setAntiAlias(true);
+
+            bounds.inset(-bubble_margin, -bubble_margin);
+
+            bubble_height += bounds.height();
+
+            bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (margin_vertical - bubble_height));
+
+            d.setBounds(bounds);
+
+            bounds.inset(bubble_margin, bubble_margin);
+            d.draw(canvas);
+            canvas.drawText(text, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
+        }
+    }
+
+    public void setChat(int chat) {
+        this.chat = chat;
+    }
 }

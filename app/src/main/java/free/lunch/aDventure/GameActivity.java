@@ -21,8 +21,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import free.lunch.aDventure.Model.Level;
+import free.lunch.aDventure.View.GameView;
 
 /**
  *
@@ -34,6 +34,24 @@ public class GameActivity extends MainMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        int chat = (int) Math.round(Math.random() * 3);
+        GameView gameView = (GameView) findViewById(R.id.gameView);
+        gameView.setChat(chat);
+
+        switch (chat){
+            case 0:
+                getActionBar().setTitle("Dog");
+                getActionBar().setIcon(R.drawable.poodle_128);
+                break;
+            case 1:
+                getActionBar().setTitle("Grandma");
+                getActionBar().setIcon(R.drawable.wolf_128);
+                break;
+            default:
+                getActionBar().setTitle("Mom");
+                getActionBar().setIcon(R.drawable.temp_128);
+        }
 
         // this is the view on which you will listen for touch events
         final View touchView = findViewById(R.id.touchView);
