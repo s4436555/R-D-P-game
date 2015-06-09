@@ -138,30 +138,72 @@ public class GameView extends View implements Observer {
                 this.drawBubbleLeft("Ok.", canvas);
                 this.drawBubbleRight("Think of a color.", canvas);
                 this.drawBubbleRight("I'm a magician.", canvas);
+                this.drawBubbleLeft("Woof do you do for a living?", canvas);
+                this.drawBubbleRight("Ask me a question.", canvas);
+                this.drawBubbleRight("Let's try this:", canvas);
                 break;
             case 1:
                 this.drawBubbleRight("Uhmm...", canvas);
-                this.drawBubbleLeft("So I can hear better.", canvas);
+                this.drawBubbleLeft("Are you trying to say I'm ugly?", canvas);
                 this.drawBubbleRight("Why do you have such big ears?", canvas);
                 this.drawBubbleLeft("So I can see better.", canvas);
+                this.drawBubbleRight("Why do you have such big eyes?", canvas);
+                this.drawBubbleLeft("Yea, wanted something different.", canvas);
+                this.drawBubbleRight("New profile picture?", canvas);
                 break;
             case 2:
                 this.drawBubbleRight("You planet!", canvas);
-                this.drawBubbleLeft("Please don't.", canvas);
+                this.drawBubbleLeft("Stop it.", canvas);
                 this.drawBubbleRight("How do you organize a space party?", canvas);
-                this.drawBubbleRight("Wanna hear a joke?", canvas);
+                this.drawBubbleLeft("Please don't.", canvas);
+                this.drawBubbleRight("Wanna hear another joke?", canvas);
+                this.drawBubbleLeft("Oh god...", canvas);
+                this.drawBubbleRight("Because his grandma told him!", canvas);
+                this.drawBubbleLeft("Why?", canvas);
                 break;
             case 3:
                 this.drawBubbleLeft("...", canvas);
                 this.drawBubbleRight("from the great wall of China.", canvas);
                 this.drawBubbleRight("You can see the moon", canvas);
+                this.drawBubbleRight("Fun fact:", canvas);
+                this.drawBubbleLeft("See you tomorrow", canvas);
+                this.drawBubbleRight("Ok, CU then.", canvas);
+                this.drawBubbleLeft("6pm?", canvas);
+                break;
+            case 4:
+                this.drawBubbleLeft("Why do I even bother", canvas);
+                this.drawBubbleRight("He was lucky it was a soft drink.", canvas);
+                this.drawBubbleLeft("No?", canvas);
+                this.drawBubbleRight("got hit in the head with a softdrink?", canvas);
+                this.drawBubbleRight("Did you hear about the guy who", canvas);
+                this.drawBubbleRight("Not much", canvas);
+                this.drawBubbleLeft("So, what's up?", canvas);
+                break;
+            case 5:
+                this.drawBubbleRight("OK.", canvas);
+                this.drawBubbleLeft("DO NOT REPLY", canvas);
+                this.drawBubbleLeft("Expected Delivery time is 20:17", canvas);
+                this.drawBubbleLeft("Your Pizza will be delivered shortly", canvas);
+                this.drawBubbleLeft("Jim&Jones Pizza Service", canvas);
+                this.drawBubbleLeft("Thank you for your purchase at", canvas);
+                this.drawBubbleLeft("CONFIRMATION", canvas);
+                break;
+            case 6:
+                this.drawBubbleLeft("Sssszz..", canvas);
+                this.drawBubbleRight("You shush.", canvas);
+                this.drawBubbleLeft("Shhhhss", canvas);
+                this.drawBubbleRight("Shhh", canvas);
+                this.drawBubbleLeft("shhsss", canvas);
+                this.drawBubbleRight("Shush!", canvas);
+                this.drawBubbleLeft("Sssszzsh...", canvas);
                 break;
             default:
-                this.drawBubbleLeft("You done yet?", canvas);
                 this.drawBubbleRight("Ok.", canvas);
                 this.drawBubbleLeft("Do your homework!", canvas);
-                this.drawBubbleLeft("Did you do the laundry?", canvas);
-
+                this.drawBubbleLeft("LoL", canvas);
+                this.drawBubbleRight("Ofc", canvas);
+                this.drawBubbleLeft("Did you brush ur teeth?", canvas);
+                this.drawBubbleLeft("Hey, hon, how's everything going?", canvas);
         }
         bubble_height = 0;
     }
@@ -334,7 +376,7 @@ public class GameView extends View implements Observer {
 
             bounds.inset(bubble_margin, bubble_margin);
             d.draw(canvas);
-            canvas.drawText(text, bounds.left + bubble_margin, bounds.bottom - bubble_margin, p);
+            canvas.drawText(text, bounds.left, bounds.bottom - bubble_margin, p);
         }
     }
 
