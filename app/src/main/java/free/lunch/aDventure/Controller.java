@@ -42,11 +42,13 @@ public class Controller implements View.OnTouchListener, Serializable {
     private EnemyController ec;
     private Level level;
     private GameView gv;
+    private GameActivity ga;
     private TouchOverlay to;
 
     private int score = 0;
 
     public Controller (GameActivity ga) {
+        this.ga = ga;
         LevelGenerator generator = new LevelGenerator();
         level = generator.genLevel(4);
         ec = new EnemyController(level);
@@ -56,6 +58,11 @@ public class Controller implements View.OnTouchListener, Serializable {
 
         to = (TouchOverlay)ga.findViewById(R.id.touchOverlay);
     }
+
+    private boolean checkGameOver(){
+        return level.getPlayer() == null;
+    }
+
 
     /**
      * Called when a touch event is dispatched to a view. This allows listeners to
@@ -80,21 +87,25 @@ public class Controller implements View.OnTouchListener, Serializable {
                 case UP:
                     this.movePlayer(Direction.UP);
                     ec.moveEnemies();
+                    if(checkGameOver()){ ga.setHighScore();}
                     gv.postInvalidate();
                     break;
                 case RIGHT:
                     this.movePlayer(Direction.RIGTH);
                     ec.moveEnemies();
+                    if(checkGameOver()){ ga.setHighScore();}
                     gv.postInvalidate();
                     break;
                 case DOWN:
                     this.movePlayer(Direction.DOWN);
                     ec.moveEnemies();
+                    if(checkGameOver()){ ga.setHighScore();}
                     gv.postInvalidate();
                     break;
                 case LEFT:
                     this.movePlayer(Direction.LEFT);
                     ec.moveEnemies();
+                    if(checkGameOver()){ ga.setHighScore();}
                     gv.postInvalidate();
                     break;
                 case CENTER:

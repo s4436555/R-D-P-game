@@ -24,16 +24,28 @@ import android.view.View;
 import free.lunch.aDventure.Model.Level;
 import free.lunch.aDventure.View.GameView;
 
+import android.content.SharedPreferences;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  */
 public class GameActivity extends MainMenuActivity {
     private Controller controller;
+    private SharedPreferences gamePrefs;
+    public static final String GAME_PREFS = "HighScoresFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        gamePrefs = getSharedPreferences(GAME_PREFS, 0);
 
         int chat = (int) Math.round(Math.random() * 3);
         GameView gameView = (GameView) findViewById(R.id.gameView);
@@ -60,9 +72,51 @@ public class GameActivity extends MainMenuActivity {
 
         if (savedInstanceState != null && savedInstanceState.getSerializable("level") != null){
             controller.setLevel((Level) savedInstanceState.getSerializable("level"));
+            int exScore = savedInstanceState.getInt("score");
         }
 
         touchView.setOnTouchListener(controller);
+    }
+
+    @Override
+    protected void onDestroy(){
+        setHighScore();
+        super.onDestroy();
+    }
+
+    public void setHighScore(){
+        int currentScore = controller.getScore();
+        if (currentScore > 0){
+            SharedPreferences.Editor scoreEdit = gamePrefs.edit();
+            DateFormat dateForm = new SimpleDateFormat("dd MMMM yyyy");
+            String dateOutput = dateForm.format(new Date());
+            String scores = gamePrefs.getString("highScores", "");
+            if(scores.length()>0){
+                List<Score> scoreStrings = new ArrayList<Score>();
+                String[] exScores = scores.split("\\|");
+                for(String eSc : exScores){
+                    String[] parts = eSc.split(" - ");
+                    scoreStrings.add(new Score(parts[0], Integer.parseInt(parts[1])));
+                }
+                Score newScore = new Score(dateOutput, currentScore);
+                scoreStrings.add(newScore);
+                Collections.sort(scoreStrings);
+                StringBuilder scoreBuild = new StringBuilder("");
+                for(int s=0; s<scoreStrings.size(); s++){
+                    if(s>=10) break;//only want ten
+                    if(s>0) scoreBuild.append("|");//pipe separate the score strings
+                    scoreBuild.append(scoreStrings.get(s).getScoreText());
+                }
+//write to prefs
+                scoreEdit.putString("highScores", scoreBuild.toString());
+                scoreEdit.commit();
+                //we have existing scores
+            }
+            else{
+                scoreEdit.putString("highScores", ""+dateOutput+" - "+currentScore);
+                scoreEdit.commit();
+            }
+        }
     }
 
     @Override
@@ -90,7 +144,10 @@ public class GameActivity extends MainMenuActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle state) {
+        int currentScore = controller.getScore();
         super.onSaveInstanceState(state);
         state.putSerializable("level", controller.getLevel());
+        state.putInt("score", currentScore);
+        super.onSaveInstanceState(state);
     }
 }

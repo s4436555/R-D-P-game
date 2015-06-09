@@ -2,6 +2,7 @@ package free.lunch.aDventure;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +23,20 @@ public class HighScoreActivity extends Activity {
             actionBar.setIcon(icon);
         }
 
-        for (int i = 0; i < 10; i++) {
+        getActionBar().setIcon(R.drawable.crown_ic);
+
+        SharedPreferences scorePrefs = getSharedPreferences(GameActivity.GAME_PREFS, 0);
+        String[] savedScores = scorePrefs.getString("highScores", "").split("\\|");
+
+        StringBuilder scoreBuild = new StringBuilder("");
+        for(String score : savedScores){
+            scoreBuild.append(score+"\n");
+        }
+
+        //desc.setText(scoreBuild.toString());
+
+        for (int i = 0; i < savedScores.length; i++) {
+
             int nameID = getResources().getIdentifier("player" + i + "_name", "id", getPackageName());
             TextView player = (TextView) findViewById(nameID);
 
@@ -35,22 +49,28 @@ public class HighScoreActivity extends Activity {
 
             switch (i){
                 case 0:
-                    desc.setText("is dominating the leaderboard\nwith " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("is dominating the leaderboard\nwith " + i + " points.");
                     break;
                 case 1:
-                    desc.setText("is the runner up with " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("is the runner up with " + i + " points.");
                     break;
                 case 2:
-                    desc.setText("spent quite some time getting " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("spent quite some time getting " + i + " points.");
                     break;
                 case 8:
-                    desc.setText("is so bad he only got " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("is so bad he only got " + i + " points.");
                     break;
                 case 9:
-                    desc.setText("nearly didn't make it on here\nwith his " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("nearly didn't make it on here\nwith his " + i + " points.");
                     break;
                 default:
-                    desc.setText("doesn't get an individual text\nwith his " + i + " points.");
+                    desc.setText(savedScores[i]);
+                    //desc.setText("doesn't get an individual text\nwith his " + i + " points.");
                     break;
             }
         }
