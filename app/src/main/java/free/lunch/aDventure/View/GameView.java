@@ -141,6 +141,17 @@ public class GameView extends View implements Observer {
                 this.drawBubbleRight("Why do you have such big ears?", canvas);
                 this.drawBubbleLeft("So I can see better.", canvas);
                 break;
+            case 2:
+                this.drawBubbleRight("You planet!", canvas);
+                this.drawBubbleLeft("Please don't.", canvas);
+                this.drawBubbleRight("How do you organize a space party?", canvas);
+                this.drawBubbleRight("Wanna hear a joke?", canvas);
+                break;
+            case 3:
+                this.drawBubbleLeft("...", canvas);
+                this.drawBubbleRight("from the great wall of China.", canvas);
+                this.drawBubbleRight("You can see the moon", canvas);
+                break;
             default:
                 this.drawBubbleLeft("You done yet?", canvas);
                 this.drawBubbleRight("Ok.", canvas);
