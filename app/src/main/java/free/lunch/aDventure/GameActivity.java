@@ -17,7 +17,11 @@
 */
 package free.lunch.aDventure;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +29,7 @@ import free.lunch.aDventure.Model.Level;
 import free.lunch.aDventure.View.GameView;
 
 import android.content.SharedPreferences;
+import android.widget.EditText;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -40,6 +45,7 @@ public class GameActivity extends MainMenuActivity {
     private Controller controller;
     private SharedPreferences gamePrefs;
     public static final String GAME_PREFS = "HighScoresFile";
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +106,7 @@ public class GameActivity extends MainMenuActivity {
 
     @Override
     protected void onDestroy(){
-        setHighScore();
+        //setHighScore();
         super.onDestroy();
     }
 
@@ -116,9 +122,9 @@ public class GameActivity extends MainMenuActivity {
                 String[] exScores = scores.split("\\|");
                 for(String eSc : exScores){
                     String[] parts = eSc.split(" - ");
-                    scoreStrings.add(new Score(parts[0], Integer.parseInt(parts[1])));
+                    scoreStrings.add(new Score(parts[0], parts[1], Integer.parseInt(parts[2])));
                 }
-                Score newScore = new Score(dateOutput, currentScore);
+                Score newScore = new Score(name, dateOutput, currentScore);
                 scoreStrings.add(newScore);
                 Collections.sort(scoreStrings);
                 StringBuilder scoreBuild = new StringBuilder("");
@@ -127,16 +133,41 @@ public class GameActivity extends MainMenuActivity {
                     if(s>0) scoreBuild.append("|");//pipe separate the score strings
                     scoreBuild.append(scoreStrings.get(s).getScoreText());
                 }
-//write to prefs
+                //write to prefs
                 scoreEdit.putString("highScores", scoreBuild.toString());
+                System.out.println("Hey I know the name, it is: " + name);
                 scoreEdit.commit();
                 //we have existing scores
             }
             else{
-                scoreEdit.putString("highScores", ""+dateOutput+" - "+currentScore);
+                scoreEdit.putString("highScores", "" + name + " - " + dateOutput + " - " + currentScore);
+                System.out.println("Hey I know the name, it is: " + name);
                 scoreEdit.commit();
             }
         }
+        returnToMainMenu();
+    }
+
+    public void scorePopup(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        System.out.println("ScorePOPUP");
+
+        alert.setTitle("You Died!");
+        alert.setMessage("Enter your name:");
+
+        // Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        alert.setView(input);
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                Editable value = input.getText();
+                name = value.toString();
+                setHighScore();
+            }
+        });
+        alert.show();
     }
 
     @Override
@@ -160,6 +191,11 @@ public class GameActivity extends MainMenuActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void returnToMainMenu(){
+        Intent myIntent = new Intent(this, MainMenuActivity.class);
+        this.startActivity(myIntent);
     }
 
     @Override

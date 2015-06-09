@@ -28,14 +28,10 @@ public class HighScoreActivity extends Activity {
         SharedPreferences scorePrefs = getSharedPreferences(GameActivity.GAME_PREFS, 0);
         String[] savedScores = scorePrefs.getString("highScores", "").split("\\|");
 
-        StringBuilder scoreBuild = new StringBuilder("");
-        for(String score : savedScores){
-            scoreBuild.append(score+"\n");
-        }
-
-        //desc.setText(scoreBuild.toString());
 
         for (int i = 0; i < savedScores.length; i++) {
+
+            String[] outputScores = savedScores[i].split("\\-");
 
             int nameID = getResources().getIdentifier("player" + i + "_name", "id", getPackageName());
             TextView player = (TextView) findViewById(nameID);
@@ -45,32 +41,30 @@ public class HighScoreActivity extends Activity {
 
             //TODO:Load highscore names and scores
 
-            player.setText("Player"+i);
-
             switch (i){
                 case 0:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("is dominating the leaderboard\nwith " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("is dominating the leaderboard with " +outputScores[2]+  " points\nDate: " +outputScores[1]);
                     break;
                 case 1:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("is the runner up with " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("is the runner up with " +outputScores[2]+ " points\nDate: " +outputScores[1]);
                     break;
                 case 2:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("spent quite some time getting " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("spent quite some time getting " +outputScores[2]+ " points\nDate: " +outputScores[1]);
                     break;
                 case 8:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("is so bad he only got " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("is so bad he only got " +outputScores[2]+  " points\nDate: " +outputScores[1]);
                     break;
                 case 9:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("nearly didn't make it on here\nwith his " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("nearly didn't make it on here with his " +outputScores[2]+  " points\nDate: " +outputScores[1]);
                     break;
                 default:
-                    desc.setText(savedScores[i]);
-                    //desc.setText("doesn't get an individual text\nwith his " + i + " points.");
+                    player.setText(outputScores[0]);
+                    desc.setText("doesn't get an individual text with his " +outputScores[2]+ " points\nDate: " +outputScores[1]);
                     break;
             }
         }

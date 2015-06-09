@@ -86,34 +86,30 @@ public class Controller implements View.OnTouchListener, Serializable {
             switch (location(x, y, height, width)) {
                 case UP:
                     this.movePlayer(Direction.UP);
-                    ec.moveEnemies();
-                    if(checkGameOver()){ ga.setHighScore();}
-                    gv.postInvalidate();
                     break;
                 case RIGHT:
                     this.movePlayer(Direction.RIGTH);
-                    ec.moveEnemies();
-                    if(checkGameOver()){ ga.setHighScore();}
-                    gv.postInvalidate();
                     break;
                 case DOWN:
                     this.movePlayer(Direction.DOWN);
-                    ec.moveEnemies();
-                    if(checkGameOver()){ ga.setHighScore();}
-                    gv.postInvalidate();
                     break;
                 case LEFT:
                     this.movePlayer(Direction.LEFT);
-                    ec.moveEnemies();
-                    if(checkGameOver()){ ga.setHighScore();}
-                    gv.postInvalidate();
                     break;
                 case CENTER:
-                    ec.moveEnemies();
-                    gv.postInvalidate();
+                    break;
                 default:
                     break;
             }
+            ec.moveEnemies();
+            if(checkGameOver()){
+                if (score>0){
+                    ga.scorePopup();
+                } else {
+                    ga.returnToMainMenu();
+                }
+            }
+            gv.postInvalidate();
             to.clear();
         }
         else {

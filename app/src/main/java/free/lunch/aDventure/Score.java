@@ -7,10 +7,12 @@ public class Score implements Comparable<Score> {
 
     private String scoreDate;
     public int scoreNum;
+    private String scoreName;
 
-    public Score(String date,int num){
+    public Score(String name, String date,int num){
         scoreDate = date;
         scoreNum = num;
+        scoreName = name;
     }
 
     public int compareTo(Score sc){
@@ -19,6 +21,6 @@ public class Score implements Comparable<Score> {
 
     public String getScoreText()
     {
-        return scoreDate+" - "+scoreNum;
+        return scoreName+" - " +scoreDate+" - "+scoreNum;
     }
 }
