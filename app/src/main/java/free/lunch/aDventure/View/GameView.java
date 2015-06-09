@@ -151,9 +151,10 @@ public class GameView extends View implements Observer {
 
         if (d != null) {
             Rect bounds = new Rect();
-            Paint p = new Paint();
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
             p.setTextSize(40);
             p.getTextBounds("score: 000", 0, 10, bounds);
+            p.setAntiAlias(true);
 
             bounds.inset(-bubble_margin, -bubble_margin);
             bounds.offsetTo((int) (canvas.getWidth() - bounds.width() - margin_horizontal), (int) (canvas.getHeight() - margin_vertical));
@@ -173,9 +174,10 @@ public class GameView extends View implements Observer {
 
         if (d != null) {
             Rect bounds = new Rect();
-            Paint p = new Paint();
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
             p.setTextSize(40);
             p.getTextBounds("score: 000", 0, 10, bounds);
+            p.setAntiAlias(true);
 
             bounds.inset(-bubble_margin, -bubble_margin);
             bounds.offsetTo((int) margin_horizontal, (int) (canvas.getHeight() - margin_vertical + scoreHeight));

@@ -43,7 +43,7 @@ public class Wall implements CellEntity, Serializable {
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.wall_placeholder);
+        return context.getResources().getDrawable(R.drawable.mountain_128);
     }
 
     @Override

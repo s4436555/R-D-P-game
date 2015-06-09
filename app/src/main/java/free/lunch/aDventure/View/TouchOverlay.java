@@ -38,18 +38,19 @@ import free.lunch.aDventure.R;
 public class TouchOverlay extends View implements Observer {
 
     private Point[] points;
-    private int borderWidth;
+
+    private Paint border;
+    private Paint inner;
+    private Path path;
 
     public TouchOverlay(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        borderWidth = metrics.densityDpi / 120;
+        setupPaint ();
     }
 
     public TouchOverlay(Context context, AttributeSet attrs) {
         super(context, attrs);
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        borderWidth = metrics.densityDpi / 120;
+        setupPaint ();
     }
 
     /**
@@ -60,8 +61,24 @@ public class TouchOverlay extends View implements Observer {
      */
     public TouchOverlay(Context context) {
         super(context);
+        setupPaint ();
+    }
+
+    private void setupPaint () {
         DisplayMetrics metrics = getResources().getDisplayMetrics();
-        borderWidth = metrics.densityDpi / 120;
+        int borderWidth = metrics.densityDpi / 120;
+
+        border = new Paint(Paint.ANTI_ALIAS_FLAG);
+        border.setStrokeWidth(borderWidth);
+        border.setColor(this.getResources().getColor(R.color.touch_controls_border));
+        border.setStyle(Paint.Style.STROKE);
+        border.setAntiAlias(true);
+
+        inner = new Paint();
+        inner.setColor(this.getResources().getColor(R.color.touch_controls_fill));
+        inner.setStyle(Paint.Style.FILL);
+
+        path = new Path();
     }
 
     /**
@@ -88,19 +105,7 @@ public class TouchOverlay extends View implements Observer {
         if (points == null)
             return;
 
-        Paint border = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-        border.setStrokeWidth(borderWidth);
-        border.setColor(this.getResources().getColor(R.color.touch_controls_border));
-        border.setStyle(Paint.Style.STROKE);
-        border.setAntiAlias(true);
-
-        Paint inner = new Paint();
-
-        inner.setColor(this.getResources().getColor(R.color.touch_controls_fill));
-        inner.setStyle(Paint.Style.FILL);
-
-        Path path = new Path();
+        path.reset();
 
         path.moveTo(points[0].x, points[0].y);
 
