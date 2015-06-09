@@ -25,6 +25,10 @@ import java.util.Random;
 
 import free.lunch.aDventure.Model.Corner;
 import free.lunch.aDventure.Model.Direction;
+import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
+import free.lunch.aDventure.Model.Entities.Enemies.Horse;
+import free.lunch.aDventure.Model.Entities.Enemies.Snake;
+import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Portal;
@@ -45,7 +49,17 @@ public class Controller implements View.OnTouchListener, Serializable {
     private GameActivity ga;
     private TouchOverlay to;
 
+
     private int score = 0;
+
+    private int snakesKill = 0;
+    private int horsesKill = 0;
+    private int wolvesKill = 0;
+    private int dragonsKill = 0;
+
+    private int lost = 0;
+    private int stagesCleared = 0;
+    private int distanceWalked = 0;
 
     public Controller (GameActivity ga) {
         this.ga = ga;
@@ -86,15 +100,19 @@ public class Controller implements View.OnTouchListener, Serializable {
             switch (location(x, y, height, width)) {
                 case UP:
                     this.movePlayer(Direction.UP);
+                    distanceWalked += 1;
                     break;
                 case RIGHT:
                     this.movePlayer(Direction.RIGTH);
+                    distanceWalked += 1;
                     break;
                 case DOWN:
                     this.movePlayer(Direction.DOWN);
+                    distanceWalked += 1;
                     break;
                 case LEFT:
                     this.movePlayer(Direction.LEFT);
+                    distanceWalked += 1;
                     break;
                 case CENTER:
                     break;
@@ -103,10 +121,12 @@ public class Controller implements View.OnTouchListener, Serializable {
             }
             ec.moveEnemies();
             if(checkGameOver()){
+                lost++;
                 if (score>0){
                     ga.scorePopup();
                 } else {
-                    ga.returnToMainMenu();
+                    ga.setStatistics();
+                    ga.finish();
                 }
             }
             gv.postInvalidate();
@@ -117,6 +137,10 @@ public class Controller implements View.OnTouchListener, Serializable {
         }
 
         return true;
+    }
+
+    public StatisticsStorage getStats(){
+        return new StatisticsStorage(snakesKill, dragonsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked);
     }
 
     /**
@@ -146,6 +170,21 @@ public class Controller implements View.OnTouchListener, Serializable {
             } else {
                 return Corner.DOWN;
             }
+        }
+    }
+
+    public void addKills(Enemy enemy){
+        if (enemy instanceof Wolf){
+            wolvesKill++;
+        }
+        if (enemy instanceof Snake){
+            snakesKill++;
+        }
+        if (enemy instanceof Dragon){
+            dragonsKill++;
+        }
+        if (enemy instanceof Horse){
+            horsesKill++;
         }
     }
 
@@ -196,6 +235,7 @@ public class Controller implements View.OnTouchListener, Serializable {
         if (level.isValid(x, y)) {
             if (!level.isWall(x, y)) {
                 if (level.isEnemy(x, y)) {
+                    addKills((Enemy) level.getEntity(x, y));
                     this.score = this.score + ((Enemy) level.getEntity(x, y)).getPoints();
                     gv.setScore(this.score);
                     level.removeEnemy((Enemy) level.getEntity(x, y));
@@ -210,6 +250,8 @@ public class Controller implements View.OnTouchListener, Serializable {
                     }
                 }
                 if (level.isPortal(x, y)) {
+                    stagesCleared++;
+                    System.out.println("Sneks: " +snakesKill+ " Dragons: " + dragonsKill+ " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
                     LevelGenerator generator = new LevelGenerator();
                     level = generator.genLevel(level.getDifficulty() + 2);
                     ec = new EnemyController(level);

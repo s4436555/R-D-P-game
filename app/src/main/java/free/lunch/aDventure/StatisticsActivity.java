@@ -2,6 +2,7 @@ package free.lunch.aDventure;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,22 +23,28 @@ public class StatisticsActivity extends Activity {
             actionBar.setIcon(icon);
         }
 
+
+        SharedPreferences statsPrefs = getSharedPreferences(GameActivity.STATS_PREFS, 0);
+        String[] savedStats = statsPrefs.getString("stats", "").split("\\|");
+
         //TODO: Load stats
 
-        TextView v = (TextView) findViewById(R.id.stats_snake_desc);
-        v.setText("You killed " + 2 + " sneks.");
-        v = (TextView) findViewById(R.id.stats_horse_desc);
-        v.setText( 20 + " poor little horsies.");
-        v = (TextView) findViewById(R.id.stats_wolf_desc);
-        v.setText( 299 + " big bad wolves.");
-        v = (TextView) findViewById(R.id.stats_dragon_desc);
-        v.setText( 6 + " mighty dragons.");
-        v = (TextView) findViewById(R.id.stats_stage_desc);
-        v.setText( "You went through " + 100 + " dungeon levels.");
-        v = (TextView) findViewById(R.id.stats_step_desc);
-        v.setText("But I would walk " + 20 + " miles\nAnd I would walk " +
-                20 + " more\nJust to be the man who walked "+40+" miles" +
-                "\nTo fall down at your door");
+        if (savedStats.length == 7) {
+            TextView v = (TextView) findViewById(R.id.stats_snake_desc);
+            v.setText("You killed " + savedStats[0] + " sneks.");
+            v = (TextView) findViewById(R.id.stats_horse_desc);
+            v.setText(savedStats[3] + " poor little horsies.");
+            v = (TextView) findViewById(R.id.stats_wolf_desc);
+            v.setText(savedStats[2] + " big bad wolves.");
+            v = (TextView) findViewById(R.id.stats_dragon_desc);
+            v.setText(savedStats[1] + " mighty dragons.");
+            v = (TextView) findViewById(R.id.stats_stage_desc);
+            v.setText("You went through " + savedStats[5] + " dungeon levels.");
+            v = (TextView) findViewById(R.id.stats_step_desc);
+            v.setText("But I would walk " + savedStats[6] + " miles\nAnd I would walk " +
+                    savedStats[6] + " more\nJust to be the man who walked " + (Integer.parseInt(savedStats[6])*2) + " miles" +
+                    "\nTo fall down at your door");
+        }
     }
 
     @Override

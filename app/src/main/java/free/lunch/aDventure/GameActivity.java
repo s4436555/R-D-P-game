@@ -44,7 +44,9 @@ import java.util.List;
 public class GameActivity extends MainMenuActivity {
     private Controller controller;
     private SharedPreferences gamePrefs;
+    private SharedPreferences statsPrefs;
     public static final String GAME_PREFS = "HighScoresFile";
+    public static final String STATS_PREFS = "StatsFile";
     private String name;
 
     @Override
@@ -52,6 +54,7 @@ public class GameActivity extends MainMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         gamePrefs = getSharedPreferences(GAME_PREFS, 0);
+        statsPrefs = getSharedPreferences(STATS_PREFS, 0);
 
         int chat = (int) Math.round(Math.random() * 7);
         GameView gameView = (GameView) findViewById(R.id.gameView);
@@ -111,6 +114,9 @@ public class GameActivity extends MainMenuActivity {
     }
 
     public void setHighScore(){
+        if (name == null || name == "" || name.isEmpty()){
+            name = "unnamed";
+        }
         int currentScore = controller.getScore();
         if (currentScore > 0){
             SharedPreferences.Editor scoreEdit = gamePrefs.edit();
@@ -135,17 +141,33 @@ public class GameActivity extends MainMenuActivity {
                 }
                 //write to prefs
                 scoreEdit.putString("highScores", scoreBuild.toString());
-                System.out.println("Hey I know the name, it is: " + name);
                 scoreEdit.commit();
                 //we have existing scores
             }
             else{
                 scoreEdit.putString("highScores", "" + name + " - " + dateOutput + " - " + currentScore);
-                System.out.println("Hey I know the name, it is: " + name);
                 scoreEdit.commit();
             }
         }
-        returnToMainMenu();
+        finish();
+    }
+
+    public void setStatistics(){
+        SharedPreferences.Editor statsEdit = statsPrefs.edit();
+        String statistics = statsPrefs.getString("stats", "");
+        StatisticsStorage newStats = controller.getStats();
+        if (statistics.length()>0){
+            String[] exStats = statistics.split("\\|");
+            StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]));
+            System.out.println("allStats: "+allStats.toString());
+            allStats.addStatistics(newStats);
+            statsEdit.putString("stats", allStats.toString());
+            statsEdit.commit();
+        }
+        else {
+            statsEdit.putString("stats", newStats.toString());
+            statsEdit.commit();
+        }
     }
 
     public void scorePopup(){
@@ -164,6 +186,7 @@ public class GameActivity extends MainMenuActivity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText();
                 name = value.toString();
+                setStatistics();
                 setHighScore();
             }
         });
@@ -191,11 +214,6 @@ public class GameActivity extends MainMenuActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void returnToMainMenu(){
-        Intent myIntent = new Intent(this, MainMenuActivity.class);
-        this.startActivity(myIntent);
     }
 
     @Override
