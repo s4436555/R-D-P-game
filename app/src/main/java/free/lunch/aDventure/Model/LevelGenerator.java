@@ -19,12 +19,14 @@ package free.lunch.aDventure.Model;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Random;
 
 import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
 import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
+import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Wall;
 
@@ -33,41 +35,102 @@ import free.lunch.aDventure.Model.Entities.Wall;
  */
 public class LevelGenerator {
 
+    Random rand = new Random();
+
     public Level genLevel (int difficulty) {
-        Level temp = new Level(9, 9);
+        Level level = new Level(9, 9, difficulty);
+        int pool = difficulty;
 
-        temp.addEnemy(new Dragon(1, 3));
-        temp.addEnemy(new TestEnemy(8, 4));
-        temp.addPlayer(new Player(0, 0));
-        temp.addEnemy(new Snake(6, 0, true));
-        temp.addEnemy(new Horse(8, 8));
-        temp.addEnemy(new Wolf(0, 8));
+        int[] tempSpace;
 
-        for (int i = 0; i < 8; i++)
-            temp.addWall(new Wall(i, i));
+        for (int i = 0; i < Math.min(difficulty, 8);) {
+            tempSpace = getRandomFreeSpace(level);
+                if(checkClosedSpaces(level, tempSpace[0], tempSpace[1])) {
+                    level.addWall(new Wall(tempSpace[0], tempSpace[1]));
+                    i++;
+                }
+        }
 
-        return temp;
-    }
+        tempSpace = getRandomFreeSpace(level);
+        level.addPlayer(new Player(tempSpace[0], tempSpace[1]));
 
-    private boolean checkClosedSpaces (Level level) {
-        int y = 0;
-        int x = 0;
-        cellfound: while(y < level.getYSize())
-        {
-            x = 0;
-            while(x < level.getXSize())
-            {
-                if(!level.isWall(x, y))
-                    break cellfound;
+        int x;
+        int y;
+        int score;
+        while (pool > 0){
+            tempSpace = getRandomFreeSpace(level);
+            x = tempSpace[0];
+            y = tempSpace[1];
+            score = rand.nextInt(Math.min(3, pool)) + 1;
+            System.out.println(score);
+            System.out.println(pool);
+            pool -= score;
+            switch (score) {
+                default: level.addEnemy(chooseEnemyLVL1(x, y)); break;
+                case 2: level.addEnemy(chooseEnemyLVL2(x, y)); break;
+                case 3: level.addEnemy(chooseEnemyLVL3(x, y)); break;
             }
         }
-        int reachableCells = breadthFirstExplore(level, x, y);
+        /*level.addEnemy(new Dragon(1, 3));
+        level.addEnemy(new TestEnemy(8, 4));
+        level.addPlayer(new Player(0, 0));
+        level.addEnemy(new Snake(6, 0, true));
+        level.addEnemy(new Horse(8, 8));
+        level.addEnemy(new Wolf(0, 8));
+
+        for (int i = 0; i < 8; i++)
+            level.addWall(new Wall(i, i));
+*/
+        return level;
+    }
+
+    private Enemy chooseEnemyLVL1 (int x, int y) {
+        return new TestEnemy(x, y);
+    }
+
+    private Enemy chooseEnemyLVL2 (int x, int y) {
+        switch (rand.nextInt(2)) {
+            default: return new Snake(x, y, rand.nextBoolean());
+            case 1: return new Horse(x, y);
+        }
+    }
+
+    private Enemy chooseEnemyLVL3 (int x, int y) {
+        switch (rand.nextInt(2)) {
+            default: return new Dragon(x, y);
+            case 2: return new Wolf(x, y);
+        }
+    }
+
+    private int[] getRandomFreeSpace (Level level) {
+        boolean existsFreeSpace = false;
+        for (int i = 0; i < level.getXSize(); i++) {
+            for (int j = 0; j < level.getYSize(); j++) {
+                if (level.isFree(i, j))
+                    existsFreeSpace = true;
+            }
+        }
+        if(!existsFreeSpace)
+            System.exit(-1);
+
+        int x;
+        int y;
+        do {
+            x = rand.nextInt(level.getXSize());
+            y = rand.nextInt(level.getYSize());
+        } while (!level.isFree(x, y));
+        return new int[]{x, y};
+    }
+
+    private boolean checkClosedSpaces (Level level, int addedX, int addedY) {
+        int[] freeCell = getRandomFreeSpace(level);
+        int reachableCells = breadthFirstExplore(level, freeCell[0], freeCell[1], addedX, addedY);
         int totalCells = 0;
         for(int i = 0; i < level.getXSize(); i++)
         {
             for(int j = 0; j < level.getYSize(); j++)
             {
-                if(!level.isWall(i, j))
+                if(!level.isWall(i, j) && !(i == addedX && j == addedY))
                     totalCells++;
             }
         }
@@ -75,7 +138,7 @@ public class LevelGenerator {
     }
 
     /*add node class? */
-    private int breadthFirstExplore (Level level, int x, int y) {
+    private int breadthFirstExplore (Level level, int x, int y, int addedX, int addedY) {
         LinkedList<int[]> frontier = new LinkedList<>();
         frontier.add(new int[]{x, y});
         LinkedList<int[]> explored = new LinkedList<>();
@@ -85,7 +148,7 @@ public class LevelGenerator {
             for(int[] newNode : new int[][]{new int[]{node[0] - 1, node[1]}, new int[]{node[0], node[1] - 1}, new int[]{node[0] + 1, node[1]}, new int[]{node[0], node[1] + 1}})
             {
                 if(level.isValid(newNode[0], newNode[1])) {
-                    if (!level.isWall(newNode[0], newNode[1]) && !isInThere(frontier, newNode) && !isInThere(explored, newNode))
+                    if (!level.isWall(newNode[0], newNode[1]) && !(newNode[0] == addedX && newNode[1] == addedY) && !isInThere(frontier, newNode) && !isInThere(explored, newNode))
                         frontier.add(newNode);
                 }
             }

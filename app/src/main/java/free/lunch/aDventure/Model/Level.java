@@ -43,11 +43,11 @@ public class Level implements Serializable{
      * @param xSize horizontal size of the level
      * @param ySize vertical size of the level
      */
-    public Level (int xSize, int ySize) {
+    public Level (int xSize, int ySize, int difficulty) {
         this.xSize = xSize;
         this.ySize = ySize;
 
-        difficulty = -1;
+        this.difficulty = difficulty;
 
         cells = new CellEntity[xSize][ySize];
         enemies = new LinkedList<>();

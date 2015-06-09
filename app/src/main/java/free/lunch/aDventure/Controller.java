@@ -48,7 +48,7 @@ public class Controller implements View.OnTouchListener, Serializable {
 
     public Controller (GameActivity ga) {
         LevelGenerator generator = new LevelGenerator();
-        level = generator.genLevel(0);
+        level = generator.genLevel(4);
         ec = new EnemyController(level);
 
         gv = (GameView)ga.findViewById(R.id.gameView);
@@ -204,7 +204,7 @@ public class Controller implements View.OnTouchListener, Serializable {
                 }
                 if (level.isPortal(x, y)) {
                     LevelGenerator generator = new LevelGenerator();
-                    level = generator.genLevel(level.getDifficulty()+1);
+                    level = generator.genLevel(level.getDifficulty() + 2);
                     ec = new EnemyController(level);
                     gv.setLevel(level);
                 }
