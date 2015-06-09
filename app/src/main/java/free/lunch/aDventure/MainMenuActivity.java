@@ -32,6 +32,7 @@ public class MainMenuActivity extends Activity {
     GridLayout scb;
     GridLayout stb;
     GridLayout crb;
+    GridLayout heb;
     View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -42,6 +43,7 @@ public class MainMenuActivity extends Activity {
                 scb.setBackgroundColor(getResources().getColor(R.color.menu_item));
                 stb.setBackgroundColor(getResources().getColor(R.color.menu_item));
                 crb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                heb.setBackgroundColor(getResources().getColor(R.color.menu_item));
                 return false;
             }
 
@@ -73,6 +75,12 @@ public class MainMenuActivity extends Activity {
                     else
                         crb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
                     break;
+                case R.id.help_button:
+                    if (oob)
+                        heb.setBackgroundColor(getResources().getColor(R.color.menu_item));
+                    else
+                        heb.setBackgroundColor(getResources().getColor(R.color.menu_item_selected));
+                    break;
                 default:
                     break;
             }
@@ -89,11 +97,13 @@ public class MainMenuActivity extends Activity {
         scb = (GridLayout) findViewById(R.id.score_button);
         stb = (GridLayout) findViewById(R.id.stats_button);
         crb = (GridLayout) findViewById(R.id.credits_button);
+        heb = (GridLayout) findViewById(R.id.help_button);
 
         plb.setOnTouchListener(listener);
         scb.setOnTouchListener(listener);
         stb.setOnTouchListener(listener);
         crb.setOnTouchListener(listener);
+        heb.setOnTouchListener(listener);
     }
 
     @Override

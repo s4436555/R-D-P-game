@@ -183,7 +183,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/portal1_128"
+                    android:src="@drawable/footprints_128"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"

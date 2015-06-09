@@ -16,38 +16,228 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true">
+
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="gotoCredits"
-                android:rowCount="2"
                 android:columnCount="2"
-                android:id="@+id/credits_button">
+                android:rowCount="2">
                 <ImageView
                     android:layout_width="@dimen/menu_icon"
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/ppl_ic"/>
+                    android:src="@drawable/player_128"/>
                 <TextView
-                    android:layout_margin="@dimen/menu_margin"
-                    android:textSize="@dimen/menu_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000"
                     android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
                     android:layout_row="0"
-                    android:text="WIP"/>
+                    android:text="@string/help_player_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
                     android:layout_gravity="bottom"
                     android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="1"
+                    android:text="@string/help_player_text"/>
+            </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_rowSpan="2"
+                    android:src="@drawable/temp_128"/>
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="0"
+                    android:text="@string/help_demon_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
                     android:layout_row="1"
-                    android:text="I'm on it"/>
+                    android:text="@string/help_demon_text"/>
             </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_rowSpan="2"
+                    android:src="@drawable/dragon_128"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="0"
+                    android:text="@string/help_dragon_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="1"
+                    android:text="@string/help_dragon_text"/>
+            </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_rowSpan="2"
+                    android:src="@drawable/wolf_128"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="0"
+                    android:text="@string/help_wolf_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="1"
+                    android:text="@string/help_wolf_text"/>
+            </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_rowSpan="2"
+                    android:src="@drawable/snake_128"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="0"
+                    android:text="@string/help_snake_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="1"
+                    android:text="@string/help_snake_text"/>
+            </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_rowSpan="2"
+                    android:src="@drawable/horse_128"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="0"
+                    android:text="@string/help_horse_title"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:layout_row="1"
+                    android:text="@string/help_horse_text"/>
+            </GridLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -144,7 +144,7 @@
             android:onClick="gotoCredits"
             android:rowCount="2"
             android:columnCount="2"
-            android:id="@+id/help_button">
+            android:id="@+id/credits_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
@@ -184,13 +184,13 @@
             android:onClick="gotoHelp"
             android:rowCount="2"
             android:columnCount="2"
-            android:id="@+id/credits_button">
+            android:id="@+id/help_button">
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
                 android:layout_rowSpan="2"
-                android:src="@drawable/ppl_ic"/>
+                android:src="@drawable/paperclip_128"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
