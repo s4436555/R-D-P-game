@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 public class HighScoreActivity extends Activity {
 
+    /**
+     * loads a list of HighScores and shows them
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

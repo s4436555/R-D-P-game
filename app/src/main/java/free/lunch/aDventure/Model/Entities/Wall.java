@@ -26,7 +26,7 @@ import free.lunch.aDventure.Model.CellEntity;
 import free.lunch.aDventure.R;
 
 /**
- * Created by jonathan on 30-4-15.
+ * A class for the Wall
  */
 public class Wall implements CellEntity, Serializable {
 
@@ -34,28 +34,46 @@ public class Wall implements CellEntity, Serializable {
     private int yPos;
 
     /**
-     * Constructor of the wall class.
+     * Constructor of the Wall class
      */
     public Wall (int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
     }
 
+    /**
+     * Gets the Wall image
+     * @param context
+     * @return the Wall image
+     */
     @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.mountain);
     }
 
+    /**
+     * Gets the y-coordinate of this wall
+     * @return the y-coordinate of this wall
+     */
     @Override
     public int getX() {
         return xPos;
     }
 
+    /**
+     * Gets the x-coordinate of this wall
+     * @return the x-coordinate of this wall
+     */
     @Override
     public int getY() {
         return yPos;
     }
 
+    /**
+     * Sets the given coordinates as the new coordinates of this wall
+     * @param xPos new x coordinate
+     * @param yPos new y coordinate
+     */
     @Override
     public void setCoordinates(int xPos, int yPos) {
         this.xPos = xPos;

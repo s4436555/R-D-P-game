@@ -65,6 +65,10 @@ public class Controller implements View.OnTouchListener, Serializable {
     private int stagesCleared = 0;
     private int distanceWalked = 0;
 
+    /**
+     * Constructor for the Controller
+     * @param ga the GameActivity
+     */
     public Controller (GameActivity ga) {
         this.ga = ga;
         LevelGenerator generator = new LevelGenerator();
@@ -77,6 +81,10 @@ public class Controller implements View.OnTouchListener, Serializable {
         to = (TouchOverlay)ga.findViewById(R.id.touchOverlay);
     }
 
+    /**
+     * Check whether the player is killed and thus whether the game is over
+     * @return true if the player is killed, false otherwise
+     */
     private boolean checkGameOver(){
         return level.getPlayer() == null;
     }
@@ -152,6 +160,10 @@ public class Controller implements View.OnTouchListener, Serializable {
         return true;
     }
 
+    /**
+     * Returns the statistics in an StatisticsStorage
+     * @return the statistics
+     */
     public StatisticsStorage getStats(){
         return new StatisticsStorage(snakesKill, ratsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked, demonsKilled);
     }
@@ -186,6 +198,10 @@ public class Controller implements View.OnTouchListener, Serializable {
         }
     }
 
+    /**
+     * Adds a kill to the list of enemies killed in this gamesession
+     * @param enemy
+     */
     public void addKills(Enemy enemy){
         if (enemy instanceof Dragon){
             demonsKilled++;
@@ -204,16 +220,28 @@ public class Controller implements View.OnTouchListener, Serializable {
         }
     }
 
+    /**
+     * Returns the level
+     * @return the level
+     */
     public Level getLevel(){
         return level;
     }
 
+    /**
+     * Sets the given level as the current level, also does this for the GameView and the EnemyController
+     * @param level the level to be set
+     */
     public void setLevel(Level level){
         gv.setLevel(level);
         ec.setLevel(level);
         this.level = level;
     }
 
+    /**
+     * Returns the current score
+     * @return the current score
+     */
     public int getScore(){
         return score;
     }

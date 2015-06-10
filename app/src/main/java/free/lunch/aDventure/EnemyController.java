@@ -28,7 +28,7 @@ import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Level;
 
 /**
- * This class controlls the enemies in the level.
+ * This class controls the enemies in the level.
  */
 public class EnemyController implements Serializable {
 
@@ -42,6 +42,10 @@ public class EnemyController implements Serializable {
         this.level = level;
     }
 
+    /**
+     * Sets the given level as the current level
+     * @param level the level to be set
+     */
     public void setLevel(Level level){
         this.level = level;
     }
@@ -71,6 +75,10 @@ public class EnemyController implements Serializable {
         }
     }
 
+    /**
+     * Sorts the list of moves
+     * @param moves the available moves
+     */
     private void sortMoves (List<int[]> moves) {
         Collections.sort(moves, new Comparator<int[]>() {
             @Override

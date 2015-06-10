@@ -41,22 +41,40 @@ public class Player implements CellEntity, Serializable {
         this.yPos = yPos;
     }
 
+    /**
+     * Get the y-coordinate of the player's location
+     * @return the y-coordinate of the player's location
+     */
     @Override
     public int getY () {
         return yPos;
     }
 
+    /**
+     * Get the x-coordinate of the player's location
+     * @return the x-coordinate of the player's location
+     */
     @Override
     public int getX () {
         return xPos;
     }
 
+    /**
+     * Sets the given coordinates as the new coordinates of the player
+     * @param xPos new x coordinate
+     * @param yPos new y coordinate
+     */
     @Override
     public void setCoordinates (int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
     }
 
+    /**
+     * Gets the Player image
+     * @param context
+     * @return the Player image
+     */
     @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.player);

@@ -31,12 +31,18 @@ import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Wall;
 
 /**
- * A class that Jan should implement properly
+ * The class for level generation
  */
 public class LevelGenerator {
 
     Random rand = new Random();
+    boolean full = false;
 
+    /**
+     * Creates a level based on the given difficulty
+     * @param difficulty the difficulty the level is to have
+     * @return the created level
+     */
     public Level genLevel (int difficulty) {
 
         int levelX = difficulty + rand.nextInt(3);
@@ -57,7 +63,7 @@ public class LevelGenerator {
 
         int[] tempSpace;
 
-        for (int i = 0; i < Math.min(difficulty, 8);) {
+        for (int i = 0; i < Math.min(difficulty, level.getXSize());) {
             tempSpace = getRandomFreeSpace(level);
                 if(checkClosedSpaces(level, tempSpace[0], tempSpace[1])) {
                     level.addWall(new Wall(tempSpace[0], tempSpace[1]));
@@ -72,9 +78,10 @@ public class LevelGenerator {
         int y;
         int score;
         int demonsAdded = 0;
-        while (pool > 0){
+        filled: while (pool > 0){
             do {
                 tempSpace = getRandomFreeSpace(level);
+                if(full) { break filled; }
             } while (level.isNextToPlayer(tempSpace[0], tempSpace[1]));
             x = tempSpace[0];
             y = tempSpace[1];
@@ -95,10 +102,22 @@ public class LevelGenerator {
         return level;
     }
 
+    /**
+     * Randomly chooses a lvl 1 enemy
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return the chosen enemy
+     */
     private Enemy chooseEnemyLVL1 (int x, int y) {
         return new Rat(x, y);
     }
 
+    /**
+     * Randomly chooses a lvl 2 enemy
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return the chosen enemy
+     */
     private Enemy chooseEnemyLVL2 (int x, int y) {
         switch (rand.nextInt(2)) {
             default: return new Snake(x, y, rand.nextBoolean());
@@ -106,6 +125,12 @@ public class LevelGenerator {
         }
     }
 
+    /**
+     * Randomly chooses a lvl 3 enemy
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return the chosen enemy
+     */
     private Enemy chooseEnemyLVL3 (int x, int y) {
         switch (rand.nextInt(2)) {
             default: return new Dragon(x, y);
@@ -113,6 +138,11 @@ public class LevelGenerator {
         }
     }
 
+    /**
+     * Randomly chooses a free space
+     * @param level the level on which a free space is to be chosen
+     * @return the chosen free space
+     */
     private int[] getRandomFreeSpace (Level level) {
         boolean existsFreeSpace = false;
         for (int i = 0; i < level.getXSize(); i++) {
@@ -122,7 +152,10 @@ public class LevelGenerator {
             }
         }
         if(!existsFreeSpace)
-            System.exit(-1);
+        {
+            full = true;
+            return null;
+        }
 
         int x;
         int y;
@@ -133,6 +166,13 @@ public class LevelGenerator {
         return new int[]{x, y};
     }
 
+    /**
+     * Checks whether all spaces are reachable if the given space is filled
+     * @param level the level to be checked
+     * @param addedX the new x coordinate
+     * @param addedY the new y coordinate
+     * @return true if all spaces are reachable, false otherwise
+     */
     private boolean checkClosedSpaces (Level level, int addedX, int addedY) {
         int[] freeCell = getRandomFreeSpace(level);
         int reachableCells = breadthFirstExplore(level, freeCell[0], freeCell[1], addedX, addedY);
@@ -148,7 +188,15 @@ public class LevelGenerator {
         return totalCells == reachableCells;
     }
 
-    /*add node class? */
+    /**
+     * A breadth-first-search to see if all spaces are reachable if the given space is filled
+     * @param level the level to be checked
+     * @param x the x coordinate of the starting position
+     * @param y the y coordinate of the starting position
+     * @param addedX the x coordinate of the to be filled space
+     * @param addedY the y coordinate of the to be filled space
+     * @return true if all spaces are reachable, false otherwise
+     */
     private int breadthFirstExplore (Level level, int x, int y, int addedX, int addedY) {
         LinkedList<int[]> frontier = new LinkedList<>();
         frontier.add(new int[]{x, y});

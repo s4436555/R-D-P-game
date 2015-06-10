@@ -101,6 +101,12 @@ public class Level implements Serializable{
         return enemies.size() == 0;
     }
 
+    /**
+     * Returns true when the given location is next to the player
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the location is next to the player, false otherwise
+     */
     public boolean isNextToPlayer(int x, int y) {
         if (player != null) {
             for (int pX = player.getX() - 1; pX <= player.getX() + 1; pX++) {
@@ -114,24 +120,54 @@ public class Level implements Serializable{
         return false;
     }
 
+    /**
+     * Checks whether a location(x- and y-coordinate) is not used and is valid
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the location is free, false otherwise
+     */
     public boolean isFree (int x, int y) {
         if (isValid(x, y))
             return cells[x][y] == null;
         return false;
     }
 
+    /**
+     * Checks whether a location is valid
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the location is valid, false otherwise
+     */
     public boolean isValid (int x, int y) {
         return (!(x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1));
     }
 
+    /**
+     * Checks whether the CellEntity is an Enemy
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the CellEntity is an Enemy, false otherwise
+     */
     public boolean isEnemy (int x, int y){
         return cells[x][y] instanceof Enemy;
     }
 
+    /**
+     * Checks whether the CellEntity is a Wall
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the CellEntity is a Wall, false otherwise
+     */
     public boolean isWall (int x, int y){
         return cells[x][y] instanceof Wall;
     }
 
+    /**
+     * Checks whether the CellEntity is a Portal
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return true if the CellEntity is a Portal, false otherwise
+     */
     public boolean isPortal (int x, int y){
         return cells[x][y] instanceof Portal;
     }

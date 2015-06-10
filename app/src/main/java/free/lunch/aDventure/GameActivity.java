@@ -37,9 +37,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- */
 public class GameActivity extends MainMenuActivity {
     private Controller controller;
     private SharedPreferences gamePrefs;
@@ -48,6 +45,10 @@ public class GameActivity extends MainMenuActivity {
     public static final String STATS_PREFS = "StatsFile";
     private String name;
 
+    /**
+     * Initializes the GameActivity, chooses a cha, loads the HighScores, loads the Statistics and initializes a new Controller
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +113,9 @@ public class GameActivity extends MainMenuActivity {
         super.onDestroy();
     }
 
+    /**
+     * Adds the current score to the list of HighScores if it is good enough
+     */
     public void setHighScore(){
         if (name == null || name.equals("") || name.isEmpty()){
             name = "unnamed";
@@ -155,6 +159,9 @@ public class GameActivity extends MainMenuActivity {
         finish();
     }
 
+    /**
+     * Loads previous statistics and adds the statistics of this session to it.
+     */
     public void setStatistics(){
         SharedPreferences.Editor statsEdit = statsPrefs.edit();
         String statistics = statsPrefs.getString("stats", "");
@@ -172,6 +179,9 @@ public class GameActivity extends MainMenuActivity {
         }
     }
 
+    /**
+     * Loads an AlertDialog which asks the player for a name to which the score gotten gets addmited to.
+     */
     public void scorePopup(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
