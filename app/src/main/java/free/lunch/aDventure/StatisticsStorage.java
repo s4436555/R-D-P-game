@@ -7,16 +7,16 @@ public class StatisticsStorage {
 
     public int demonsKilled;
     public int snakesKilled;
-    public int dragonsKilled;
+    public int ratsKilled;
     public int wolvesKilled;
     public int horsesKilled;
     public int gamesLost;
     public int stagesCleared;
     public int distanceWalked;
 
-    public StatisticsStorage (int snakes, int dragons, int wolves, int horses, int lost, int stagesClear, int distance, int demons){
+    public StatisticsStorage (int snakes, int rats, int wolves, int horses, int lost, int stagesClear, int distance, int demons){
         snakesKilled = snakes;
-        dragonsKilled = dragons;
+        ratsKilled = rats;
         wolvesKilled = wolves;
         horsesKilled = horses;
         gamesLost = lost;
@@ -27,7 +27,7 @@ public class StatisticsStorage {
 
     public void addStatistics(StatisticsStorage add){
         snakesKilled = snakesKilled + add.snakesKilled;
-        dragonsKilled = dragonsKilled + add.dragonsKilled;
+        ratsKilled = ratsKilled + add.ratsKilled;
         wolvesKilled = wolvesKilled + add.wolvesKilled;
         horsesKilled = horsesKilled + add.horsesKilled;
         gamesLost = gamesLost + add.gamesLost;
@@ -37,6 +37,6 @@ public class StatisticsStorage {
     }
 
     public String toString(){
-        return snakesKilled+"|"+dragonsKilled+"|"+wolvesKilled+"|"+horsesKilled+"|"+gamesLost+"|"+stagesCleared+"|"+distanceWalked+"|"+demonsKilled;
+        return snakesKilled+"|"+ ratsKilled +"|"+wolvesKilled+"|"+horsesKilled+"|"+gamesLost+"|"+stagesCleared+"|"+distanceWalked+"|"+demonsKilled;
     }
 }

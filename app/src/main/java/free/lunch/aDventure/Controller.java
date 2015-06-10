@@ -59,7 +59,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     private int snakesKill = 0;
     private int horsesKill = 0;
     private int wolvesKill = 0;
-    private int dragonsKill = 0;
+    private int ratsKill = 0;
 
     private int lost = 0;
     private int stagesCleared = 0;
@@ -148,7 +148,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     }
 
     public StatisticsStorage getStats(){
-        return new StatisticsStorage(snakesKill, dragonsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked, demonsKilled);
+        return new StatisticsStorage(snakesKill, ratsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked, demonsKilled);
     }
 
     /**
@@ -192,7 +192,7 @@ public class Controller implements View.OnTouchListener, Serializable {
             snakesKill++;
         }
         if (enemy instanceof Rat){
-            dragonsKill++;
+            ratsKill++;
         }
         if (enemy instanceof Horse){
             horsesKill++;
@@ -264,7 +264,7 @@ public class Controller implements View.OnTouchListener, Serializable {
                     onPortal = true;
                     stagesCleared++;
                     gv.setStage(stagesCleared + 1);
-                    System.out.println("Sneks: " +snakesKill+ " Dragons: " + dragonsKill+ " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
+                    System.out.println("Sneks: " +snakesKill+ " Rats: " + ratsKill + " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
                     LevelGenerator generator = new LevelGenerator();
                     level = generator.genLevel(level.getDifficulty() + 2);
                     ec = new EnemyController(level);
