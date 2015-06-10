@@ -26,7 +26,7 @@ public class Portal implements CellEntity, Serializable {
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.portal2_128);
+        return context.getResources().getDrawable(R.drawable.portal);
     }
 
     @Override

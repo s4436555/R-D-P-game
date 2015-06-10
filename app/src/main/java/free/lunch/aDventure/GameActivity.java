@@ -62,15 +62,15 @@ public class GameActivity extends MainMenuActivity {
         switch (chat){
             case 0:
                 getActionBar().setTitle("Dog");
-                getActionBar().setIcon(R.drawable.poodle_128);
+                getActionBar().setIcon(R.drawable.poodle);
                 break;
             case 1:
                 getActionBar().setTitle("Grandma");
-                getActionBar().setIcon(R.drawable.wolf_128);
+                getActionBar().setIcon(R.drawable.wolf);
                 break;
             case 2:
                 getActionBar().setTitle("Bob");
-                getActionBar().setIcon(R.drawable.happy_128);
+                getActionBar().setIcon(R.drawable.happy);
                 break;
             case 3:
                 getActionBar().setTitle("Joe");
@@ -78,19 +78,19 @@ public class GameActivity extends MainMenuActivity {
                 break;
             case 4:
                 getActionBar().setTitle("Cool Kid");
-                getActionBar().setIcon(R.drawable.sunglasses_128);
+                getActionBar().setIcon(R.drawable.sunglasses);
                 break;
             case 5:
                 getActionBar().setTitle("Pizza");
-                getActionBar().setIcon(R.drawable.ppl_ic);
+                getActionBar().setIcon(R.drawable.ppl);
                 break;
             case 6:
                 getActionBar().setTitle("Snake");
-                getActionBar().setIcon(R.drawable.snake_128);
+                getActionBar().setIcon(R.drawable.snake);
                 break;
             default:
                 getActionBar().setTitle("Mom");
-                getActionBar().setIcon(R.drawable.dragon_128);
+                getActionBar().setIcon(R.drawable.dragon);
         }
 
         // this is the view on which you will listen for touch events

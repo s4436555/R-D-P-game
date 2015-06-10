@@ -28,7 +28,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/portal2_128"
+                    android:src="@drawable/portal"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -59,7 +59,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/footprints_128"
+                    android:src="@drawable/footprints"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -90,7 +90,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/rat_128"
+                    android:src="@drawable/rat"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -121,7 +121,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/snake_128"
+                    android:src="@drawable/snake"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -152,7 +152,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/wolf_128"
+                    android:src="@drawable/wolf"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -183,7 +183,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/dragon_128"
+                    android:src="@drawable/dragon"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"
@@ -214,7 +214,7 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/horse_128"
+                    android:src="@drawable/horse"
                     android:layout_rowSpan="2"/>
                 <TextView
                     android:layout_margin="@dimen/stats_margin"

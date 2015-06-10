@@ -57,7 +57,7 @@ public class Wolf extends Enemy {
      */
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.wolf_128);
+        return context.getResources().getDrawable(R.drawable.wolf);
     }
 
     /**

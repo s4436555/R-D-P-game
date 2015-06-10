@@ -14,7 +14,7 @@ public class HelpActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-        Drawable icon = getResources().getDrawable(R.drawable.paperclip_128);
+        Drawable icon = getResources().getDrawable(R.drawable.paperclip);
         ActionBar actionBar = getActionBar();
         if (icon != null && actionBar != null) {
             actionBar.setIcon(icon);

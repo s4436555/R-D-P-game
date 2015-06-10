@@ -27,7 +27,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/player_128"/>
+                    android:src="@drawable/player"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/rat_128"/>
+                    android:src="@drawable/rat"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/snake_128"/>
+                    android:src="@drawable/snake"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/wolf_128"/>
+                    android:src="@drawable/wolf"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/dragon_128"/>
+                    android:src="@drawable/dragon"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/horse_128"/>
+                    android:src="@drawable/horse"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

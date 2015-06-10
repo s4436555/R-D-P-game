@@ -56,7 +56,7 @@ public class Dragon extends Enemy{
      */
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.dragon_128);
+        return context.getResources().getDrawable(R.drawable.dragon);
     }
 
     /**

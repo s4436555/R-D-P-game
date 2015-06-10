@@ -56,7 +56,7 @@ public class Rat extends Enemy {
      */
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.rat_128);
+        return context.getResources().getDrawable(R.drawable.rat);
     }
 
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {

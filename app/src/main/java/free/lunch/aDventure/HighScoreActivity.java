@@ -17,13 +17,13 @@ public class HighScoreActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-        Drawable icon = getResources().getDrawable(R.drawable.crown_ic);
+        Drawable icon = getResources().getDrawable(R.drawable.crown);
         ActionBar actionBar = getActionBar();
         if (icon != null && actionBar != null) {
             actionBar.setIcon(icon);
         }
 
-        getActionBar().setIcon(R.drawable.crown_ic);
+        getActionBar().setIcon(R.drawable.crown);
 
         SharedPreferences scorePrefs = getSharedPreferences(GameActivity.GAME_PREFS, 0);
         String[] savedScores = scorePrefs.getString("highScores", "").split("\\|");

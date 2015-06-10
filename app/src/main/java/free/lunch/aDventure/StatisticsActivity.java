@@ -17,7 +17,7 @@ public class StatisticsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        Drawable icon = getResources().getDrawable(R.drawable.chart_ic);
+        Drawable icon = getResources().getDrawable(R.drawable.chart);
         ActionBar actionBar = getActionBar();
         if (icon != null && actionBar != null) {
             actionBar.setIcon(icon);

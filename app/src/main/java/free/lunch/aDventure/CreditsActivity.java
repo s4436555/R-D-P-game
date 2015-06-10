@@ -15,7 +15,7 @@ public class CreditsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
 
-        Drawable icon = getResources().getDrawable(R.drawable.ppl_ic);
+        Drawable icon = getResources().getDrawable(R.drawable.ppl);
         ActionBar actionBar = getActionBar();
         if (icon != null && actionBar != null) {
             actionBar.setIcon(icon);

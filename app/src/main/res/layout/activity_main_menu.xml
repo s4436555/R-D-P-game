@@ -25,7 +25,7 @@
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/play_ic"
+                android:src="@drawable/play"
                 android:layout_rowSpan="2"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
@@ -67,7 +67,7 @@
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/crown_ic"/>
+                android:src="@drawable/crown"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -109,7 +109,7 @@
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
                 android:layout_rowSpan="2"
-                android:src="@drawable/chart_ic"/>
+                android:src="@drawable/chart"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -150,7 +150,7 @@
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
                 android:layout_rowSpan="2"
-                android:src="@drawable/ppl_ic"/>
+                android:src="@drawable/ppl"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
@@ -190,7 +190,7 @@
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
                 android:layout_rowSpan="2"
-                android:src="@drawable/paperclip_128"/>
+                android:src="@drawable/paperclip"/>
             <TextView
                 android:layout_margin="@dimen/menu_margin"
                 android:textSize="@dimen/menu_text"
