@@ -105,7 +105,9 @@ public class Level implements Serializable{
         if (player != null) {
             for (int pX = player.getX()-1; pX <= player.getX()+1; pX++) {
                 for (int pY = player.getY() - 1; pY <= player.getY() + 1; pY++) {
-                    if (isValid(pX, pY) && cells[pX][pY] != null) return false;
+                    if (isValid(pX, pY) {
+                        if (cells[pX][pY] != null) return false;
+                    }
                 }
             }
         }
