@@ -61,7 +61,7 @@
 
     <string name="help_player_text">This is you! Move by tapping\nthe cardinal direction you want to go;\ntap the middle of the screen to wait.</string>
     <string name="help_dragon_text">These fearsome dragons can only\nmove orthogonally.</string>
-    <string name="help_snake_text">This hissing snake sneakily switches\nbetween slithering orthogonally\nand diagonally.</string>
+    <string name="help_snake_text">This hissing snake sneakily switches\nbetween slithering orthogonally\nand diagonally. Watch the tongue!</string>
     <string name="help_horse_text">Horses jump around the board,\nlike in chess.</string>
     <string name="help_wolf_text">Wolves move around orthogonally\nbut try to pounce when near!</string>
     <string name="help_rat_text">These critters only move diagonally,\njust like in real life!</string>
