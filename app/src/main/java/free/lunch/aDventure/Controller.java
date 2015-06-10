@@ -130,10 +130,10 @@ public class Controller implements View.OnTouchListener, Serializable {
             }
             if(checkGameOver()){
                 lost++;
+                ga.setStatistics();
                 if (score>0){
                     ga.scorePopup();
                 } else {
-                    ga.setStatistics();
                     ga.finish();
                 }
             }

@@ -190,7 +190,6 @@ public class GameActivity extends MainMenuActivity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Editable value = input.getText();
                 name = value.toString();
-                setStatistics();
                 setHighScore();
             }
         });
