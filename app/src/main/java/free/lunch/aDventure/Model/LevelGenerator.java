@@ -57,11 +57,17 @@ public class LevelGenerator {
         int x;
         int y;
         int score;
+        int demonsAdded = 0;
         while (pool > 0){
             tempSpace = getRandomFreeSpace(level);
             x = tempSpace[0];
             y = tempSpace[1];
+
+            // Prevent too many demons
             score = rand.nextInt(Math.min(3, pool)) + 1;
+            if (score == 1) demonsAdded++;
+            if (demonsAdded > 3) score++;
+
             pool -= score;
             switch (score) {
                 default: level.addEnemy(chooseEnemyLVL1(x, y)); break;
