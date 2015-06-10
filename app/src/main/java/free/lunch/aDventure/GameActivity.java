@@ -117,6 +117,10 @@ public class GameActivity extends MainMenuActivity {
         if (name == null || name == "" || name.isEmpty()){
             name = "unnamed";
         }
+        // Fix name
+        name = name.replace("-", "");
+        name = name.replace("|", "");
+
         int currentScore = controller.getScore();
         if (currentScore > 0){
             SharedPreferences.Editor scoreEdit = gamePrefs.edit();
