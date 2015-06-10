@@ -14,7 +14,7 @@ public class StatisticsStorage {
     public int stagesCleared;
     public int distanceWalked;
 
-    public StatisticsStorage (int snakes, int rats, int wolves, int horses, int lost, int stagesClear, int distance, int demons){
+    public StatisticsStorage (int snakes, int rats, int wolves, int horses, int lost, int stagesClear, int distance, int dragons){
         snakesKilled = snakes;
         ratsKilled = rats;
         wolvesKilled = wolves;
@@ -22,7 +22,7 @@ public class StatisticsStorage {
         gamesLost = lost;
         stagesCleared = stagesClear;
         distanceWalked = distance;
-        dragonsKilled = demons;
+        dragonsKilled = dragons;
     }
 
     public void addStatistics(StatisticsStorage add){

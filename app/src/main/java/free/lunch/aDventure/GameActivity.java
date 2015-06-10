@@ -162,7 +162,6 @@ public class GameActivity extends MainMenuActivity {
         if (statistics.length()>0){
             String[] exStats = statistics.split("\\|");
             StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]), Integer.parseInt(exStats[7]));
-            System.out.println("allStats: "+allStats.toString());
             allStats.addStatistics(newStats);
             statsEdit.putString("stats", allStats.toString());
             statsEdit.commit();
@@ -177,7 +176,6 @@ public class GameActivity extends MainMenuActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
         alert.setCancelable(false);
-        System.out.println("ScorePOPUP");
 
         alert.setTitle("You Died!");
         alert.setMessage("Enter your name:");

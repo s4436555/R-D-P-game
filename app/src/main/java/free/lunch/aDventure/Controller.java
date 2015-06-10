@@ -269,7 +269,6 @@ public class Controller implements View.OnTouchListener, Serializable {
                     onPortal = true;
                     stagesCleared++;
                     gv.setStage(stagesCleared + 1);
-                    System.out.println("Sneks: " +snakesKill+ " Rats: " + ratsKill + " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
                     LevelGenerator generator = new LevelGenerator();
                     level = generator.genLevel(level.getDifficulty() + 2);
                     ec = new EnemyController(level);
