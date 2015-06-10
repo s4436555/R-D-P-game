@@ -49,7 +49,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     private GameActivity ga;
     private TouchOverlay to;
 
-    private Boolean onPortal;
+    private Boolean onPortal = false;
 
 
     private int score = 0;

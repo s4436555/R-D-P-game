@@ -61,6 +61,7 @@ public class LevelGenerator {
             tempSpace = getRandomFreeSpace(level);
             x = tempSpace[0];
             y = tempSpace[1];
+            System.out.println("x: " +x+ "y: " +y);
             score = rand.nextInt(Math.min(3, pool)) + 1;
             System.out.println(score);
             System.out.println(pool);
