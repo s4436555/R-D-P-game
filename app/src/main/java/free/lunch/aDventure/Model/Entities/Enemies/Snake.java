@@ -45,11 +45,20 @@ public class Snake extends Enemy {
         moveV = startV;
     }
 
+    /**
+     * Get the points rewarded to the player when killing this enemy
+     * @return
+     */
     @Override
     public int getPoints(){
         return 2;
     }
 
+    /**
+     * Get the Snake image
+     * @param context
+     * @return
+     */
     @Override
     public Drawable getImage(Context context) {
         if (moveV)
@@ -57,11 +66,25 @@ public class Snake extends Enemy {
         return context.getResources().getDrawable(R.drawable.snake2_128);
     }
 
+    /**
+     * Calculates the distance between the player and the enemy
+     * @param x
+     * @param y
+     * @param xPlyr
+     * @param yPlyr
+     * @return
+     */
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {
         int d = Math.abs (xPlyr - x) + Math.abs(yPlyr - y);
         return new int[]{x, y, d};
     }
 
+    /**
+     * Returns a list of possible moves
+     * @param xPlyr x position of player
+     * @param yPlyr y position of player
+     * @return
+     */
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();

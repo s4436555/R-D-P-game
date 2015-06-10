@@ -40,11 +40,20 @@ public class Rat extends Enemy {
         super(xPos, yPos);
     }
 
+    /**
+     * Get the points rewarded to the player when killing this enemy
+     * @return
+     */
     @Override
     public int getPoints(){
         return 3;
     }
 
+    /**
+     * Get the Rat image
+     * @param context
+     * @return
+     */
     @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.rat_128);
@@ -55,6 +64,12 @@ public class Rat extends Enemy {
         return new int[]{x, y, d};
     }
 
+    /**
+     * Returns a list of possible moves
+     * @param xPlyr x position of player
+     * @param yPlyr y position of player
+     * @return
+     */
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();

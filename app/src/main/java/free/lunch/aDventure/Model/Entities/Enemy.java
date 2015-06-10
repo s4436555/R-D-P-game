@@ -42,23 +42,45 @@ public abstract class Enemy implements CellEntity, Serializable {
         this.yPos = yPos;
     }
 
+    /**
+     * Get the points rewarded to the player when killing this enemy
+     * @return
+     */
     public int getPoints(){
         return 1;
     }
 
+    /**
+     * Get the y-coordinate of this enemy
+     * @return
+     */
     public int getY () {
         return yPos;
     }
 
+    /**
+     * Get the x-coordinate of this enemy
+     * @return
+     */
     public int getX () {
         return xPos;
     }
 
+    /**
+     * Sets the coordinates given to the enemy's current coordinates
+     * @param xPos new x coordinate
+     * @param yPos new y coordinate
+     */
     public void setCoordinates (int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
     }
 
+    /**
+     * Get the Enemy image
+     * @param context
+     * @return
+     */
     @Override
     public Drawable getImage(Context context) {
         return context.getResources().getDrawable(R.drawable.dragon_64);
