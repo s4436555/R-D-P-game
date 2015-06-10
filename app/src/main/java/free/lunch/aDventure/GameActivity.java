@@ -162,7 +162,7 @@ public class GameActivity extends MainMenuActivity {
         StatisticsStorage newStats = controller.getStats();
         if (statistics.length()>0){
             String[] exStats = statistics.split("\\|");
-            StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]));
+            StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]), Integer.parseInt(exStats[7]));
             System.out.println("allStats: "+allStats.toString());
             allStats.addStatistics(newStats);
             statsEdit.putString("stats", allStats.toString());

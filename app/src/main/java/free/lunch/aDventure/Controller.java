@@ -28,6 +28,7 @@ import free.lunch.aDventure.Model.Direction;
 import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
+import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
 import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
@@ -54,6 +55,7 @@ public class Controller implements View.OnTouchListener, Serializable {
 
     private int score = 0;
 
+    private int demonsKilled = 0;
     private int snakesKill = 0;
     private int horsesKill = 0;
     private int wolvesKill = 0;
@@ -146,7 +148,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     }
 
     public StatisticsStorage getStats(){
-        return new StatisticsStorage(snakesKill, dragonsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked);
+        return new StatisticsStorage(snakesKill, dragonsKill, wolvesKill, horsesKill, lost, stagesCleared, distanceWalked, demonsKilled);
     }
 
     /**
@@ -180,6 +182,9 @@ public class Controller implements View.OnTouchListener, Serializable {
     }
 
     public void addKills(Enemy enemy){
+        if (enemy instanceof TestEnemy){
+            demonsKilled++;
+        }
         if (enemy instanceof Wolf){
             wolvesKill++;
         }

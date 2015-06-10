@@ -27,10 +27,10 @@ public class StatisticsActivity extends Activity {
         SharedPreferences statsPrefs = getSharedPreferences(GameActivity.STATS_PREFS, 0);
         String[] savedStats = statsPrefs.getString("stats", "").split("\\|");
 
-        //TODO: Load stats
-
-        if (savedStats.length == 7) {
-            TextView v = (TextView) findViewById(R.id.stats_snake_desc);
+        if (savedStats.length == 8) {
+            TextView v = (TextView) findViewById(R.id.stats_demon_desc);
+            v.setText("You killed " + savedStats[7] + " demons.");
+            v = (TextView) findViewById(R.id.stats_snake_desc);
             v.setText("You killed " + savedStats[0] + " sneks.");
             v = (TextView) findViewById(R.id.stats_horse_desc);
             v.setText(savedStats[3] + " poor little horsies.");

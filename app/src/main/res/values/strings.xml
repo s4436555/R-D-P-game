@@ -42,6 +42,7 @@
     <string name="title_activity_statistics">Statistics</string>
     <string name="statistic_dummy">Something went wrong</string>
 
+    <string name="statistic_demon">Demons killed</string>
     <string name="statistic_snake">Overall snek kills</string>
     <string name="statistic_horse">Horses beaten to death</string>
     <string name="statistic_wolf">Wolves sliced open</string>

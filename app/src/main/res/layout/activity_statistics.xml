@@ -28,6 +28,37 @@
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
+                    android:src="@drawable/temp_128"
+                    android:layout_rowSpan="2"/>
+                <TextView
+                    android:layout_margin="@dimen/stats_margin"
+                    android:textSize="@dimen/stats_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:text="@string/statistic_demon"/>
+                <TextView
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/stats_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:text="@string/statistic_dummy"
+                    android:id="@+id/stats_demon_desc"/>
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rowCount="2"
+                android:columnCount="2">
+                <ImageView
+                    android:layout_width="@dimen/stats_icon"
+                    android:layout_height="@dimen/stats_icon"
+                    android:layout_margin="@dimen/stats_margin"
                     android:src="@drawable/snake_128"
                     android:layout_rowSpan="2"/>
                 <TextView
