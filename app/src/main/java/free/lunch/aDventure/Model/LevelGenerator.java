@@ -61,10 +61,7 @@ public class LevelGenerator {
             tempSpace = getRandomFreeSpace(level);
             x = tempSpace[0];
             y = tempSpace[1];
-            System.out.println("x: " +x+ "y: " +y);
             score = rand.nextInt(Math.min(3, pool)) + 1;
-            System.out.println(score);
-            System.out.println(pool);
             pool -= score;
             switch (score) {
                 default: level.addEnemy(chooseEnemyLVL1(x, y)); break;
@@ -72,16 +69,7 @@ public class LevelGenerator {
                 case 3: level.addEnemy(chooseEnemyLVL3(x, y)); break;
             }
         }
-        /*level.addEnemy(new Dragon(1, 3));
-        level.addEnemy(new TestEnemy(8, 4));
-        level.addPlayer(new Player(0, 0));
-        level.addEnemy(new Snake(6, 0, true));
-        level.addEnemy(new Horse(8, 8));
-        level.addEnemy(new Wolf(0, 8));
 
-        for (int i = 0; i < 8; i++)
-            level.addWall(new Wall(i, i));
-*/
         return level;
     }
 
@@ -99,7 +87,7 @@ public class LevelGenerator {
     private Enemy chooseEnemyLVL3 (int x, int y) {
         switch (rand.nextInt(2)) {
             default: return new Dragon(x, y);
-            case 2: return new Wolf(x, y);
+            case 1: return new Wolf(x, y);
         }
     }
 
