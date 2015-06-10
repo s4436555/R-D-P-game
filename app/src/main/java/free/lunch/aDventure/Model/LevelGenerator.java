@@ -96,20 +96,20 @@ public class LevelGenerator {
     }
 
     private Enemy chooseEnemyLVL1 (int x, int y) {
-        return new Dragon(x, y);
+        return new Rat(x, y);
     }
 
     private Enemy chooseEnemyLVL2 (int x, int y) {
         switch (rand.nextInt(2)) {
             default: return new Snake(x, y, rand.nextBoolean());
-            case 1: return new Horse(x, y);
+            case 1: return new Wolf(x, y);
         }
     }
 
     private Enemy chooseEnemyLVL3 (int x, int y) {
         switch (rand.nextInt(2)) {
-            default: return new Rat(x, y);
-            case 1: return new Wolf(x, y);
+            default: return new Dragon(x, y);
+            case 1: return new Horse(x, y);
         }
     }
 

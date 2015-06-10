@@ -46,7 +46,7 @@ public class Horse extends Enemy {
      */
     @Override
     public int getPoints(){
-        return 2;
+        return 3;
     }
 
     /**

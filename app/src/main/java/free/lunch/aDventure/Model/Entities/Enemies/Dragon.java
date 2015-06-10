@@ -46,7 +46,7 @@ public class Dragon extends Enemy{
      */
     @Override
     public int getPoints(){
-        return 1;
+        return 3;
     }
 
     /**

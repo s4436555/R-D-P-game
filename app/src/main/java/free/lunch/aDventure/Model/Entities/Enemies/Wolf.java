@@ -47,7 +47,7 @@ public class Wolf extends Enemy {
      */
     @Override
     public int getPoints(){
-        return 3;
+        return 2;
     }
 
     /**
