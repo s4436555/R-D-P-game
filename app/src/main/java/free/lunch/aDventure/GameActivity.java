@@ -177,6 +177,7 @@ public class GameActivity extends MainMenuActivity {
     public void scorePopup(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
+        alert.setCancelable(false);
         System.out.println("ScorePOPUP");
 
         alert.setTitle("You Died!");
