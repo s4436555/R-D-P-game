@@ -49,6 +49,8 @@ public class Controller implements View.OnTouchListener, Serializable {
     private GameActivity ga;
     private TouchOverlay to;
 
+    private Boolean onPortal;
+
 
     private int score = 0;
 
@@ -119,7 +121,11 @@ public class Controller implements View.OnTouchListener, Serializable {
                 default:
                     break;
             }
-            ec.moveEnemies();
+            if (!onPortal) {
+                ec.moveEnemies();
+            } else{
+                onPortal = false;
+            }
             if(checkGameOver()){
                 lost++;
                 if (score>0){
@@ -250,6 +256,7 @@ public class Controller implements View.OnTouchListener, Serializable {
                     }
                 }
                 if (level.isPortal(x, y)) {
+                    onPortal = true;
                     stagesCleared++;
                     gv.setStage(stagesCleared + 1);
                     System.out.println("Sneks: " +snakesKill+ " Dragons: " + dragonsKill+ " Horses: " +horsesKill+ "Wolves: " +wolvesKill);
