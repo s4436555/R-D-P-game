@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Random;
 
-import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
+import free.lunch.aDventure.Model.Entities.Enemies.Rat;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
@@ -108,7 +108,7 @@ public class LevelGenerator {
 
     private Enemy chooseEnemyLVL3 (int x, int y) {
         switch (rand.nextInt(2)) {
-            default: return new Dragon(x, y);
+            default: return new Rat(x, y);
             case 1: return new Wolf(x, y);
         }
     }

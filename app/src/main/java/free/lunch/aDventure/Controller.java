@@ -25,7 +25,7 @@ import java.util.Random;
 
 import free.lunch.aDventure.Model.Corner;
 import free.lunch.aDventure.Model.Direction;
-import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
+import free.lunch.aDventure.Model.Entities.Enemies.Rat;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
@@ -191,7 +191,7 @@ public class Controller implements View.OnTouchListener, Serializable {
         if (enemy instanceof Snake){
             snakesKill++;
         }
-        if (enemy instanceof Dragon){
+        if (enemy instanceof Rat){
             dragonsKill++;
         }
         if (enemy instanceof Horse){

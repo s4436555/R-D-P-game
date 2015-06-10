@@ -28,15 +28,15 @@ import free.lunch.aDventure.R;
 /**
  * This Enemy moves with diagonal steps.
  */
-public class Dragon extends Enemy {
+public class Rat extends Enemy {
 
     /**
-     * Constructor of the Dragon class.
+     * Constructor of the Rat class.
      *
      * @param xPos x coordinate of this
      * @param yPos y coordinate of this
      */
-    public Dragon(int xPos, int yPos) {
+    public Rat(int xPos, int yPos) {
         super(xPos, yPos);
     }
 
@@ -47,7 +47,7 @@ public class Dragon extends Enemy {
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.dragon_128);
+        return context.getResources().getDrawable(R.drawable.rat_128);
     }
 
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {
