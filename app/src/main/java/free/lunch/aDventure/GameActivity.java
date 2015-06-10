@@ -113,7 +113,7 @@ public class GameActivity extends MainMenuActivity {
     }
 
     public void setHighScore(){
-        if (name == null || name == "" || name.isEmpty()){
+        if (name == null || name.equals("") || name.isEmpty()){
             name = "unnamed";
         }
         // Fix name
