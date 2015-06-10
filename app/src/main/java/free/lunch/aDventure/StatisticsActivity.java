@@ -37,7 +37,7 @@ public class StatisticsActivity extends Activity {
             v = (TextView) findViewById(R.id.stats_wolf_desc);
             v.setText(savedStats[2] + " big bad wolves.");
             v = (TextView) findViewById(R.id.stats_dragon_desc);
-            v.setText(savedStats[1] + " mighty dragons.");
+            v.setText(savedStats[1] + " nasty rats.");
             v = (TextView) findViewById(R.id.stats_stage_desc);
             v.setText("You went through " + savedStats[5] + " dungeon levels.");
             v = (TextView) findViewById(R.id.stats_step_desc);
