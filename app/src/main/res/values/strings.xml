@@ -9,7 +9,7 @@
     <string name="highscore_button">Highscore</string>
     <string name="highscore_desc">Look at the highest players</string>
     <string name="credits_button">Credits</string>
-    <string name="credits_desc">Who made all of this?</string>
+    <string name="credits_desc">Who made all this?</string>
     <string name="help_button">Help</string>
     <string name="help_desc">I don\'t understand any of this</string>
 
