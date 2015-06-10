@@ -101,16 +101,20 @@ public class Level implements Serializable{
         return enemies.size() == 0;
     }
 
-    public boolean isFree (int x, int y) {
+    public boolean isNextToPlayer(int x, int y) {
         if (player != null) {
-            for (int pX = player.getX()-1; pX <= player.getX()+1; pX++) {
+            for (int pX = player.getX() - 1; pX <= player.getX() + 1; pX++) {
                 for (int pY = player.getY() - 1; pY <= player.getY() + 1; pY++) {
                     if (isValid(pX, pY)) {
-                        if (x == pX && y == pY) return false;
+                        if (x == pX && y == pY) return true;
                     }
                 }
             }
         }
+        return false;
+    }
+
+    public boolean isFree (int x, int y) {
         if (isValid(x, y))
             return cells[x][y] == null;
         return false;

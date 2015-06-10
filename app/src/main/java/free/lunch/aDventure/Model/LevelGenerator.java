@@ -59,7 +59,9 @@ public class LevelGenerator {
         int score;
         int demonsAdded = 0;
         while (pool > 0){
-            tempSpace = getRandomFreeSpace(level);
+            do {
+                tempSpace = getRandomFreeSpace(level);
+            } while (level.isNextToPlayer(tempSpace[0], tempSpace[1]));
             x = tempSpace[0];
             y = tempSpace[1];
 
