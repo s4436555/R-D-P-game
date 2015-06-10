@@ -42,12 +42,12 @@
     <string name="title_activity_statistics">Statistics</string>
     <string name="statistic_dummy">Something went wrong</string>
 
-    <string name="statistic_dragon">Dragons killed</string>
-    <string name="statistic_snake">Overall snek kills</string>
+    <string name="statistic_dragon">Dragons slain</string>
+    <string name="statistic_snake">Snek kills</string>
     <string name="statistic_horse">Horses beaten to death</string>
     <string name="statistic_wolf">Wolves sliced open</string>
-    <string name="statistic_rat">Rats slain</string>
-    <string name="statistic_stage">Overall stages cleared</string>
+    <string name="statistic_rat">Rats crushed</string>
+    <string name="statistic_stage">Total stages cleared</string>
     <string name="statistic_step">Distance walked</string>
 
     <!-- Help -->
@@ -59,11 +59,11 @@
     <string name="help_wolf_title">Wolf</string>
     <string name="help_rat_title">Rat</string>
 
-    <string name="help_player_text">This is you, you move by tapping\nthe direction you want to go or tapping\nthe middle of the screen to wait</string>
-    <string name="help_dragon_text">Dragons only move horizontally and\nvertically.</string>
-    <string name="help_snake_text">The snake alternates between moving\nvertically/horizontally and diagonally </string>
-    <string name="help_horse_text">The horse jumps around the\nboard like in chess.</string>
-    <string name="help_wolf_text">Wolves move slowly around and jump\nonto you if you get to close.</string>
-    <string name="help_rat_text">Rats only move diagonally,\njust like in real life!</string>
+    <string name="help_player_text">This is you! Move by tapping\nthe cardinal direction you want to go;\ntap the middle of the screen to wait.</string>
+    <string name="help_dragon_text">These fearsome dragons can only\nmove orthogonally.</string>
+    <string name="help_snake_text">This hissing snake sneakily switches\nbetween slithering orthogonally\nand diagonally.</string>
+    <string name="help_horse_text">Horses jump around the board,\nlike in chess.</string>
+    <string name="help_wolf_text">Wolves move around orthogonally\nbut try to pounce when near!</string>
+    <string name="help_rat_text">These critters only move diagonally,\njust like in real life!</string>
 
 </resources>
