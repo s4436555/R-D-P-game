@@ -28,7 +28,7 @@ import free.lunch.aDventure.Model.Direction;
 import free.lunch.aDventure.Model.Entities.Enemies.Rat;
 import free.lunch.aDventure.Model.Entities.Enemies.Horse;
 import free.lunch.aDventure.Model.Entities.Enemies.Snake;
-import free.lunch.aDventure.Model.Entities.Enemies.TestEnemy;
+import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
 import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
@@ -182,7 +182,7 @@ public class Controller implements View.OnTouchListener, Serializable {
     }
 
     public void addKills(Enemy enemy){
-        if (enemy instanceof TestEnemy){
+        if (enemy instanceof Dragon){
             demonsKilled++;
         }
         if (enemy instanceof Wolf){

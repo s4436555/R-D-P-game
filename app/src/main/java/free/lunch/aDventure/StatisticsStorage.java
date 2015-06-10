@@ -5,7 +5,7 @@ package free.lunch.aDventure;
  */
 public class StatisticsStorage {
 
-    public int demonsKilled;
+    public int dragonsKilled;
     public int snakesKilled;
     public int ratsKilled;
     public int wolvesKilled;
@@ -22,7 +22,7 @@ public class StatisticsStorage {
         gamesLost = lost;
         stagesCleared = stagesClear;
         distanceWalked = distance;
-        demonsKilled = demons;
+        dragonsKilled = demons;
     }
 
     public void addStatistics(StatisticsStorage add){
@@ -33,10 +33,10 @@ public class StatisticsStorage {
         gamesLost = gamesLost + add.gamesLost;
         stagesCleared = stagesCleared + add.stagesCleared;
         distanceWalked = distanceWalked + add.distanceWalked;
-        demonsKilled = demonsKilled + add.demonsKilled;
+        dragonsKilled = dragonsKilled + add.dragonsKilled;
     }
 
     public String toString(){
-        return snakesKilled+"|"+ ratsKilled +"|"+wolvesKilled+"|"+horsesKilled+"|"+gamesLost+"|"+stagesCleared+"|"+distanceWalked+"|"+demonsKilled;
+        return snakesKilled+"|"+ ratsKilled +"|"+wolvesKilled+"|"+horsesKilled+"|"+gamesLost+"|"+stagesCleared+"|"+distanceWalked+"|"+ dragonsKilled;
     }
 }

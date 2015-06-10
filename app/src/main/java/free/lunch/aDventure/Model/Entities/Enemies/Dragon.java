@@ -28,7 +28,7 @@ import free.lunch.aDventure.R;
 /**
  * Created by jonathan on 28-5-15.
  */
-public class TestEnemy extends Enemy{
+public class Dragon extends Enemy{
 
     /**
      * Constructor of the Enemy class.
@@ -36,7 +36,7 @@ public class TestEnemy extends Enemy{
      * @param xPos
      * @param yPos
      */
-    public TestEnemy(int xPos, int yPos) {
+    public Dragon(int xPos, int yPos) {
         super(xPos, yPos);
     }
 
@@ -47,7 +47,7 @@ public class TestEnemy extends Enemy{
 
     @Override
     public Drawable getImage(Context context) {
-        return context.getResources().getDrawable(R.drawable.temp_128);
+        return context.getResources().getDrawable(R.drawable.dragon_128);
     }
 
     private int[] calcDelta (int x, int y, int xPlyr, int yPlyr) {

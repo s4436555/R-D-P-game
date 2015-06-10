@@ -42,28 +42,28 @@
     <string name="title_activity_statistics">Statistics</string>
     <string name="statistic_dummy">Something went wrong</string>
 
-    <string name="statistic_demon">Demons killed</string>
+    <string name="statistic_dragon">Dragons killed</string>
     <string name="statistic_snake">Overall snek kills</string>
     <string name="statistic_horse">Horses beaten to death</string>
     <string name="statistic_wolf">Wolves sliced open</string>
-    <string name="statistic_dragon">Rats slain</string>
+    <string name="statistic_rat">Rats slain</string>
     <string name="statistic_stage">Overall stages cleared</string>
     <string name="statistic_step">Distance walked</string>
 
     <!-- Help -->
     <string name="title_activity_help">Help</string>
     <string name="help_player_title">Player</string>
-    <string name="help_demon_title">Demon</string>
+    <string name="help_dragon_title">Dragon</string>
     <string name="help_snake_title">Snake</string>
     <string name="help_horse_title">Horse</string>
     <string name="help_wolf_title">Wolf</string>
-    <string name="help_dragon_title">Rat</string>
+    <string name="help_rat_title">Rat</string>
 
     <string name="help_player_text">This is you, you move by tapping\nthe direction you want to go or tapping\nthe middle of the screen to wait</string>
-    <string name="help_demon_text">Demons only move horizontally and\nvertically.</string>
+    <string name="help_dragon_text">Dragons only move horizontally and\nvertically.</string>
     <string name="help_snake_text">The snake alternates between moving\nvertically/horizontally and diagonally </string>
     <string name="help_horse_text">The horse jumps around the\nboard like in chess.</string>
     <string name="help_wolf_text">Wolves move slowly around and jump\nonto you if you get to close.</string>
-    <string name="help_dragon_text">Rats only move diagonally,\njust like in real life!</string>
+    <string name="help_rat_text">Rats only move diagonally,\njust like in real life!</string>
 
 </resources>

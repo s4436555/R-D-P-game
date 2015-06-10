@@ -64,14 +64,14 @@
                     android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_rowSpan="2"
-                    android:src="@drawable/temp_128"/>
+                    android:src="@drawable/dragon_128"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_row="0"
-                    android:text="@string/help_demon_title"
+                    android:text="@string/help_dragon_title"
                     android:textColor="#000"
                     android:textSize="@dimen/menu_text"/>
                 <TextView
@@ -81,7 +81,7 @@
                     android:layout_gravity="bottom"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_row="1"
-                    android:text="@string/help_demon_text"/>
+                    android:text="@string/help_dragon_text"/>
             </GridLayout>
 
             <View
@@ -108,7 +108,7 @@
                     android:layout_column="1"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_row="0"
-                    android:text="@string/help_dragon_title"
+                    android:text="@string/help_rat_title"
                     android:textColor="#000"
                     android:textSize="@dimen/menu_text"/>
                 <TextView
@@ -118,7 +118,7 @@
                     android:layout_gravity="bottom"
                     android:layout_margin="@dimen/menu_margin"
                     android:layout_row="1"
-                    android:text="@string/help_dragon_text"/>
+                    android:text="@string/help_rat_text"/>
             </GridLayout>
 
             <View

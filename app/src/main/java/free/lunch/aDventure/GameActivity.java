@@ -19,7 +19,6 @@ package free.lunch.aDventure;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.Menu;
@@ -91,7 +90,7 @@ public class GameActivity extends MainMenuActivity {
                 break;
             default:
                 getActionBar().setTitle("Mom");
-                getActionBar().setIcon(R.drawable.temp_128);
+                getActionBar().setIcon(R.drawable.dragon_128);
         }
 
         // this is the view on which you will listen for touch events

@@ -28,8 +28,8 @@ public class StatisticsActivity extends Activity {
         String[] savedStats = statsPrefs.getString("stats", "").split("\\|");
 
         if (savedStats.length == 8) {
-            TextView v = (TextView) findViewById(R.id.stats_demon_desc);
-            v.setText("You killed " + savedStats[7] + " demons.");
+            TextView v = (TextView) findViewById(R.id.stats_dragon_desc);
+            v.setText("You killed " + savedStats[7] + " dragons.");
             v = (TextView) findViewById(R.id.stats_snake_desc);
             v.setText("You killed " + savedStats[0] + " sneks.");
             v = (TextView) findViewById(R.id.stats_horse_desc);
