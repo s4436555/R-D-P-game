@@ -131,6 +131,11 @@ public class Controller implements View.OnTouchListener, Serializable {
             if(checkGameOver()){
                 lost++;
                 ga.setStatistics();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e){
+
+                }
                 if (score>0){
                     ga.scorePopup();
                 } else {
