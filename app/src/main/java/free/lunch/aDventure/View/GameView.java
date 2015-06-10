@@ -44,7 +44,7 @@ public class GameView extends View implements Observer {
     private float margin_vertical;
     private int score = 0;
     private int bubble_margin = 10;
-    private int stage = 0;
+    private int stage = 1;
     private int scoreHeight = 40;
     private float bubble_height = 0;
     private int chat = 0;
