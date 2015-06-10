@@ -38,7 +38,21 @@ public class LevelGenerator {
     Random rand = new Random();
 
     public Level genLevel (int difficulty) {
-        Level level = new Level(9, 9, difficulty);
+
+        int levelX = difficulty + rand.nextInt(3);
+        int levelY = levelX + rand.nextInt(1);
+
+        if (difficulty > 4) {
+            levelX = 7 + rand.nextInt(2);
+            levelY = Math.min(levelX - 1, 9);
+        }
+
+        if (difficulty > 6) {
+            levelX = 9;
+            levelY = 8 + rand.nextInt(1);
+        }
+
+        Level level = new Level(levelX, levelY, difficulty);
         int pool = difficulty;
 
         int[] tempSpace;

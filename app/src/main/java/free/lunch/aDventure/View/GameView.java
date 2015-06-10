@@ -49,6 +49,8 @@ public class GameView extends View implements Observer {
     private float bubble_height = 0;
     private int chat = 0;
     private float textSize;
+    private int screenW;
+    private int screenH;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -88,6 +90,9 @@ public class GameView extends View implements Observer {
 
         if(level==null)
             return;
+
+        this.screenW = w;
+        this.screenH = h;
 
         // calculate the dimensions
         cell_size = Math.min(w / level.getXSize(), h  / level.getYSize());
@@ -292,6 +297,21 @@ public class GameView extends View implements Observer {
      */
     public void setLevel (Level level) {
         this.level = level;
+
+        // NEW dimensions in case lvl size changed
+        // calculate the dimensions
+        cell_size = Math.min(screenW / level.getXSize(), screenH  / level.getYSize());
+
+        // calculate the required margin
+        margin_horizontal = 12 + ((screenW - (cell_size * level.getXSize())) / 2); //------UNCLEAN-----
+        margin_vertical = 12 + ((screenH - (cell_size * level.getYSize())) / 2); //------UNCLEAN-----
+
+        //------UNCLEAN-----
+        cell_size = Math.min((screenW - 40) / level.getXSize(), (screenW - 30) / level.getYSize());
+
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        bubble_margin = (int) (6 * scale);
+        textSize = 16 * scale;
     }
 
     /**
