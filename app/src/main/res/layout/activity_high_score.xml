@@ -1,326 +1,368 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#eee"
     tools:context=".HighScoreActivity">
 
-        <LinearLayout
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true" >
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap1" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap1" />
-                <LinearLayout
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player0_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player0_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player0_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap2" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player1_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player1_desc"/>
-                </LinearLayout>
-            </LinearLayout>
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap3" />
-                <LinearLayout
+                <TextView
+                    android:id="@+id/player0_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player2_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player2_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
+                    android:layout_gravity="bottom"
                     android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap4" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player3_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player3_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap5" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player4_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player4_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap6" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player5_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player5_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap7" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player6_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player6_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap8" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player7_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player7_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap9" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player8_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player8_desc"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="@dimen/highscore_icon"
-                    android:layout_height="@dimen/highscore_icon"
-                    android:layout_margin="@dimen/highscore_margin"
-                    android:src="@drawable/keycap10" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-                    <TextView
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:textSize="@dimen/highscore_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="@string/high_score_default_name"
-                        android:id="@+id/player9_name"/>
-                    <TextView
-                        android:layout_gravity="bottom"
-                        android:layout_margin="@dimen/highscore_margin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/high_score_default_text"
-                        android:id="@+id/player9_desc"/>
-                </LinearLayout>
+                    android:text="@string/high_score_default_text" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player1_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap3" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player2_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap4" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player3_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player3_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap5" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player4_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap6" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player5_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player5_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap7" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player6_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player6_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap8" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player7_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player7_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap9" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player8_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player8_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/highscore_icon"
+                android:layout_height="@dimen/highscore_icon"
+                android:layout_margin="@dimen/highscore_margin"
+                android:src="@drawable/keycap10" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/player9_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_name"
+                    android:textColor="#000"
+                    android:textSize="@dimen/highscore_text" />
+
+                <TextView
+                    android:id="@+id/player9_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/highscore_margin"
+                    android:text="@string/high_score_default_text" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

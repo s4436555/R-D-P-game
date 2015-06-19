@@ -1,6 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#eee"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -16,35 +18,38 @@
 
         <!-- Team -->
         <!-- Jonathan -->
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/waving"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:src="@drawable/waving" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="0"
-                android:text="@string/credits_name1"
-                android:textColor="#000"
-                android:textSize="@dimen/menu_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="1"
-                android:text="@string/credits_desc1"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_name1"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_desc1" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -54,35 +59,38 @@
             android:background="@color/menu_line" />
 
         <!-- Tom -->
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/koala"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:src="@drawable/koala" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="0"
-                android:text="@string/credits_name2"
-                android:textColor="#000"
-                android:textSize="@dimen/menu_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="1"
-                android:text="@string/credits_desc2"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_name2"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_desc2" />
+            </LinearLayout>
+        </LinearLayout>
 
 
         <View
@@ -93,35 +101,38 @@
             android:background="@color/menu_line" />
 
         <!-- Jan -->
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/tophat"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:src="@drawable/tophat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="0"
-                android:text="@string/credits_name3"
-                android:textColor="#000"
-                android:textSize="@dimen/menu_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="1"
-                android:text="@string/credits_desc3"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_name3"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_desc3" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
@@ -131,35 +142,38 @@
             android:background="@color/menu_line" />
 
         <!-- Mathis -->
-        <GridLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:rowCount="2">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/crown"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:src="@drawable/crown" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="0"
-                android:text="@string/credits_name4"
-                android:textColor="#000"
-                android:textSize="@dimen/menu_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_row="1"
-                android:text="@string/credits_desc4"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_name4"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_desc4" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"

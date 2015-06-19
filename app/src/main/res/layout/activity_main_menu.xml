@@ -1,220 +1,236 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#eee"
-    tools:context=".MainMenuActivity"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    tools:context=".MainMenuActivity">
 
     <LinearLayout
         android:id="@+id/fullscreen_content"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
         <!-- "Buttons" -->
         <!-- Play -->
-        <GridLayout
+        <LinearLayout
+            android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="start"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/play_button">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/play"
-                android:layout_rowSpan="2"/>
-            <TextView
-                android:layout_margin="@dimen/menu_margin"
-                android:textSize="@dimen/menu_text"
-                android:layout_width="wrap_content"
+                android:src="@drawable/play" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:text="@string/start_button"/>
-            <TextView
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:text="@string/start_desc"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/start_button"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/start_desc" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="@dimen/menu_margin"
             android:layout_marginRight="@dimen/menu_margin"
-            android:layout_height="1dp"
             android:background="@color/menu_line" />
 
         <!-- Highscore -->
-        <GridLayout
+        <LinearLayout
+            android:id="@+id/score_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="gotoHighscore"
             android:clickable="true"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/score_button">
+            android:onClick="gotoHighscore"
+            android:orientation="horizontal">
+
             <ImageView
-                android:layout_rowSpan="2"
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/crown"/>
-            <TextView
-                android:layout_margin="@dimen/menu_margin"
-                android:textSize="@dimen/menu_text"
-                android:layout_width="wrap_content"
+                android:src="@drawable/crown" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:text="@string/highscore_button"/>
-            <TextView
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:text="@string/highscore_desc"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/highscore_button"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/highscore_desc" />
+            </LinearLayout>
+        </LinearLayout>
 
 
         <View
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="@dimen/menu_margin"
             android:layout_marginRight="@dimen/menu_margin"
-            android:layout_height="1dp"
             android:background="@color/menu_line" />
 
         <!-- Statistics -->
-        <GridLayout
+        <LinearLayout
+            android:id="@+id/stats_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="gotoStatistics"
             android:clickable="true"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/stats_button">
+            android:onClick="gotoStatistics"
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/chart"/>
-            <TextView
-                android:layout_margin="@dimen/menu_margin"
-                android:textSize="@dimen/menu_text"
-                android:layout_width="wrap_content"
+                android:src="@drawable/chart" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:text="@string/statistic_button"/>
-            <TextView
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:text="@string/statistic_desc"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/statistic_button"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/statistic_desc" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="@dimen/menu_margin"
             android:layout_marginRight="@dimen/menu_margin"
-            android:layout_height="1dp"
             android:background="@color/menu_line" />
 
         <!-- Help -->
-        <GridLayout
+        <LinearLayout
+            android:id="@+id/credits_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="gotoCredits"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/credits_button">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/ppl"/>
-            <TextView
-                android:layout_margin="@dimen/menu_margin"
-                android:textSize="@dimen/menu_text"
-                android:layout_width="wrap_content"
+                android:src="@drawable/ppl" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:text="@string/credits_button"/>
-            <TextView
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:text="@string/credits_desc"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_button"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/credits_desc" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="@dimen/menu_margin"
             android:layout_marginRight="@dimen/menu_margin"
-            android:layout_height="1dp"
             android:background="@color/menu_line" />
 
-        <GridLayout
+        <LinearLayout
+            android:id="@+id/help_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="gotoHelp"
-            android:rowCount="2"
-            android:columnCount="2"
-            android:id="@+id/help_button">
+            android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="@dimen/menu_icon"
                 android:layout_height="@dimen/menu_icon"
                 android:layout_margin="@dimen/menu_margin"
-                android:layout_rowSpan="2"
-                android:src="@drawable/paperclip"/>
-            <TextView
-                android:layout_margin="@dimen/menu_margin"
-                android:textSize="@dimen/menu_text"
-                android:layout_width="wrap_content"
+                android:src="@drawable/paperclip" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:text="@string/help_button"/>
-            <TextView
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/menu_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_row="1"
-                android:text="@string/help_desc"/>
-        </GridLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/help_button"
+                    android:textColor="#000"
+                    android:textSize="@dimen/menu_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:text="@string/help_desc" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="fill_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="@dimen/menu_margin"
             android:layout_marginRight="@dimen/menu_margin"
-            android:layout_height="1dp"
             android:background="@color/menu_line" />
 
     </LinearLayout>

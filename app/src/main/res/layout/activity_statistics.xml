@@ -1,243 +1,264 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#eee"
     tools:context="free.lunch.aDventure.StatisticsActivity">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView" >
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
 
             <!--Content-->
 
-            <GridLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/portal"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_stage"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_stage_desc"/>
-            </GridLayout>
+                    android:src="@drawable/portal" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_stage"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_stage_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/footprints"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_step"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_step_desc"/>
-            </GridLayout>
+                    android:src="@drawable/footprints" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_step"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_step_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/rat"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_rat"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_rat_desc"/>
-            </GridLayout>
+                    android:src="@drawable/rat" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_rat"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_rat_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/snake"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_snake"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_snake_desc"/>
-            </GridLayout>
+                    android:src="@drawable/snake" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_snake"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_snake_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/wolf"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_wolf"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_wolf_desc"/>
-            </GridLayout>
+                    android:src="@drawable/wolf" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_wolf"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_wolf_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/dragon"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_dragon"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_dragon_desc"/>
-            </GridLayout>
+                    android:src="@drawable/dragon" />
 
-            <GridLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dragon"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_dragon_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="@dimen/stats_icon"
                     android:layout_height="@dimen/stats_icon"
                     android:layout_margin="@dimen/stats_margin"
-                    android:src="@drawable/horse"
-                    android:layout_rowSpan="2"/>
-                <TextView
-                    android:layout_margin="@dimen/stats_margin"
-                    android:textSize="@dimen/stats_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:layout_column="1"
-                    android:layout_row="0"
-                    android:text="@string/statistic_horse"/>
-                <TextView
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/stats_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_row="1"
-                    android:text="@string/statistic_dummy"
-                    android:id="@+id/stats_horse_desc"/>
-            </GridLayout>
+                    android:src="@drawable/horse" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_horse"
+                        android:textColor="#000"
+                        android:textSize="@dimen/stats_text" />
+
+                    <TextView
+                        android:id="@+id/stats_horse_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/stats_margin"
+                        android:text="@string/statistic_dummy" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>
