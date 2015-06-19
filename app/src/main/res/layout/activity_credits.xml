@@ -9,179 +9,184 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="free.lunch.aDventure.CreditsActivity">
 
-    <LinearLayout
-        android:id="@+id/fullscreen_content"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <!-- Team -->
-        <!-- Jonathan -->
         <LinearLayout
+            android:id="@+id/fullscreen_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/waving" />
-
+            <!-- Team -->
+            <!-- Jonathan -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_name1"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
+                    android:src="@drawable/waving" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_desc1" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_name1"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_desc1" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
 
-        <!-- Tom -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/koala" />
-
+            <!-- Tom -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_name2"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
+                    android:src="@drawable/koala" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_desc2" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_name2"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_desc2" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
 
-        <!-- Jan -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/tophat" />
-
+            <!-- Jan -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_name3"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
+                    android:src="@drawable/tophat" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_desc3" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_name3"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_desc3" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
 
-        <!-- Mathis -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/crown" />
-
+            <!-- Mathis -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_name4"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
+                    android:src="@drawable/crown" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_desc4" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_name4"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_desc4" />
+                </LinearLayout>
             </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
         </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
-
-    </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

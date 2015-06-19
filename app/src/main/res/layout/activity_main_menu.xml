@@ -5,237 +5,242 @@
     android:background="#eee"
     tools:context=".MainMenuActivity">
 
-    <LinearLayout
-        android:id="@+id/fullscreen_content"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical">
-
-        <!-- "Buttons" -->
-        <!-- Play -->
-        <LinearLayout
-            android:id="@+id/play_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="start"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/play" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/start_button"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/start_desc" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
-
-        <!-- Highscore -->
-        <LinearLayout
-            android:id="@+id/score_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="gotoHighscore"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/crown" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/highscore_button"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/highscore_desc" />
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
-
-        <!-- Statistics -->
-        <LinearLayout
-            android:id="@+id/stats_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="gotoStatistics"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/chart" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/statistic_button"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/statistic_desc" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
-
-        <!-- Help -->
-        <LinearLayout
-            android:id="@+id/credits_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="gotoCredits"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/ppl" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_button"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/credits_desc" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/help_button"
+            android:id="@+id/fullscreen_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="gotoHelp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="@dimen/menu_icon"
-                android:layout_height="@dimen/menu_icon"
-                android:layout_margin="@dimen/menu_margin"
-                android:src="@drawable/paperclip" />
-
+            <!-- "Buttons" -->
+            <!-- Play -->
             <LinearLayout
+                android:id="@+id/play_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:clickable="true"
+                android:onClick="start"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
                     android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/help_button"
-                    android:textColor="#000"
-                    android:textSize="@dimen/menu_text" />
+                    android:src="@drawable/play" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_margin="@dimen/menu_margin"
-                    android:text="@string/help_desc" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/start_button"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/start_desc" />
+                </LinearLayout>
             </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <!-- Highscore -->
+            <LinearLayout
+                android:id="@+id/score_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="gotoHighscore"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:src="@drawable/crown" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/highscore_button"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/highscore_desc" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <!-- Statistics -->
+            <LinearLayout
+                android:id="@+id/stats_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="gotoStatistics"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:src="@drawable/chart" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/statistic_button"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/statistic_desc" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <!-- Help -->
+            <LinearLayout
+                android:id="@+id/credits_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="gotoCredits"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:src="@drawable/ppl" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_button"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/credits_desc" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
+            <LinearLayout
+                android:id="@+id/help_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="gotoHelp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/menu_icon"
+                    android:layout_height="@dimen/menu_icon"
+                    android:layout_margin="@dimen/menu_margin"
+                    android:src="@drawable/paperclip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/help_button"
+                        android:textColor="#000"
+                        android:textSize="@dimen/menu_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/menu_margin"
+                        android:text="@string/help_desc" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/menu_margin"
+                android:layout_marginRight="@dimen/menu_margin"
+                android:background="@color/menu_line" />
+
         </LinearLayout>
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="@dimen/menu_margin"
-            android:layout_marginRight="@dimen/menu_margin"
-            android:background="@color/menu_line" />
-
-    </LinearLayout>
-
-
+    </ScrollView>
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 </RelativeLayout>

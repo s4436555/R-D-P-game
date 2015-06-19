@@ -128,31 +128,31 @@ public class MainMenuActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void start(View view){
+    public void start(View view) {
         Intent myIntent = new Intent(MainMenuActivity.this, GameActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
         //Start Game
     }
 
-    public void gotoHighscore(View view){
+    public void gotoHighscore(View view) {
         Intent myIntent = new Intent(MainMenuActivity.this, HighScoreActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
         //Start Highscore
     }
 
-    public void gotoStatistics(View view){
+    public void gotoStatistics(View view) {
         Intent myIntent = new Intent(MainMenuActivity.this, StatisticsActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
         //Start Stats
     }
 
-    public void gotoCredits(View view){
+    public void gotoCredits(View view) {
         Intent myIntent = new Intent(MainMenuActivity.this, CreditsActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
         //Start Highscore
     }
 
-    public void gotoHelp(View view){
+    public void gotoHelp(View view) {
         Intent myIntent = new Intent(MainMenuActivity.this, HelpActivity.class);
         MainMenuActivity.this.startActivity(myIntent);
         //Start Highscore
