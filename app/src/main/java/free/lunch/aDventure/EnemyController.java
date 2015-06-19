@@ -63,8 +63,11 @@ public class EnemyController implements Serializable {
                 sortMoves(moves);
                 for (int[] move : moves) {
                     if (level.isValid(move[0], move[1])) {
-                        if (level.getEntity(move[0], move[1]) instanceof Player)
+                        if (level.getEntity(move[0], move[1]) instanceof Player) {
                             level.killPlayer();
+                            System.out.println("Killed by " + enemy.getClass().toString() +
+                                    " from (" + enemy.getX() + "," + enemy.getY() + ")");
+                        }
                         if (level.isFree(move[0], move[1])) {
                             level.moveEntity(enemy.getX(), enemy.getY(), move[0], move[1]);
                             break;

@@ -6,5 +6,5 @@ package free.lunch.aDventure.Model;
  * Created by Jonathan on 29-4-15.
  */
 public enum Corner {
-    LEFT, RIGHT, UP, DOWN, CENTER
+    LEFT, RIGHT, UP, DOWN, CENTER, OOB
 }

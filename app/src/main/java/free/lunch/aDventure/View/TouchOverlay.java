@@ -44,12 +44,12 @@ public class TouchOverlay extends View implements Observer {
     private Path path;
 
     public TouchOverlay(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super (context, attrs, defStyleAttr);
         setupPaint ();
     }
 
     public TouchOverlay(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        super (context, attrs);
         setupPaint ();
     }
 
@@ -60,7 +60,7 @@ public class TouchOverlay extends View implements Observer {
      *                access the current theme, resources, etc.
      */
     public TouchOverlay(Context context) {
-        super(context);
+        super (context);
         setupPaint ();
     }
 
@@ -107,7 +107,7 @@ public class TouchOverlay extends View implements Observer {
 
         path.reset();
 
-        path.moveTo(points[0].x, points[0].y);
+        path.moveTo (points[0].x, points[0].y);
 
         for (Point p : points) {
             path.lineTo(p.x, p.y);
@@ -161,11 +161,14 @@ public class TouchOverlay extends View implements Observer {
                 points[2] = new Point(inner[0], inner[3]);
                 points[3] = new Point(coordinates[0], coordinates[3]);
                 break;
-            default:
+            case CENTER:
                 points[0] = new Point(inner[0], inner[1]);
                 points[1] = new Point(inner[2], inner[1]);
                 points[2] = new Point(inner[2], inner[3]);
                 points[3] = new Point(inner[0], inner[3]);
+                break;
+            default:
+                points = null;
                 break;
         }
         this.postInvalidate();

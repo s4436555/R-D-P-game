@@ -25,10 +25,10 @@ import java.util.Random;
 
 import free.lunch.aDventure.Model.Corner;
 import free.lunch.aDventure.Model.Direction;
-import free.lunch.aDventure.Model.Entities.Enemies.Rat;
-import free.lunch.aDventure.Model.Entities.Enemies.Horse;
-import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
+import free.lunch.aDventure.Model.Entities.Enemies.Horse;
+import free.lunch.aDventure.Model.Entities.Enemies.Rat;
+import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
@@ -129,7 +129,7 @@ public class Controller implements View.OnTouchListener, Serializable {
                 case CENTER:
                     break;
                 default:
-                    break;
+                    return true;
             }
             if (!onPortal) {
                 ec.moveEnemies();
@@ -179,6 +179,9 @@ public class Controller implements View.OnTouchListener, Serializable {
     private Corner location(float x, float y, int height, int width){
         float perX = x/(float)width;
         float perY = y/(float)height;
+
+        if (perX > 1 || perX < 0 || perY > 1 || perY < 0)
+            return Corner.OOB; // out of bounds
 
         if (perX > buttonSize && perX < 1-buttonSize && perY > buttonSize && perY < 1-buttonSize)
             return  Corner.CENTER;
