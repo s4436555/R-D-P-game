@@ -24,15 +24,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.GridLayout;
+import android.widget.LinearLayout;
 
 public class MainMenuActivity extends Activity {
 
-    GridLayout plb;
-    GridLayout scb;
-    GridLayout stb;
-    GridLayout crb;
-    GridLayout heb;
+    LinearLayout plb;
+    LinearLayout scb;
+    LinearLayout stb;
+    LinearLayout crb;
+    LinearLayout heb;
     View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -93,11 +93,11 @@ public class MainMenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        plb = (GridLayout) findViewById(R.id.play_button);
-        scb = (GridLayout) findViewById(R.id.score_button);
-        stb = (GridLayout) findViewById(R.id.stats_button);
-        crb = (GridLayout) findViewById(R.id.credits_button);
-        heb = (GridLayout) findViewById(R.id.help_button);
+        plb = (LinearLayout) findViewById(R.id.play_button);
+        scb = (LinearLayout) findViewById(R.id.score_button);
+        stb = (LinearLayout) findViewById(R.id.stats_button);
+        crb = (LinearLayout) findViewById(R.id.credits_button);
+        heb = (LinearLayout) findViewById(R.id.help_button);
 
         plb.setOnTouchListener(listener);
         scb.setOnTouchListener(listener);
