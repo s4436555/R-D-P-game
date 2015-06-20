@@ -130,6 +130,11 @@ public class GameView extends View implements Observer {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        if (level == null) {
+            System.out.println("No level to draw!");
+            return;
+        }
+
         if (!drawn) {
             persistent = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
             Canvas temp = new Canvas(persistent);
@@ -140,11 +145,6 @@ public class GameView extends View implements Observer {
             drawn = true;
         }
         canvas.drawBitmap(persistent, 0, 0, null);
-
-        if (level == null) {
-            System.out.println("No level to draw!");
-            return;
-        }
 
         this.drawEnemies(canvas);
         this.drawPlayer(canvas);
