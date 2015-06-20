@@ -337,6 +337,7 @@ public class GameView extends View implements Observer {
      */
     public void setLevel(Level level) {
         this.level = level;
+        drawn = false;
 
         // NEW dimensions in case lvl size changed
         // calculate the dimensions
