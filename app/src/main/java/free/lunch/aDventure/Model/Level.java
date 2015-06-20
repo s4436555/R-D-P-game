@@ -28,7 +28,7 @@ import free.lunch.aDventure.Model.Entities.Wall;
 /**
  * A class for storing and handling all of the level data.
  */
-public class Level implements Serializable{
+public class Level implements Serializable {
 
     private int xSize;
     private int ySize;
@@ -37,13 +37,15 @@ public class Level implements Serializable{
     private CellEntity[][] cells;
     private LinkedList<Enemy> enemies;
     private Player player;
+    private Portal portal;
 
     /**
      * Constructor of the Level class
+     *
      * @param xSize horizontal size of the level
      * @param ySize vertical size of the level
      */
-    public Level (int xSize, int ySize, int difficulty) {
+    public Level(int xSize, int ySize, int difficulty) {
         this.xSize = xSize;
         this.ySize = ySize;
 
@@ -55,54 +57,61 @@ public class Level implements Serializable{
 
     /**
      * Returns the horizontal size of the level.
+     *
      * @return the horizontal size of the level
      */
-    public int getXSize () {
+    public int getXSize() {
         return xSize;
     }
 
     /**
      * Returns the vertical size of the level.
+     *
      * @return the vertical size of the level
      */
-    public int getYSize () {
+    public int getYSize() {
         return ySize;
     }
 
     /**
      * Returns the assigned difficulty of this level.
+     *
      * @return the assigned difficulty of this level
      */
-    public int getDifficulty () {
+    public int getDifficulty() {
         return difficulty;
     }
 
     /**
      * Assigns a difficulty to this level.
+     *
      * @param newDifficulty the new difficulty for this level
      */
-    public void setDifficulty (int newDifficulty) {
+    public void setDifficulty(int newDifficulty) {
         difficulty = newDifficulty;
     }
 
     /**
      * Returns true if the player has been killed.
+     *
      * @return true if the player has been killed, false otherwise
      */
-    public boolean gameover () {
+    public boolean gameover() {
         return player == null;
     }
 
     /**
      * Returns true if no enemies are left in this level.
+     *
      * @return true if no enemies are left in this level, false otherwise
      */
-    public boolean levelCleared () {
+    public boolean levelCleared() {
         return enemies.size() == 0;
     }
 
     /**
      * Returns true when the given location is next to the player
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the location is next to the player, false otherwise
@@ -122,11 +131,12 @@ public class Level implements Serializable{
 
     /**
      * Checks whether a location(x- and y-coordinate) is not used and is valid
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the location is free, false otherwise
      */
-    public boolean isFree (int x, int y) {
+    public boolean isFree(int x, int y) {
         if (isValid(x, y))
             return cells[x][y] == null;
         return false;
@@ -134,104 +144,114 @@ public class Level implements Serializable{
 
     /**
      * Checks whether a location is valid
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the location is valid, false otherwise
      */
-    public boolean isValid (int x, int y) {
+    public boolean isValid(int x, int y) {
         return (!(x < 0 || y < 0 || x > xSize - 1 || y > ySize - 1));
     }
 
     /**
      * Checks whether the CellEntity is an Enemy
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the CellEntity is an Enemy, false otherwise
      */
-    public boolean isEnemy (int x, int y){
+    public boolean isEnemy(int x, int y) {
         return cells[x][y] instanceof Enemy;
     }
 
     /**
      * Checks whether the CellEntity is a Wall
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the CellEntity is a Wall, false otherwise
      */
-    public boolean isWall (int x, int y){
+    public boolean isWall(int x, int y) {
         return cells[x][y] instanceof Wall;
     }
 
     /**
      * Checks whether the CellEntity is a Portal
+     *
      * @param x the x coordinate
      * @param y the y coordinate
      * @return true if the CellEntity is a Portal, false otherwise
      */
-    public boolean isPortal (int x, int y){
+    public boolean isPortal(int x, int y) {
         return cells[x][y] instanceof Portal;
     }
 
     /**
      * Returns the player instance stored in this.
+     *
      * @return the player instance
      */
-    public Player getPlayer () {
+    public Player getPlayer() {
         return player;
     }
 
     /**
      * Returns a CellEntity.
+     *
      * @param x x coordinate of the requested CellEntity
      * @param y y coordinate of the requested CellEntity
      * @return the CellEntity from the specified location
      */
-    public CellEntity getEntity (int x, int y) {
+    public CellEntity getEntity(int x, int y) {
         return cells[x][y];
     }
 
     /**
      * Returns the number of enemies left in this.
+     *
      * @return the number of enemies left
      */
-    public int getEnemyCount () {
+    public int getEnemyCount() {
         return enemies.size();
     }
 
     /**
      * Returns an Enemy.
+     *
      * @param index index of enemy
      * @return an instance of Enemy
      */
-    public Enemy getEnemy (int index) {
+    public Enemy getEnemy(int index) {
         return enemies.get(index);
     }
 
     /**
      * Removes the player from this level.
      */
-    public void killPlayer () {
+    public void killPlayer() {
         clearCell(player.getX(), player.getY());
         player = null;
     }
 
     /**
      * Changes the cell at the given coordinates to null
+     *
      * @param x x coordinate
      * @param y y coordinate
      */
-    public void clearCell (int x, int y) {
+    public void clearCell(int x, int y) {
         cells[x][y] = null;
     }
 
     /**
      * Moves a CellEntity, if possible.
+     *
      * @param oldX current x coordinate
      * @param oldY current y coordinate
      * @param newX new x coordinate
      * @param newY new y coordinate
      */
-    public void moveEntity (int oldX, int oldY, int newX, int newY) {
+    public void moveEntity(int oldX, int oldY, int newX, int newY) {
         if (oldX == newX && oldY == newY)
             return;
         if (isValid(newX, newY) && isValid(oldX, oldY)) {
@@ -246,19 +266,21 @@ public class Level implements Serializable{
 
     /**
      * Removes a Enemy in this.
+     *
      * @param enemy Enemy to remove
      */
-    public void removeEnemy (Enemy enemy) {
+    public void removeEnemy(Enemy enemy) {
         clearCell(enemy.getX(), enemy.getY());
         enemies.remove(enemy);
     }
 
     /**
      * Attempts to add an Enemy to the level.
+     *
      * @param enemy Enemy needing to be added.
      * @return true if Enemy could be added, false otherwise
      */
-    public boolean addEnemy (Enemy enemy) {
+    public boolean addEnemy(Enemy enemy) {
         int x = enemy.getX();
         int y = enemy.getY();
 
@@ -267,15 +289,16 @@ public class Level implements Serializable{
             cells[x][y] = enemy;
             return true;
         }
-        return  false;
+        return false;
     }
 
     /**
      * Attempts to add the player to the level.
+     *
      * @param player Player needing to be added
      * @return true if the player could be added, false otherwise
      */
-    public boolean addPlayer (Player player) {
+    public boolean addPlayer(Player player) {
         int x = player.getX();
         int y = player.getY();
 
@@ -284,15 +307,16 @@ public class Level implements Serializable{
             cells[x][y] = player;
             return true;
         }
-        return  false;
+        return false;
     }
 
     /**
      * Attempts to add a wall piece to the level.
+     *
      * @param wall Wall needing to be added
      * @return true if the wall could be added, false otherwise
      */
-    public boolean addWall (Wall wall) {
+    public boolean addWall(Wall wall) {
         int x = wall.getX();
         int y = wall.getY();
 
@@ -300,15 +324,17 @@ public class Level implements Serializable{
             cells[x][y] = wall;
             return true;
         }
-        return  false;
+        return false;
     }
 
     /**
      * Attempts to add a portal piece to the level.
+     *
      * @param portal Portal needing to be added
      * @return true if the portal could be added, false otherwise
      */
-    public boolean addPortal (Portal portal) {
+    public boolean addPortal(Portal portal) {
+        this.portal = portal;
         int x = portal.getX();
         int y = portal.getY();
 
@@ -316,6 +342,15 @@ public class Level implements Serializable{
             cells[x][y] = portal;
             return true;
         }
-        return  false;
+        return false;
+    }
+
+    /**
+     * Get the portal of this level.
+     *
+     * @return the portal of this level, can be null
+     */
+    public Portal getPortal() {
+        return portal;
     }
 }
