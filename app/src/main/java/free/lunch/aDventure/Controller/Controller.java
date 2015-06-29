@@ -261,17 +261,13 @@ public class Controller implements Runnable, Serializable {
                 corner = null;
                 return;
         }
-        gv.postInvalidate();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
+        gv.animatePlayer();
         if (!onPortal) {
             ec.moveEnemies();
         } else {
             onPortal = false;
         }
+        gv.animateEnemies();
         if (checkGameOver()) {
             lost++;
             try {
@@ -291,7 +287,8 @@ public class Controller implements Runnable, Serializable {
                 }
             });
         }
-        gv.postInvalidate();
+
+        //gv.postInvalidate();
         working = false;
         corner = null;
     }

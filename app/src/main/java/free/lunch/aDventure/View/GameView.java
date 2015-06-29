@@ -42,7 +42,9 @@ import free.lunch.aDventure.R;
  */
 public class GameView extends View implements Observer {
 
-    Bitmap persistent;
+    private Bitmap persistent;
+    private Bitmap playerMap;
+    private Bitmap enemyMap;
     private Level level;
     private float cell_size;
     private int margin_horizontal;
@@ -139,18 +141,14 @@ public class GameView extends View implements Observer {
         }
 
         if (!bgValid) {
-            persistent = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
-            Canvas temp = new Canvas(persistent);
-            this.drawBackground(temp);
-            this.drawStage(temp);
-            this.drawConversation(temp);
-            this.drawLevel(temp);
-            bgValid = true;
+            initialDraw();
         }
         canvas.drawBitmap(persistent, 0, 0, null);
+        canvas.drawBitmap(playerMap, 0, 0, null);
+        canvas.drawBitmap(enemyMap, 0, 0, null);
 
-        this.drawPlayer(canvas);
-        this.drawEnemies(canvas);
+        //this.drawPlayer(canvas);
+        //this.drawEnemies(canvas);
         this.drawPortal(canvas);
         this.drawScore(canvas);
     }
@@ -231,11 +229,30 @@ public class GameView extends View implements Observer {
         }
     }
 
+    public void initialDraw() {
+        persistent = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
+        enemyMap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
+        playerMap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
+
+        Canvas temp = new Canvas(persistent);
+        this.drawBackground(temp);
+        this.drawStage(temp);
+        this.drawConversation(temp);
+        this.drawLevel(temp);
+
+        temp = new Canvas(playerMap);
+        drawPlayer(temp);
+
+        temp = new Canvas(enemyMap);
+        drawEnemies(temp);
+
+        bgValid = true;
+    }
+
     private void drawPlayer(Canvas canvas) {
         Player player = level.getPlayer();
         if (player != null) {
             drawEntity(canvas, player);
-            //drawDynamicEntity(canvas, player);
         }
     }
 
@@ -243,7 +260,6 @@ public class GameView extends View implements Observer {
         int nr = level.getEnemyCount();
         for (int i = 0; i < nr; i++) {
             drawEntity(canvas, level.getEnemy(i));
-            //drawDynamicEntity(canvas, level.getEnemy(i));
         }
     }
 
@@ -264,13 +280,40 @@ public class GameView extends View implements Observer {
         d.draw(canvas);
     }
 
-    private void drawDynamicEntity(Canvas canvas, DynamicEntity entity) {
-        //------UNCLEAN-----
-        int px = margin_horizontal + 5 + Math.round(entity.getOldX() * cell_size);
-        int py = margin_vertical + 5 + Math.round(entity.getOldY() * cell_size);
+    public void animatePlayer() {
+        for (int i = 1; i <= 15; i++) {
+            playerMap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
+            Canvas temp = new Canvas(playerMap);
+            drawDynamicEntity(temp, level.getPlayer(), i / 15f);
+            this.postInvalidate();
+            /*try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }*/
+        }
+    }
+
+    public void animateEnemies() {
+        for (int i = 1; i <= 15; i++) {
+            enemyMap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
+            Canvas temp = new Canvas(enemyMap);
+            int nr = level.getEnemyCount();
+            for (int j = 0; j < nr; j++) {
+                drawDynamicEntity(temp, level.getEnemy(j), i / 15f);
+            }
+            this.postInvalidate();
+        }
+    }
+
+    private void drawDynamicEntity(Canvas canvas, DynamicEntity entity, float progress) {
+        float x = entity.getX() * progress + entity.getOldX() * (1 - progress);
+        float y = entity.getY() * progress + entity.getOldY() * (1 - progress);
+        int px = margin_horizontal + 5 + Math.round(x * cell_size);
+        int py = margin_vertical + 5 + Math.round(y * cell_size);
 
         Drawable d = entity.getImage(getContext());
-        d.setBounds(px, py, Math.round(px + cell_size - 30), Math.round(py + cell_size - 30));
+        d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
         d.draw(canvas);
     }
 
