@@ -35,6 +35,7 @@ import java.util.Date;
 import java.util.List;
 
 import free.lunch.aDventure.Controller.Controller;
+import free.lunch.aDventure.Controller.Listener;
 import free.lunch.aDventure.Model.Level;
 import free.lunch.aDventure.Model.Score;
 import free.lunch.aDventure.Model.StatisticsStorage;
@@ -101,13 +102,14 @@ public class GameActivity extends MainMenuActivity {
         final View touchView = findViewById(R.id.touchView);
 
         controller = new Controller (this);
+        Listener listener = new Listener(this, controller);
 
         if (savedInstanceState != null && savedInstanceState.getSerializable("level") != null){
             controller.setLevel((Level) savedInstanceState.getSerializable("level"));
             int exScore = savedInstanceState.getInt("score");
         }
 
-        touchView.setOnTouchListener(controller);
+        touchView.setOnTouchListener(listener);
     }
 
     @Override

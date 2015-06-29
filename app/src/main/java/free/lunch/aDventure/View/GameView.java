@@ -235,7 +235,7 @@ public class GameView extends View implements Observer {
         Player player = level.getPlayer();
         if (player != null) {
             drawEntity(canvas, player);
-            drawDynamicEntity(canvas, player);
+            //drawDynamicEntity(canvas, player);
         }
     }
 
@@ -243,7 +243,7 @@ public class GameView extends View implements Observer {
         int nr = level.getEnemyCount();
         for (int i = 0; i < nr; i++) {
             drawEntity(canvas, level.getEnemy(i));
-            drawDynamicEntity(canvas, level.getEnemy(i));
+            //drawDynamicEntity(canvas, level.getEnemy(i));
         }
     }
 
