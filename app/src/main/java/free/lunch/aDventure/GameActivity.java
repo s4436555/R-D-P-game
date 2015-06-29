@@ -17,6 +17,7 @@
 */
 package free.lunch.aDventure;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -64,38 +65,42 @@ public class GameActivity extends MainMenuActivity {
         GameView gameView = (GameView) findViewById(R.id.gameView);
         gameView.setChat(chat);
 
-        switch (chat){
-            case 0:
-                getActionBar().setTitle("Dog");
-                getActionBar().setIcon(R.drawable.poodle);
-                break;
-            case 1:
-                getActionBar().setTitle("Grandma");
-                getActionBar().setIcon(R.drawable.wolf);
-                break;
-            case 2:
-                getActionBar().setTitle("Bob");
-                getActionBar().setIcon(R.drawable.happy);
-                break;
-            case 3:
-                getActionBar().setTitle("Joe");
-                getActionBar().setIcon(R.drawable.waving);
-                break;
-            case 4:
-                getActionBar().setTitle("Cool Kid");
-                getActionBar().setIcon(R.drawable.sunglasses);
-                break;
-            case 5:
-                getActionBar().setTitle("Pizza");
-                getActionBar().setIcon(R.drawable.ppl);
-                break;
-            case 6:
-                getActionBar().setTitle("Snake");
-                getActionBar().setIcon(R.drawable.snake);
-                break;
-            default:
-                getActionBar().setTitle("Mom");
-                getActionBar().setIcon(R.drawable.dragon);
+        ActionBar actionBar = getActionBar();
+
+        if (actionBar != null) {
+            switch (chat) {
+                case 0:
+                    getActionBar().setTitle("Dog");
+                    getActionBar().setIcon(R.drawable.poodle);
+                    break;
+                case 1:
+                    getActionBar().setTitle("Grandma");
+                    getActionBar().setIcon(R.drawable.wolf);
+                    break;
+                case 2:
+                    getActionBar().setTitle("Bob");
+                    getActionBar().setIcon(R.drawable.happy);
+                    break;
+                case 3:
+                    getActionBar().setTitle("Joe");
+                    getActionBar().setIcon(R.drawable.waving);
+                    break;
+                case 4:
+                    getActionBar().setTitle("Cool Kid");
+                    getActionBar().setIcon(R.drawable.sunglasses);
+                    break;
+                case 5:
+                    getActionBar().setTitle("Pizza");
+                    getActionBar().setIcon(R.drawable.ppl);
+                    break;
+                case 6:
+                    getActionBar().setTitle("Snake");
+                    getActionBar().setIcon(R.drawable.snake);
+                    break;
+                default:
+                    getActionBar().setTitle("Mom");
+                    getActionBar().setIcon(R.drawable.dragon);
+            }
         }
 
         // this is the view on which you will listen for touch events
@@ -135,30 +140,31 @@ public class GameActivity extends MainMenuActivity {
             DateFormat dateForm = new SimpleDateFormat("dd MMMM yyyy");
             String dateOutput = dateForm.format(new Date());
             String scores = gamePrefs.getString("highScores", "");
-            if(scores.length()>0){
-                List<Score> scoreStrings = new ArrayList<Score>();
-                String[] exScores = scores.split("\\|");
-                for(String eSc : exScores){
-                    String[] parts = eSc.split(" - ");
-                    scoreStrings.add(new Score(parts[0], parts[1], Integer.parseInt(parts[2])));
+            if (scores != null) {
+                if (scores.length() > 0) {
+                    List<Score> scoreStrings = new ArrayList<Score>();
+                    String[] exScores = scores.split("\\|");
+                    for (String eSc : exScores) {
+                        String[] parts = eSc.split(" - ");
+                        scoreStrings.add(new Score(parts[0], parts[1], Integer.parseInt(parts[2])));
+                    }
+                    Score newScore = new Score(name, dateOutput, currentScore);
+                    scoreStrings.add(newScore);
+                    Collections.sort(scoreStrings);
+                    StringBuilder scoreBuild = new StringBuilder("");
+                    for (int s = 0; s < scoreStrings.size(); s++) {
+                        if (s >= 10) break;//only want ten
+                        if (s > 0) scoreBuild.append("|");//pipe separate the score strings
+                        scoreBuild.append(scoreStrings.get(s).getScoreText());
+                    }
+                    //write to prefs
+                    scoreEdit.putString("highScores", scoreBuild.toString());
+                    scoreEdit.apply();
+                    //we have existing scores
+                } else {
+                    scoreEdit.putString("highScores", "" + name + " - " + dateOutput + " - " + currentScore);
+                    scoreEdit.apply();
                 }
-                Score newScore = new Score(name, dateOutput, currentScore);
-                scoreStrings.add(newScore);
-                Collections.sort(scoreStrings);
-                StringBuilder scoreBuild = new StringBuilder("");
-                for(int s=0; s<scoreStrings.size(); s++){
-                    if(s>=10) break;//only want ten
-                    if(s>0) scoreBuild.append("|");//pipe separate the score strings
-                    scoreBuild.append(scoreStrings.get(s).getScoreText());
-                }
-                //write to prefs
-                scoreEdit.putString("highScores", scoreBuild.toString());
-                scoreEdit.commit();
-                //we have existing scores
-            }
-            else{
-                scoreEdit.putString("highScores", "" + name + " - " + dateOutput + " - " + currentScore);
-                scoreEdit.commit();
             }
         }
         finish();
@@ -171,16 +177,17 @@ public class GameActivity extends MainMenuActivity {
         SharedPreferences.Editor statsEdit = statsPrefs.edit();
         String statistics = statsPrefs.getString("stats", "");
         StatisticsStorage newStats = controller.getStats();
-        if (statistics.length()>0){
-            String[] exStats = statistics.split("\\|");
-            StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]), Integer.parseInt(exStats[7]));
-            allStats.addStatistics(newStats);
-            statsEdit.putString("stats", allStats.toString());
-            statsEdit.commit();
-        }
-        else {
-            statsEdit.putString("stats", newStats.toString());
-            statsEdit.commit();
+        if (statistics != null) {
+            if (statistics.length() > 0) {
+                String[] exStats = statistics.split("\\|");
+                StatisticsStorage allStats = new StatisticsStorage(Integer.parseInt(exStats[0]), Integer.parseInt(exStats[1]), Integer.parseInt(exStats[2]), Integer.parseInt(exStats[3]), Integer.parseInt(exStats[4]), Integer.parseInt(exStats[5]), Integer.parseInt(exStats[6]), Integer.parseInt(exStats[7]));
+                allStats.addStatistics(newStats);
+                statsEdit.putString("stats", allStats.toString());
+                statsEdit.apply();
+            } else {
+                statsEdit.putString("stats", newStats.toString());
+                statsEdit.apply();
+            }
         }
     }
 

@@ -39,8 +39,10 @@ public class Listener implements View.OnTouchListener {
      */
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (controller.isWorking())
+        if (controller.isWorking()) {
+            System.out.println("Controller is busy");
             return false;
+        }
         int[] c = gv.getCoordinates();
 
         int height = c[3] - c[1];

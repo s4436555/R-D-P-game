@@ -257,7 +257,15 @@ public class Controller implements Runnable, Serializable {
             case CENTER:
                 break;
             default:
+                working = false;
+                corner = null;
                 return;
+        }
+        gv.postInvalidate();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
         }
         if (!onPortal) {
             ec.moveEnemies();
@@ -266,19 +274,25 @@ public class Controller implements Runnable, Serializable {
         }
         if (checkGameOver()) {
             lost++;
-            ga.setStatistics();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-
+                System.out.println(e.getMessage());
             }
-            if (score > 0) {
-                ga.scorePopup();
-            } else {
-                ga.finish();
-            }
+            ga.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    ga.setStatistics();
+                    if (score > 0) {
+                        ga.scorePopup();
+                    } else {
+                        ga.finish();
+                    }
+                }
+            });
         }
         gv.postInvalidate();
         working = false;
+        corner = null;
     }
 }
