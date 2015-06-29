@@ -19,15 +19,12 @@ package free.lunch.aDventure;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import free.lunch.aDventure.Model.Level;
-import free.lunch.aDventure.View.GameView;
-
-import android.content.SharedPreferences;
 import android.widget.EditText;
 
 import java.text.DateFormat;
@@ -37,12 +34,18 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import free.lunch.aDventure.Controller.Controller;
+import free.lunch.aDventure.Model.Level;
+import free.lunch.aDventure.Model.Score;
+import free.lunch.aDventure.Model.StatisticsStorage;
+import free.lunch.aDventure.View.GameView;
+
 public class GameActivity extends MainMenuActivity {
+    public static final String GAME_PREFS = "HighScoresFile";
+    public static final String STATS_PREFS = "StatsFile";
     private Controller controller;
     private SharedPreferences gamePrefs;
     private SharedPreferences statsPrefs;
-    public static final String GAME_PREFS = "HighScoresFile";
-    public static final String STATS_PREFS = "StatsFile";
     private String name;
 
     /**

@@ -30,6 +30,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import free.lunch.aDventure.Model.CellEntity;
+import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Portal;
 import free.lunch.aDventure.Model.Entities.Wall;
 import free.lunch.aDventure.Model.Level;
@@ -54,7 +55,7 @@ public class GameView extends View implements Observer {
     private float textSize;
     private int screenW;
     private int screenH;
-    private boolean drawn = false;
+    private boolean bgValid = false;
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -91,7 +92,7 @@ public class GameView extends View implements Observer {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        drawn = false;
+        bgValid = false;
 
         if (level == null)
             return;
@@ -117,10 +118,11 @@ public class GameView extends View implements Observer {
     private void drawBackground(Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble);
         if (d != null) {
-            d.setBounds(Math.round(margin_horizontal),
-                    Math.round(margin_vertical),
-                    canvas.getWidth() - Math.round(margin_horizontal),
-                    canvas.getHeight() - Math.round(margin_vertical)
+            d.setBounds(
+                    margin_horizontal,
+                    margin_vertical,
+                    canvas.getWidth() - margin_horizontal,
+                    canvas.getHeight() - margin_vertical
             );
             d.draw(canvas);
         }
@@ -135,19 +137,19 @@ public class GameView extends View implements Observer {
             return;
         }
 
-        if (!drawn) {
+        if (!bgValid) {
             persistent = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_4444);
             Canvas temp = new Canvas(persistent);
             this.drawBackground(temp);
             this.drawStage(temp);
             this.drawConversation(temp);
             this.drawLevel(temp);
-            drawn = true;
+            bgValid = true;
         }
         canvas.drawBitmap(persistent, 0, 0, null);
 
-        this.drawEnemies(canvas);
         this.drawPlayer(canvas);
+        this.drawEnemies(canvas);
         this.drawPortal(canvas);
         this.drawScore(canvas);
     }
@@ -229,7 +231,8 @@ public class GameView extends View implements Observer {
     }
 
     private void drawPlayer(Canvas canvas) {
-        if (!level.gameover()) {
+        Player player = level.getPlayer();
+        if (player != null) {
             drawEntity(canvas, level.getPlayer());
         }
     }
@@ -260,8 +263,6 @@ public class GameView extends View implements Observer {
 
     /**
      * Draws the bubble showing the score
-     *
-     * @param canvas
      */
     private void drawScore(Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble);
@@ -288,8 +289,6 @@ public class GameView extends View implements Observer {
 
     /**
      * Draws the bubble that tells the stage
-     *
-     * @param canvas
      */
     private void drawStage(Canvas canvas) {
         Drawable d = getResources().getDrawable(R.drawable.bubble2);
@@ -328,6 +327,7 @@ public class GameView extends View implements Observer {
      */
     public void setStage(int stage) {
         this.stage = stage;
+        bgValid = false;
     }
 
     /**
@@ -337,7 +337,7 @@ public class GameView extends View implements Observer {
      */
     public void setLevel(Level level) {
         this.level = level;
-        drawn = false;
+        bgValid = false;
 
         // NEW dimensions in case lvl size changed
         // calculate the dimensions
@@ -364,10 +364,10 @@ public class GameView extends View implements Observer {
     public int[] getCoordinates() {
         int[] temp = new int[4];
 
-        temp[0] = Math.round(margin_horizontal);
-        temp[1] = Math.round(margin_vertical);
-        temp[2] = this.getWidth() - Math.round(margin_horizontal);
-        temp[3] = this.getHeight() - Math.round(margin_vertical);
+        temp[0] = margin_horizontal;
+        temp[1] = margin_vertical;
+        temp[2] = this.getWidth() - margin_horizontal;
+        temp[3] = this.getHeight() - margin_vertical;
 
         return temp;
     }
@@ -435,5 +435,6 @@ public class GameView extends View implements Observer {
 
     public void setChat(int chat) {
         this.chat = chat;
+        bgValid = false;
     }
 }

@@ -29,49 +29,72 @@ import free.lunch.aDventure.R;
  * A class for storing the player information.
  */
 public class Player implements CellEntity, Serializable {
-
     private int xPos;
     private int yPos;
+    private boolean alive;
 
     /**
      * Constructor of the Player class.
      */
-    public Player (int xPos, int yPos) {
+    public Player(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
+        alive = true;
     }
 
     /**
      * Get the y-coordinate of the player's location
+     *
      * @return the y-coordinate of the player's location
      */
     @Override
-    public int getY () {
+    public int getY() {
         return yPos;
     }
 
     /**
      * Get the x-coordinate of the player's location
+     *
      * @return the x-coordinate of the player's location
      */
     @Override
-    public int getX () {
+    public int getX() {
         return xPos;
     }
 
     /**
      * Sets the given coordinates as the new coordinates of the player
+     *
      * @param xPos new x coordinate
      * @param yPos new y coordinate
      */
     @Override
-    public void setCoordinates (int xPos, int yPos) {
+    public void setCoordinates(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
     }
 
     /**
+     * Checks if this is alive.
+     *
+     * @return true if alive, false otherwise
+     */
+    public boolean getAlive() {
+        return alive;
+    }
+
+    /**
+     * Changes whether this is alive.
+     *
+     * @param alive whether this Player is alive or not
+     */
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    /**
      * Gets the Player image
+     *
      * @param context
      * @return the Player image
      */

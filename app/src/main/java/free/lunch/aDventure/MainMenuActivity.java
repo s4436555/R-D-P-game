@@ -28,12 +28,12 @@ import android.widget.LinearLayout;
 
 public class MainMenuActivity extends Activity {
 
-    LinearLayout plb;
-    LinearLayout scb;
-    LinearLayout stb;
-    LinearLayout crb;
-    LinearLayout heb;
-    View.OnTouchListener listener = new View.OnTouchListener() {
+    private LinearLayout plb;
+    private LinearLayout scb;
+    private LinearLayout stb;
+    private LinearLayout crb;
+    private LinearLayout heb;
+    private View.OnTouchListener listener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             boolean oob = false;

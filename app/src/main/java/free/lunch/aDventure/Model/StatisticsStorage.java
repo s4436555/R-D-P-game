@@ -1,4 +1,4 @@
-package free.lunch.aDventure;
+package free.lunch.aDventure.Model;
 
 /**
  * Stores statistics information.

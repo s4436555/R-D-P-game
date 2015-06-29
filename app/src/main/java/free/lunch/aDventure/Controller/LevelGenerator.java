@@ -15,20 +15,21 @@
 * You should have received a copy of the GNU General Public License along
 * with a:Dventure. If not, see http://www.gnu.org/licenses/.
 */
-package free.lunch.aDventure.Model;
+package free.lunch.aDventure.Controller;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Random;
 
-import free.lunch.aDventure.Model.Entities.Enemies.Rat;
-import free.lunch.aDventure.Model.Entities.Enemies.Horse;
-import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.Dragon;
+import free.lunch.aDventure.Model.Entities.Enemies.Horse;
+import free.lunch.aDventure.Model.Entities.Enemies.Rat;
+import free.lunch.aDventure.Model.Entities.Enemies.Snake;
 import free.lunch.aDventure.Model.Entities.Enemies.Wolf;
 import free.lunch.aDventure.Model.Entities.Enemy;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Wall;
+import free.lunch.aDventure.Model.Level;
 
 /**
  * The class for level generation

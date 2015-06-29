@@ -15,7 +15,7 @@
 * You should have received a copy of the GNU General Public License along
 * with a:Dventure. If not, see http://www.gnu.org/licenses/.
 */
-package free.lunch.aDventure;
+package free.lunch.aDventure.Controller;
 
 import java.io.Serializable;
 import java.util.Collections;

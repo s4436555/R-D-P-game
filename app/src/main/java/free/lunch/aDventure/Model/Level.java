@@ -92,15 +92,6 @@ public class Level implements Serializable {
     }
 
     /**
-     * Returns true if the player has been killed.
-     *
-     * @return true if the player has been killed, false otherwise
-     */
-    public boolean gameover() {
-        return player == null;
-    }
-
-    /**
      * Returns true if no enemies are left in this level.
      *
      * @return true if no enemies are left in this level, false otherwise
@@ -230,7 +221,7 @@ public class Level implements Serializable {
      */
     public void killPlayer() {
         clearCell(player.getX(), player.getY());
-        player = null;
+        player.setAlive(false);
     }
 
     /**

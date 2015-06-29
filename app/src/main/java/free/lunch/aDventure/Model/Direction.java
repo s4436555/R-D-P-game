@@ -1,7 +1,7 @@
 package free.lunch.aDventure.Model;
 
 /**
- * Created by jonathan on 30-4-15.
+ * An enumeration for passing the moving direction of the player.
  */
 public enum Direction {
     LEFT, RIGTH, UP, DOWN

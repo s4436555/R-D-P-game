@@ -1,12 +1,12 @@
-package free.lunch.aDventure;
+package free.lunch.aDventure.Model;
 
 /**
  * Created by Tom on 9-6-2015.
  */
 public class Score implements Comparable<Score> {
 
-    private String scoreDate;
     public int scoreNum;
+    private String scoreDate;
     private String scoreName;
 
     public Score(String name, String date,int num){
