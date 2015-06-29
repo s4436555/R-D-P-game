@@ -30,6 +30,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import free.lunch.aDventure.Model.CellEntity;
+import free.lunch.aDventure.Model.Entities.DynamicEntity;
 import free.lunch.aDventure.Model.Entities.Player;
 import free.lunch.aDventure.Model.Entities.Portal;
 import free.lunch.aDventure.Model.Entities.Wall;
@@ -233,7 +234,8 @@ public class GameView extends View implements Observer {
     private void drawPlayer(Canvas canvas) {
         Player player = level.getPlayer();
         if (player != null) {
-            drawEntity(canvas, level.getPlayer());
+            drawEntity(canvas, player);
+            drawDynamicEntity(canvas, player);
         }
     }
 
@@ -241,6 +243,7 @@ public class GameView extends View implements Observer {
         int nr = level.getEnemyCount();
         for (int i = 0; i < nr; i++) {
             drawEntity(canvas, level.getEnemy(i));
+            drawDynamicEntity(canvas, level.getEnemy(i));
         }
     }
 
@@ -258,6 +261,16 @@ public class GameView extends View implements Observer {
 
         Drawable d = entity.getImage(getContext());
         d.setBounds(px, py, Math.round(px + cell_size), Math.round(py + cell_size));
+        d.draw(canvas);
+    }
+
+    private void drawDynamicEntity(Canvas canvas, DynamicEntity entity) {
+        //------UNCLEAN-----
+        int px = margin_horizontal + 5 + Math.round(entity.getOldX() * cell_size);
+        int py = margin_vertical + 5 + Math.round(entity.getOldY() * cell_size);
+
+        Drawable d = entity.getImage(getContext());
+        d.setBounds(px, py, Math.round(px + cell_size - 30), Math.round(py + cell_size - 30));
         d.draw(canvas);
     }
 

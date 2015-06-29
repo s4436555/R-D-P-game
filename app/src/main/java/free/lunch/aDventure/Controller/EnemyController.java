@@ -57,6 +57,7 @@ public class EnemyController implements Serializable {
         int total = level.getEnemyCount();
         for (int i = 0; i < total; i++){
             Enemy enemy = level.getEnemy(i);
+            enemy.idle();
             Player player = level.getPlayer();
             if (player != null) {
                 List<int[]> moves = enemy.getMoves(player.getX(), player.getY());

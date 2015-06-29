@@ -22,13 +22,12 @@ import android.graphics.drawable.Drawable;
 
 import java.io.Serializable;
 
-import free.lunch.aDventure.Model.CellEntity;
 import free.lunch.aDventure.R;
 
 /**
  * A class for storing the player information.
  */
-public class Player implements CellEntity, Serializable {
+public class Player extends DynamicEntity implements Serializable {
     private int xPos;
     private int yPos;
     private boolean alive;
@@ -37,41 +36,8 @@ public class Player implements CellEntity, Serializable {
      * Constructor of the Player class.
      */
     public Player(int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+        super(xPos, yPos);
         alive = true;
-    }
-
-    /**
-     * Get the y-coordinate of the player's location
-     *
-     * @return the y-coordinate of the player's location
-     */
-    @Override
-    public int getY() {
-        return yPos;
-    }
-
-    /**
-     * Get the x-coordinate of the player's location
-     *
-     * @return the x-coordinate of the player's location
-     */
-    @Override
-    public int getX() {
-        return xPos;
-    }
-
-    /**
-     * Sets the given coordinates as the new coordinates of the player
-     *
-     * @param xPos new x coordinate
-     * @param yPos new y coordinate
-     */
-    @Override
-    public void setCoordinates(int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
     }
 
     /**

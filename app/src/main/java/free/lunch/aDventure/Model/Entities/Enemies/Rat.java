@@ -73,6 +73,7 @@ public class Rat extends Enemy {
     @Override
     public LinkedList<int[]> getMoves (int xPlyr, int yPlyr) {
         LinkedList<int[]> temp = new LinkedList<>();
+        System.out.println(xPos + " " + yPos);
         temp.add(calcDelta(xPos - 1, yPos - 1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos + 1, yPos + 1, xPlyr, yPlyr));
         temp.add(calcDelta(xPos + 1, yPos - 1, xPlyr, yPlyr));

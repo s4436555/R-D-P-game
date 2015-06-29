@@ -23,23 +23,18 @@ import android.graphics.drawable.Drawable;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-import free.lunch.aDventure.Model.CellEntity;
 import free.lunch.aDventure.R;
 
 /**
  * Created by jonathan on 30-4-15.
  */
-public abstract class Enemy implements CellEntity, Serializable {
-
-    protected int xPos;
-    protected int yPos;
+public abstract class Enemy extends DynamicEntity implements Serializable {
 
     /**
      * Constructor of the Enemy class.
      */
     public Enemy (int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+        super(xPos, yPos);
     }
 
     /**
@@ -48,32 +43,6 @@ public abstract class Enemy implements CellEntity, Serializable {
      */
     public int getPoints(){
         return 1;
-    }
-
-    /**
-     * Get the y-coordinate of this enemy
-     * @return
-     */
-    public int getY () {
-        return yPos;
-    }
-
-    /**
-     * Get the x-coordinate of this enemy
-     * @return
-     */
-    public int getX () {
-        return xPos;
-    }
-
-    /**
-     * Sets the coordinates given to the enemy's current coordinates
-     * @param xPos new x coordinate
-     * @param yPos new y coordinate
-     */
-    public void setCoordinates (int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
     }
 
     /**

@@ -93,7 +93,7 @@ public class Controller implements View.OnTouchListener, Serializable {
         Player player = level.getPlayer();
         if (player == null)
             return true;
-        return player.getAlive();
+        return !player.getAlive();
     }
 
     /**
@@ -115,6 +115,7 @@ public class Controller implements View.OnTouchListener, Serializable {
         float y = event.getY() - c[1];
 
         if (event.getAction() == MotionEvent.ACTION_UP) {
+            level.getPlayer().idle();
             switch (location(x, y, height, width)) {
                 case UP:
                     this.movePlayer(Direction.UP);
